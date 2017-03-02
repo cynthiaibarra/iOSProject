@@ -6,7 +6,8 @@ target 'DrinkingBruh' do
   use_frameworks!
   
   # Pods for DrinkingBruh
-  pod 'Firebase/Core'
+  pod 'Firebase/Core'  
+  pod 'Firebase/Auth'
 
   target 'DrinkingBruhTests' do
     inherit! :search_paths
