@@ -10,6 +10,7 @@
 		08AADB24D887EA0D3A907A6C /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */; };
 		473D118B63BF99991667BC84 /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECE4FB96159C30EF9E9015 /* Pods_DrinkingBruhTests.framework */; };
 		5EACFB182705BC1A9CA048A6 /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CF2C562B624E6ADCBC6855 /* Pods_DrinkingBruh.framework */; };
+		DC23DDB41E68F79500991ADD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23DDB31E68F79500991ADD /* HomeViewController.swift */; };
 		DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */; };
 		DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABA1E68E5780038F653 /* SignInViewController.swift */; };
 		DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */; };
@@ -46,6 +47,7 @@
 		4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A38408D7747B6E2EFFF35D /* Pods-DrinkingBruh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.release.xcconfig"; sourceTree = "<group>"; };
 		B92E7198E5330D453E8AF7F7 /* Pods-DrinkingBruhUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC23DDB31E68F79500991ADD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC45DABA1E68E5780038F653 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
 				DC5CFE391E55297B00205DF4 /* LaunchScreen.storyboard */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
+				DC23DDB31E68F79500991ADD /* HomeViewController.swift */,
 			);
 			path = DrinkingBruh;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
+				DC23DDB41E68F79500991ADD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
