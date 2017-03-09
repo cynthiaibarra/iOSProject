@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08AADB24D887EA0D3A907A6C /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */; };
+		473D118B63BF99991667BC84 /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECE4FB96159C30EF9E9015 /* Pods_DrinkingBruhTests.framework */; };
+		5EACFB182705BC1A9CA048A6 /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CF2C562B624E6ADCBC6855 /* Pods_DrinkingBruh.framework */; };
+		DC23DDB41E68F79500991ADD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23DDB31E68F79500991ADD /* HomeViewController.swift */; };
+		DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */; };
+		DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABA1E68E5780038F653 /* SignInViewController.swift */; };
+		DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */; };
 		DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE301E55297B00205DF4 /* AppDelegate.swift */; };
-		DC5CFE331E55297B00205DF4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE321E55297B00205DF4 /* ViewController.swift */; };
 		DC5CFE361E55297B00205DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE341E55297B00205DF4 /* Main.storyboard */; };
 		DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE371E55297B00205DF4 /* Assets.xcassets */; };
 		DC5CFE3B1E55297B00205DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE391E55297B00205DF4 /* LaunchScreen.storyboard */; };
@@ -34,9 +40,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00626D6EB84D1F429E8C9094 /* Pods-DrinkingBruhTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.debug.xcconfig"; sourceTree = "<group>"; };
+		061630CE1D42E5D85DF9756F /* Pods-DrinkingBruh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.debug.xcconfig"; sourceTree = "<group>"; };
+		19CF2C562B624E6ADCBC6855 /* Pods_DrinkingBruh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		30ECE4FB96159C30EF9E9015 /* Pods_DrinkingBruhTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		77A38408D7747B6E2EFFF35D /* Pods-DrinkingBruh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.release.xcconfig"; sourceTree = "<group>"; };
+		B92E7198E5330D453E8AF7F7 /* Pods-DrinkingBruhUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.release.xcconfig"; sourceTree = "<group>"; };
+		DC23DDB31E68F79500991ADD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		DC45DABA1E68E5780038F653 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		DC5CFE2D1E55297B00205DF4 /* DrinkingBruh.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DrinkingBruh.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5CFE301E55297B00205DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		DC5CFE321E55297B00205DF4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		DC5CFE351E55297B00205DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC5CFE371E55297B00205DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC5CFE3A1E55297B00205DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,6 +63,8 @@
 		DC5CFE4C1E55297B00205DF4 /* DrinkingBruhUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkingBruhUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingBruhUITests.swift; sourceTree = "<group>"; };
 		DC5CFE521E55297B00205DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DECA20A06BD61E1D21AB23C0 /* Pods-DrinkingBruhUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F3326C352B9914D95F5088A6 /* Pods-DrinkingBruhTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5EACFB182705BC1A9CA048A6 /* Pods_DrinkingBruh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				473D118B63BF99991667BC84 /* Pods_DrinkingBruhTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +88,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08AADB24D887EA0D3A907A6C /* Pods_DrinkingBruhUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		59C5515266409E45D531F5AE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				061630CE1D42E5D85DF9756F /* Pods-DrinkingBruh.debug.xcconfig */,
+				77A38408D7747B6E2EFFF35D /* Pods-DrinkingBruh.release.xcconfig */,
+				00626D6EB84D1F429E8C9094 /* Pods-DrinkingBruhTests.debug.xcconfig */,
+				F3326C352B9914D95F5088A6 /* Pods-DrinkingBruhTests.release.xcconfig */,
+				DECA20A06BD61E1D21AB23C0 /* Pods-DrinkingBruhUITests.debug.xcconfig */,
+				B92E7198E5330D453E8AF7F7 /* Pods-DrinkingBruhUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		70D91C7413E60AABF4E89482 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19CF2C562B624E6ADCBC6855 /* Pods_DrinkingBruh.framework */,
+				30ECE4FB96159C30EF9E9015 /* Pods_DrinkingBruhTests.framework */,
+				4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC5CFE241E55297B00205DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +125,8 @@
 				DC5CFE441E55297B00205DF4 /* DrinkingBruhTests */,
 				DC5CFE4F1E55297B00205DF4 /* DrinkingBruhUITests */,
 				DC5CFE2E1E55297B00205DF4 /* Products */,
+				59C5515266409E45D531F5AE /* Pods */,
+				70D91C7413E60AABF4E89482 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,12 +143,15 @@
 		DC5CFE2F1E55297B00205DF4 /* DrinkingBruh */ = {
 			isa = PBXGroup;
 			children = (
+				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
-				DC5CFE321E55297B00205DF4 /* ViewController.swift */,
+				DC45DABA1E68E5780038F653 /* SignInViewController.swift */,
+				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
 				DC5CFE391E55297B00205DF4 /* LaunchScreen.storyboard */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
+				DC23DDB31E68F79500991ADD /* HomeViewController.swift */,
 			);
 			path = DrinkingBruh;
 			sourceTree = "<group>";
@@ -132,9 +181,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC5CFE551E55297B00205DF4 /* Build configuration list for PBXNativeTarget "DrinkingBruh" */;
 			buildPhases = (
+				4A1E8A58A526999DC16064BB /* [CP] Check Pods Manifest.lock */,
 				DC5CFE291E55297B00205DF4 /* Sources */,
 				DC5CFE2A1E55297B00205DF4 /* Frameworks */,
 				DC5CFE2B1E55297B00205DF4 /* Resources */,
+				BB5DCEB91A773473DBFA926E /* [CP] Embed Pods Frameworks */,
+				31906A3873AE60D07634EC52 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -149,9 +201,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC5CFE581E55297B00205DF4 /* Build configuration list for PBXNativeTarget "DrinkingBruhTests" */;
 			buildPhases = (
+				518A36478C01ED987FF46B8C /* [CP] Check Pods Manifest.lock */,
 				DC5CFE3D1E55297B00205DF4 /* Sources */,
 				DC5CFE3E1E55297B00205DF4 /* Frameworks */,
 				DC5CFE3F1E55297B00205DF4 /* Resources */,
+				6D05C6F97B1CC8564EFBC941 /* [CP] Embed Pods Frameworks */,
+				351E911CD2349F0FB9591EBF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -167,9 +222,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC5CFE5B1E55297B00205DF4 /* Build configuration list for PBXNativeTarget "DrinkingBruhUITests" */;
 			buildPhases = (
+				345198AB65B47DD9B5DFE034 /* [CP] Check Pods Manifest.lock */,
 				DC5CFE481E55297B00205DF4 /* Sources */,
 				DC5CFE491E55297B00205DF4 /* Frameworks */,
 				DC5CFE4A1E55297B00205DF4 /* Resources */,
+				C723052663ED188B5F9019C2 /* [CP] Embed Pods Frameworks */,
+				91127EA88B92E73F2004F173 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5CFE3B1E55297B00205DF4 /* LaunchScreen.storyboard in Resources */,
+				DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */,
 				DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */,
 				DC5CFE361E55297B00205DF4 /* Main.storyboard in Resources */,
 			);
@@ -257,13 +316,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		31906A3873AE60D07634EC52 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		345198AB65B47DD9B5DFE034 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		351E911CD2349F0FB9591EBF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A1E8A58A526999DC16064BB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		518A36478C01ED987FF46B8C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6D05C6F97B1CC8564EFBC941 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91127EA88B92E73F2004F173 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB5DCEB91A773473DBFA926E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C723052663ED188B5F9019C2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DC5CFE291E55297B00205DF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5CFE331E55297B00205DF4 /* ViewController.swift in Sources */,
+				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
+				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
+				DC23DDB41E68F79500991ADD /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +610,7 @@
 		};
 		DC5CFE561E55297B00205DF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 061630CE1D42E5D85DF9756F /* Pods-DrinkingBruh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7GGJ3YUFK7;
@@ -424,6 +624,7 @@
 		};
 		DC5CFE571E55297B00205DF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 77A38408D7747B6E2EFFF35D /* Pods-DrinkingBruh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 7GGJ3YUFK7;
@@ -437,6 +638,7 @@
 		};
 		DC5CFE591E55297B00205DF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 00626D6EB84D1F429E8C9094 /* Pods-DrinkingBruhTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -452,6 +654,7 @@
 		};
 		DC5CFE5A1E55297B00205DF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F3326C352B9914D95F5088A6 /* Pods-DrinkingBruhTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -467,6 +670,7 @@
 		};
 		DC5CFE5C1E55297B00205DF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DECA20A06BD61E1D21AB23C0 /* Pods-DrinkingBruhUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7GGJ3YUFK7;
@@ -481,6 +685,7 @@
 		};
 		DC5CFE5D1E55297B00205DF4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B92E7198E5330D453E8AF7F7 /* Pods-DrinkingBruhUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 7GGJ3YUFK7;
@@ -512,6 +717,7 @@
 				DC5CFE571E55297B00205DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC5CFE581E55297B00205DF4 /* Build configuration list for PBXNativeTarget "DrinkingBruhTests" */ = {
 			isa = XCConfigurationList;
@@ -520,6 +726,7 @@
 				DC5CFE5A1E55297B00205DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC5CFE5B1E55297B00205DF4 /* Build configuration list for PBXNativeTarget "DrinkingBruhUITests" */ = {
 			isa = XCConfigurationList;
@@ -528,6 +735,7 @@
 				DC5CFE5D1E55297B00205DF4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
