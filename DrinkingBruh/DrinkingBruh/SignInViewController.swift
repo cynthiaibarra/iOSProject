@@ -13,7 +13,6 @@ import FirebaseAuth
 class SignInViewController: UIViewController {
     
     var handler:FIRAuthStateDidChangeListenerHandle?
-    var authenticated:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,15 +23,10 @@ class SignInViewController: UIViewController {
             if user != nil {
                 print("Already authenticated.")
                 print(user?.email ?? "err")
-                if(!self.authenticated){
-                    self.authenticated = true
                     self.performSegue(withIdentifier: "segueToHome", sender: nil)
-                    
-                }
-                
-            } else {
+           } else {
                 print("Not authenticated.")
-            }
+           }
             print("=================================")
             
         }
