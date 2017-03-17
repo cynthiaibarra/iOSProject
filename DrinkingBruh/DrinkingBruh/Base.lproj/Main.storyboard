@@ -74,15 +74,15 @@
             </objects>
             <point key="canvasLocation" x="1014" y="-9"/>
         </scene>
-        <!--View Controller-->
+        <!--Home View Controller-->
         <scene sceneID="i7e-UQ-g7u">
             <objects>
-                <viewController id="x0t-vb-IZC" sceneMemberID="viewController">
+                <viewController id="x0t-vb-IZC" customClass="HomeViewController" customModule="DrinkingBruh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fe1-my-9tv"/>
                         <viewControllerLayoutGuide type="bottom" id="ryP-zp-GOy"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="e8c-fy-d6e">
+                    <view key="view" contentMode="scaleToFill" id="e8c-fy-d6e" customClass="Home">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -93,10 +93,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPn-Mq-QX7">
+                                <rect key="frame" x="157" y="599" width="60" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutButton:" destination="x0t-vb-IZC" eventType="touchUpInside" id="3Yi-BG-hXi"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="tGP-WQ-LnI"/>
+                    <connections>
+                        <segue destination="aVE-Bt-uTY" kind="show" identifier="segueToSignIn" id="Z01-Dd-AYk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hpU-44-Bwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -213,4 +224,7 @@
             <point key="canvasLocation" x="1013.6" y="761.46926536731644"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Z01-Dd-AYk"/>
+    </inferredMetricsTieBreakers>
 </document>
