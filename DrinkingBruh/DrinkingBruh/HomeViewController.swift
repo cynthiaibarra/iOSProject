@@ -2,16 +2,17 @@
 //  HomeViewController.swift
 //  DrinkingBruh
 //
-//  Created by Cynthia  Ibarra on 3/2/17.
+//  Created by Cynthia  Ibarra on 3/8/17.
 //  Copyright © 2017 Cynthia  Ibarra. All rights reserved.
 //
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIPageViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Home"
 
         // Do any additional setup after loading the view.
     }

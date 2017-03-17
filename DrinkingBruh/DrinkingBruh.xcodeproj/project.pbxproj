@@ -10,16 +10,15 @@
 		08AADB24D887EA0D3A907A6C /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */; };
 		473D118B63BF99991667BC84 /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 30ECE4FB96159C30EF9E9015 /* Pods_DrinkingBruhTests.framework */; };
 		5EACFB182705BC1A9CA048A6 /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CF2C562B624E6ADCBC6855 /* Pods_DrinkingBruh.framework */; };
-		DC23DDB41E68F79500991ADD /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC23DDB31E68F79500991ADD /* HomeViewController.swift */; };
 		DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */; };
 		DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABA1E68E5780038F653 /* SignInViewController.swift */; };
 		DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */; };
 		DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE301E55297B00205DF4 /* AppDelegate.swift */; };
 		DC5CFE361E55297B00205DF4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE341E55297B00205DF4 /* Main.storyboard */; };
 		DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE371E55297B00205DF4 /* Assets.xcassets */; };
-		DC5CFE3B1E55297B00205DF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE391E55297B00205DF4 /* LaunchScreen.storyboard */; };
 		DC5CFE461E55297B00205DF4 /* DrinkingBruhTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE451E55297B00205DF4 /* DrinkingBruhTests.swift */; };
 		DC5CFE511E55297B00205DF4 /* DrinkingBruhUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */; };
+		DC708F681E70D93100179149 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC708F671E70D93100179149 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +46,6 @@
 		4CB6CA155E71A080D70EA6B6 /* Pods_DrinkingBruhUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		77A38408D7747B6E2EFFF35D /* Pods-DrinkingBruh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.release.xcconfig"; sourceTree = "<group>"; };
 		B92E7198E5330D453E8AF7F7 /* Pods-DrinkingBruhUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.release.xcconfig"; sourceTree = "<group>"; };
-		DC23DDB31E68F79500991ADD /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC45DABA1E68E5780038F653 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -55,7 +53,6 @@
 		DC5CFE301E55297B00205DF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DC5CFE351E55297B00205DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DC5CFE371E55297B00205DF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		DC5CFE3A1E55297B00205DF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC5CFE3C1E55297B00205DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC5CFE411E55297B00205DF4 /* DrinkingBruhTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkingBruhTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5CFE451E55297B00205DF4 /* DrinkingBruhTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingBruhTests.swift; sourceTree = "<group>"; };
@@ -63,6 +60,7 @@
 		DC5CFE4C1E55297B00205DF4 /* DrinkingBruhUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkingBruhUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingBruhUITests.swift; sourceTree = "<group>"; };
 		DC5CFE521E55297B00205DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC708F671E70D93100179149 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DECA20A06BD61E1D21AB23C0 /* Pods-DrinkingBruhUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		F3326C352B9914D95F5088A6 /* Pods-DrinkingBruhTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,12 +144,11 @@
 				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
 				DC45DABA1E68E5780038F653 /* SignInViewController.swift */,
+				DC708F671E70D93100179149 /* HomeViewController.swift */,
 				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
-				DC5CFE391E55297B00205DF4 /* LaunchScreen.storyboard */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
-				DC23DDB31E68F79500991ADD /* HomeViewController.swift */,
 			);
 			path = DrinkingBruh;
 			sourceTree = "<group>";
@@ -293,7 +290,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC5CFE3B1E55297B00205DF4 /* LaunchScreen.storyboard in Resources */,
 				DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */,
 				DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */,
 				DC5CFE361E55297B00205DF4 /* Main.storyboard in Resources */,
@@ -462,7 +458,7 @@
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
-				DC23DDB41E68F79500991ADD /* HomeViewController.swift in Sources */,
+				DC708F681E70D93100179149 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,14 +500,6 @@
 				DC5CFE351E55297B00205DF4 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		DC5CFE391E55297B00205DF4 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				DC5CFE3A1E55297B00205DF4 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
