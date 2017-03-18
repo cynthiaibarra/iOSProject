@@ -15,7 +15,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"
-
+        
+        
         // Do any additional setup after loading the view.
     }
 
@@ -25,7 +26,7 @@ class HomeViewController: UIViewController {
         
         // Dispose of any resources that can be recreated.
     }
-    
+
     @IBAction func signOutButton(_ sender: Any) {
         let firebaseAuth = FIRAuth.auth()
         do {

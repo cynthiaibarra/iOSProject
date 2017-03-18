@@ -8,6 +8,7 @@ target 'DrinkingBruh' do
   # Pods for DrinkingBruh
   pod 'Firebase/Core'  
   pod 'Firebase/Auth'
+  pod 'SideMenu'
 
   target 'DrinkingBruhTests' do
     inherit! :search_paths
