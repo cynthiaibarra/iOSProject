@@ -9,6 +9,7 @@ target 'DrinkingBruh' do
   pod 'Firebase/Core'  
   pod 'Firebase/Auth'
   pod 'SideMenu'
+  pod 'SkyFloatingLabelTextField', '~> 2.0.0'
 
   target 'DrinkingBruhTests' do
     inherit! :search_paths
