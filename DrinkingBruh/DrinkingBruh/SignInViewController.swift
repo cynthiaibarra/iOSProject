@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
+
 class SignInViewController: UIViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
@@ -20,18 +21,17 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         handler = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             print("=================================")
             if user != nil {
+                self.performSegue(withIdentifier: "segueToHome", sender: nil)
                 print("Authenticated.")
                 print(user?.email ?? "err")
-                self.performSegue(withIdentifier: "segueToHome", sender: nil)
            } else {
                 print("Not authenticated.")
            }
-            
         }
     }
 
@@ -40,16 +40,19 @@ class SignInViewController: UIViewController {
     
         // Dispose of any resources that can be recreated.
     }
-    
-    
-    // Follow methods viewWillAppear and viewWillDisappear make sure that the navigation bar
-    // does not appear on the SignInViewController screen but does appear for the rest
+
     @IBAction func signInButton(_ sender: Any) {
         messageLabel.text = ""
-        let email:String = emailTextField.text!
-        let password:String = passwordTextField.text!
+        let email:String = emailTextField.text!.trim()
+        let password:String = passwordTextField.text!.trim()
         
         if email.isEmpty || password.isEmpty {
+            if email.isEmpty{
+                emailTextField.shake()
+            }
+            if password.isEmpty{
+                passwordTextField.shake()
+            }
             messageLabel.text = "Must fill in all entries."
         } else {
             FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
@@ -66,29 +69,14 @@ class SignInViewController: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Hide the navigation bar on the this view controller
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Show the navigation bar on other view controllers
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
-    
+}
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+public extension UIView {
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
     }
-    */
-
 }

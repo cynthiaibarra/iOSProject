@@ -8,6 +8,9 @@ target 'DrinkingBruh' do
   # Pods for DrinkingBruh
   pod 'Firebase/Core'  
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
+  # UI
   pod 'SideMenu'
   pod 'SkyFloatingLabelTextField', '~> 2.0.0'
 
