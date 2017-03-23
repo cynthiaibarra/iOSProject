@@ -318,7 +318,7 @@
                             </connections>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="70" id="uUZ-fM-ze6" customClass="AddFriendTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="70" id="uUZ-fM-ze6" customClass="AddFriendTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uUZ-fM-ze6" id="mjx-4u-j9O">
@@ -333,7 +333,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKU-NU-WVI">
-                                            <rect key="frame" x="78" y="0.0" width="289" height="21"/>
+                                            <rect key="frame" x="78" y="5" width="289" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -351,7 +351,7 @@
                                         <constraint firstAttribute="trailing" secondItem="AKU-NU-WVI" secondAttribute="trailing" constant="8" id="ChK-n4-yBv"/>
                                         <constraint firstItem="AKU-NU-WVI" firstAttribute="leading" secondItem="v1G-PF-idE" secondAttribute="trailing" constant="8" id="QRM-Gd-cQY"/>
                                         <constraint firstItem="v1G-PF-idE" firstAttribute="top" secondItem="mjx-4u-j9O" secondAttribute="top" id="Qj4-s9-4up"/>
-                                        <constraint firstItem="AKU-NU-WVI" firstAttribute="top" secondItem="mjx-4u-j9O" secondAttribute="top" id="iRi-PD-gox"/>
+                                        <constraint firstItem="AKU-NU-WVI" firstAttribute="top" secondItem="mjx-4u-j9O" secondAttribute="top" constant="5" id="iRi-PD-gox"/>
                                         <constraint firstItem="v1G-PF-idE" firstAttribute="leading" secondItem="mjx-4u-j9O" secondAttribute="leading" id="kl1-3c-rew"/>
                                     </constraints>
                                 </tableViewCellContentView>

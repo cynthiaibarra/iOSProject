@@ -13,22 +13,40 @@ import FirebaseDatabase
 
 class AddFriendTableViewController: UITableViewController {
     
-    private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference()
-    private let currentUserFriends:[String: Any]? = nil
-    private let currentUserSentRequests:[String: Any]? = nil
-    private let currentUserReceivedReqeusts:[String:Any]? = nil
-    private let users:[[String:Any]] = [[String:Any]()]
-    private let usersByName:[String:Any] = [String:Any]()
-    private let usersByEmail:[String:Any] = [String:Any]()
+    private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
+    private var currentUserFriends:[String: Any]? = nil
+    private var currentUserSentRequests:[String: Any]? = nil
+    private var currentUserReceivedReqeusts:[String:Any]? = nil
+    private var users:[[String:Any]] = []
+    private var usersByName:[String:Any] = [String:Any]()
+    private var usersByEmail:[String:Any] = [String:Any]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        databaseRef.queryOrdered(byChild: "fullName").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let userDictionary = snapshot.value as? [String:Any] {
+                    for userEntry in userDictionary.values {
+                        if let user = userEntry as? [String:Any] {
+                            let email:String = user["email"] as! String
+                            if email == FIRAuth.auth()?.currentUser?.email {
+                                self.currentUserFriends = user["friends"] as? [String:Any]
+                                self.currentUserSentRequests = user["sentRequests"] as? [String:Any]
+                                self.currentUserReceivedReqeusts = user["receivedRequests"] as? [String:Any]
+                            } else {
+                                let fullName:String = user["fullName"] as! String
+                                self.users.append(user)
+                                self.usersByName[fullName] = user
+                                self.usersByEmail[email] = user
+                            }
+                        }
+                    }
+                }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+            }
+            self.tableView.reloadData()
+        })
     }
 
     override func didReceiveMemoryWarning() {
@@ -45,7 +63,7 @@ class AddFriendTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return users.count
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
@@ -53,15 +71,16 @@ class AddFriendTableViewController: UITableViewController {
         return 70;
     }
     
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as!AddFriendTableViewCell
+        let user:[String:Any] = users[indexPath.row]
+        cell.nameLabel.text = (user["fullName"] as! String)
+        
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
