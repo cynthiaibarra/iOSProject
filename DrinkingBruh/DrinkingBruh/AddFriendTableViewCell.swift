@@ -16,6 +16,9 @@ class AddFriendTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        button.layer.cornerRadius = 5
+        button.titleEdgeInsets = UIEdgeInsetsMake(2,2,2,2)
+        
         
         // Initialization code
     }
