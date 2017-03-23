@@ -7,12 +7,22 @@
 //
 
 import UIKit
+import FirebaseDatabase
 
 class AddFriendTableViewCell: UITableViewCell {
+    
+    var friends:Bool = false
+    var requestSent:Bool = false
+    var requestReceived:Bool = false
+    var userEmail:String = ""
+    var friendEmail:String = ""
+    private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
 
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var button: UIButton!
+    
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,7 +34,18 @@ class AddFriendTableViewCell: UITableViewCell {
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
-        print("button pressed")
+        if !friends && !requestSent && !requestReceived {
+            sendFriendRequest()
+            button.setTitle("Request Sent", for: .normal)
+            button.backgroundColor = UIColor.lightGray
+            button.isEnabled = false
+        }
+    }
+    
+    private func sendFriendRequest() {
+        self.databaseRef.child(friendEmail).child("friendRequests").child(userEmail).setValue(userEmail)
+        self.databaseRef.child(userEmail).child("sentFriendRequests").child(friendEmail).setValue(friendEmail)
+        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

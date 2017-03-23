@@ -54,7 +54,13 @@ class AddFriendTableViewController: UITableViewController {
         let user:[String:Any] = users[indexPath.row]
         let emailKey:String = (user["email"] as! String).replacingOccurrences(of: ".", with: "\\_")
         cell.nameLabel.text = (user["fullName"] as! String)
-        updateButtonUI(cell: cell, friends: isFriend(email: emailKey), sentRequestTo: sentRequestAlready(email: emailKey), receivedRequestFrom: requestReceivedAlready(email: emailKey))
+        cell.friends = isFriend(email: emailKey)
+        cell.requestSent = sentRequestAlready(email: emailKey)
+        cell.requestReceived = requestReceivedAlready(email: emailKey)
+        cell.userEmail = (FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_"))!
+        cell.friendEmail = emailKey
+        
+        updateButtonUI(cell: cell, friends: cell.friends, sentRequestTo: cell.requestSent, receivedRequestFrom: cell.requestReceived)
 
         return cell
     }
@@ -83,9 +89,11 @@ class AddFriendTableViewController: UITableViewController {
     private func updateButtonUI(cell: AddFriendTableViewCell, friends: Bool, sentRequestTo: Bool, receivedRequestFrom: Bool) {
         if friends {
             cell.button.setTitle("Friends", for: .normal)
+            cell.button.isEnabled = false
         } else if sentRequestTo {
             cell.button.setTitle("Request Sent", for: .normal)
             cell.button.backgroundColor = UIColor.lightGray
+            cell.button.isEnabled = false
         } else if receivedRequestFrom {
             cell.button.backgroundColor = UIColor.green
             cell.button.setTitle("Add Friend", for: .normal)
