@@ -43,7 +43,7 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
@@ -69,9 +69,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
@@ -80,6 +77,9 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Password"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -214,6 +214,9 @@
                                                     <rect key="frame" x="27" y="6" width="51" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" title="Friends"/>
+                                                    <connections>
+                                                        <segue destination="jBv-T0-gAk" kind="show" id="wIK-1j-oNM"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -248,6 +251,142 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qix-SG-s9G" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1713" y="1529"/>
+        </scene>
+        <!--Friends Table View Controller-->
+        <scene sceneID="L7V-Nh-5bE">
+            <objects>
+                <tableViewController id="jBv-T0-gAk" customClass="FriendsTableViewController" customModule="DrinkingBruh" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="5Sr-dj-f5K">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="AYp-N3-LG0">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="jBv-T0-gAk" id="3IG-TE-xxA"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="ERN-uv-OqW">
+                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ERN-uv-OqW" id="Rro-Dz-gmW">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="jBv-T0-gAk" id="gBG-lL-MDz"/>
+                            <outlet property="delegate" destination="jBv-T0-gAk" id="p90-mc-ZlP"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="26X-ky-aZs" id="s1Q-om-Duu"/>
+                        <segue destination="0yp-t5-y3L" kind="show" identifier="segueToAddFriends" id="Rks-iV-RQp"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Sgp-aI-Tb5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="26X-ky-aZs">
+                    <connections>
+                        <outlet property="delegate" destination="jBv-T0-gAk" id="fcI-NM-kxj"/>
+                        <outlet property="searchBar" destination="AYp-N3-LG0" id="8O9-dC-W9i"/>
+                        <outlet property="searchContentsController" destination="jBv-T0-gAk" id="L1H-Gz-qeI"/>
+                        <outlet property="searchResultsDataSource" destination="jBv-T0-gAk" id="hSv-Z5-APd"/>
+                        <outlet property="searchResultsDelegate" destination="jBv-T0-gAk" id="4RJ-4s-7RS"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="2490" y="1528"/>
+        </scene>
+        <!--Add Friend Table View Controller-->
+        <scene sceneID="A1d-Fw-xTU">
+            <objects>
+                <tableViewController id="0yp-t5-y3L" customClass="AddFriendTableViewController" customModule="DrinkingBruh" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="VPz-Sh-yiK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" id="vNh-QY-fAD">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="0yp-t5-y3L" id="cfE-nS-npO"/>
+                            </connections>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="70" id="uUZ-fM-ze6" customClass="AddFriendTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="375" height="70"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uUZ-fM-ze6" id="mjx-4u-j9O">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericUser" translatesAutoresizingMaskIntoConstraints="NO" id="v1G-PF-idE">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="70" id="NYP-UG-RXw"/>
+                                                <constraint firstAttribute="height" constant="70" id="m7q-dl-SNb"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AKU-NU-WVI">
+                                            <rect key="frame" x="78" y="5" width="289" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r9Z-Rh-xsx">
+                                            <rect key="frame" x="78" y="31" width="161" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <color key="tintColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            <state key="normal" title="Send Friend Request">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="buttonPressed:" destination="uUZ-fM-ze6" eventType="touchUpInside" id="YYg-s6-lCx"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="AKU-NU-WVI" secondAttribute="trailing" constant="8" id="ChK-n4-yBv"/>
+                                        <constraint firstItem="AKU-NU-WVI" firstAttribute="leading" secondItem="v1G-PF-idE" secondAttribute="trailing" constant="8" id="QRM-Gd-cQY"/>
+                                        <constraint firstItem="v1G-PF-idE" firstAttribute="top" secondItem="mjx-4u-j9O" secondAttribute="top" id="Qj4-s9-4up"/>
+                                        <constraint firstItem="AKU-NU-WVI" firstAttribute="top" secondItem="mjx-4u-j9O" secondAttribute="top" constant="5" id="iRi-PD-gox"/>
+                                        <constraint firstItem="v1G-PF-idE" firstAttribute="leading" secondItem="mjx-4u-j9O" secondAttribute="leading" id="kl1-3c-rew"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="button" destination="r9Z-Rh-xsx" id="UGa-2q-Xuw"/>
+                                    <outlet property="nameLabel" destination="AKU-NU-WVI" id="0Jc-e5-nko"/>
+                                    <outlet property="userImageView" destination="v1G-PF-idE" id="NOb-ny-xkn"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0yp-t5-y3L" id="N4b-V1-gtF"/>
+                            <outlet property="delegate" destination="0yp-t5-y3L" id="YCS-bN-c7K"/>
+                        </connections>
+                    </tableView>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="Xzb-wk-uQk" id="fSm-V3-9vP"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vAe-ft-4vA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="Xzb-wk-uQk">
+                    <connections>
+                        <outlet property="delegate" destination="0yp-t5-y3L" id="U2P-8w-fBW"/>
+                        <outlet property="searchBar" destination="vNh-QY-fAD" id="22K-sE-LOk"/>
+                        <outlet property="searchContentsController" destination="0yp-t5-y3L" id="X3d-D1-SRm"/>
+                        <outlet property="searchResultsDataSource" destination="0yp-t5-y3L" id="atT-Th-2rP"/>
+                        <outlet property="searchResultsDelegate" destination="0yp-t5-y3L" id="yoy-sU-gJx"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="3213.5999999999999" y="1528.785607196402"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="C6N-ft-tww">
@@ -378,6 +517,9 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-cX-XoK" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -389,6 +531,9 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Weight (lbs)"/>
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="Weight (lbs)"/>
                                     <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -493,10 +638,11 @@
     <resources>
         <image name="austin-blur" width="1130" height="753"/>
         <image name="drinkingbruh3" width="906" height="134"/>
+        <image name="genericUser" width="512" height="512"/>
         <image name="menu" width="48" height="48"/>
         <image name="registration" width="642" height="118"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Z01-Dd-AYk"/>
+        <segue reference="LXb-Nj-lK9"/>
     </inferredMetricsTieBreakers>
 </document>
