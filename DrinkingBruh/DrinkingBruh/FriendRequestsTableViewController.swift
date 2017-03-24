@@ -1,8 +1,8 @@
 //
-//  FriendsTableViewController.swift
+//  FriendRequestsTableViewController.swift
 //  DrinkingBruh
 //
-//  Created by Cynthia  Ibarra on 3/23/17.
+//  Created by Cynthia  Ibarra on 3/24/17.
 //  Copyright © 2017 Cynthia  Ibarra. All rights reserved.
 //
 
@@ -10,46 +10,25 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class FriendsTableViewController: UITableViewController {
+class FriendRequestsTableViewController: UITableViewController {
     
-   // private let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
     private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
-    private var friendsList:[String:String] = [:]
+    private var friendRequestsList:[String:String] = [:]
 
-    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
-//        let userFriendsDB = databaseRef.child(userEmail!).child("friends")
+        let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
+        let userFriendRequestsDB = databaseRef.child(userEmail!).child("friendRequests")
         
-//        userFriendsDB.queryOrdered(byChild: "fullName").observeSingleEvent(of: .value, with: { (snapshot) in
-//            if snapshot.exists() {
-//                if let friendsList = snapshot.value as? [String:String] {
-//                    
-//                }
-//                if let userDictionary = snapshot.value as? [String:Any] {
-//                    for userEntry in userDictionary.values {
-//                        if let user = userEntry as? [String:Any] {
-//                            let email:String = user["email"] as! String
-//                            if email == FIRAuth.auth()?.currentUser?.email {
-//                                self.currentUserFriends = user["friends"] as? [String:Any]
-//                                self.currentUserSentRequests = user["sentFriendRequests"] as? [String:Any]
-//                                self.currentUserReceivedRequests = user["friendRequests"] as? [String:Any]
-//                            } else {
-//                                let fullName:String = user["fullName"] as! String
-//                                self.users.append(user)
-//                                self.usersByName[fullName] = user
-//                                self.usersByEmail[email] = user
-//                                self.tableView.insertRows(at: [IndexPath(row: self.users.count - 1, section: 0)], with: .automatic)
-//                            }
-//                        }
-//                    }
-//                }
-//                
-//            }
-//            
-//        })
-
+        userFriendRequestsDB.queryOrdered(byChild: "fullName").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let friendRequests = snapshot.value as? [String:String]{
+                    print(friendRequests)
+                    self.friendRequestsList = friendRequests
+                }
+            }
+        })
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -74,14 +53,10 @@ class FriendsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         return 0
     }
-    
-    @objc private func segueToAddFriends() {
-        performSegue(withIdentifier: "segueToAddFriends", sender: nil)
-    }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "friendRequestCell, for: indexPath) as! FriendRequestTableViewCell
 
         // Configure the cell...
 

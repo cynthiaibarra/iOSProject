@@ -158,6 +158,9 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false;
+        searchBar.text = nil
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -166,8 +169,12 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     
    func searchBar(_ searchBar: UISearchBar,
                             textDidChange searchText: String) {
-        print(searchText)
+    if searchText.isEmpty {
+        searching = false
+    } else {
+        searching = true
         filterContentForSearchText(searchText: searchText)
+    }
         self.tableView.reloadData()
         
     }
