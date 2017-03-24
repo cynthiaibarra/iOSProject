@@ -347,20 +347,41 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="3Pa-B0-hbf">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" id="XgP-yH-5Wc">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendCell" rowHeight="70" id="XgP-yH-5Wc" customClass="FriendTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XgP-yH-5Wc" id="KOM-4c-RDS">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericUser" translatesAutoresizingMaskIntoConstraints="NO" id="7Hh-j4-QGI">
+                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="70" id="7JF-3b-rzn"/>
+                                                <constraint firstAttribute="width" constant="70" id="ct6-LQ-Dnt"/>
+                                            </constraints>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FjO-M4-8yD">
+                                            <rect key="frame" x="78" y="8" width="297" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FjO-M4-8yD" firstAttribute="top" secondItem="KOM-4c-RDS" secondAttribute="top" constant="8" id="5NA-86-yGd"/>
+                                        <constraint firstAttribute="trailing" secondItem="FjO-M4-8yD" secondAttribute="trailing" id="IP4-4P-K3d"/>
+                                        <constraint firstItem="FjO-M4-8yD" firstAttribute="leading" secondItem="7Hh-j4-QGI" secondAttribute="trailing" constant="8" id="So4-jl-wnQ"/>
+                                        <constraint firstItem="7Hh-j4-QGI" firstAttribute="leading" secondItem="KOM-4c-RDS" secondAttribute="leading" id="gs0-0o-6R3"/>
+                                        <constraint firstItem="7Hh-j4-QGI" firstAttribute="top" secondItem="KOM-4c-RDS" secondAttribute="top" id="qNp-v4-GhT"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="nameLabel" destination="FjO-M4-8yD" id="CTd-fK-Hoo"/>
+                                    <outlet property="userImageView" destination="7Hh-j4-QGI" id="wir-TU-iEN"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -373,7 +394,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AYe-kl-vrd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1655" y="2301"/>
+            <point key="canvasLocation" x="1653.5999999999999" y="2300.5997001499254"/>
         </scene>
         <!--Friend Requests-->
         <scene sceneID="dd9-Vj-GR8">
@@ -445,7 +466,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gT-4t-0v8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2477.5" y="2292.5"/>
+            <point key="canvasLocation" x="2476" y="2301"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="bEE-sV-DpJ">
