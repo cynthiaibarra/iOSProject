@@ -10,6 +10,9 @@
 		27D30AA9CD52C80F1C65B44C /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */; };
 		451CB1C1E59052720E5A3C3A /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */; };
 		CD8C4B42B871C5E5E0D00B60 /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */; };
+		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
+		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
+		DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */; };
 		DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */; };
 		DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABA1E68E5780038F653 /* SignInViewController.swift */; };
 		DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */; };
@@ -48,6 +51,9 @@
 		BFEBFEED2172A7A25ACC8ECC /* Pods-DrinkingBruhUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
+		DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewController.swift; sourceTree = "<group>"; };
+		DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC45DABA1E68E5780038F653 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +122,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DC3609881E84610E006ECA50 /* Friends */ = {
+			isa = PBXGroup;
+			children = (
+				DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */,
+				DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */,
+				DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */,
+			);
+			name = Friends;
+			sourceTree = "<group>";
+		};
 		DC5CFE241E55297B00205DF4 = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +157,7 @@
 		DC5CFE2F1E55297B00205DF4 /* DrinkingBruh */ = {
 			isa = PBXGroup;
 			children = (
+				DC3609881E84610E006ECA50 /* Friends */,
 				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
 				DC45DABA1E68E5780038F653 /* SignInViewController.swift */,
@@ -456,8 +473,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
+				DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
+				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
+				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

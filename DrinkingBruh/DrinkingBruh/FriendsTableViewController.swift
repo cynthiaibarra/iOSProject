@@ -10,6 +10,7 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         let addFriendsButton = UIBarButtonItem(image: UIImage(named: "account-plus"), style: .plain, target: self, action: #selector(FriendsTableViewController.segueToAddFriends))
