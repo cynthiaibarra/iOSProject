@@ -45,7 +45,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
         let firstName:String = firstNameTextField.text!.trim()
         let lastName:String = lastNameTextField.text!.trim()
         let email:String = emailTextField.text!.trim()
-        let emailDBEntry = email.replacingOccurrences(of: "@", with: "_")
+        let emailDBEntry = email.replacingOccurrences(of: ".", with: "\\_")
         let password:String = passwordTextField.text!.trim()
         let confirmPassword:String = confirmPasswordTextField.text!.trim()
         let height:Int? = Int(heightTextField.text!)
@@ -75,8 +75,9 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
                     print(error)
                 } else {
                     print("Added user \(email)")
+                    let fullName:String = "\(firstName) \(lastName)"
                     self.messageLabel.text = "Successfully Registered!"
-                    self.databaseRef.child("users").child((user?.uid)!).setValue(["firstName": firstName, "lastName": lastName, "email": emailDBEntry, "height" : height!, "weight": weight!, "sex": sex])
+                    self.databaseRef.child("users").child(emailDBEntry).setValue(["firstName": firstName, "lastName": lastName, "fullName": fullName, "email": email, "height" : height!, "weight": weight!, "sex": sex])
                 }
             }
             
