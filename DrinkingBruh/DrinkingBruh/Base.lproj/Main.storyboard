@@ -413,6 +413,9 @@
                                             <state key="normal" title="Accept Request">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="acceptRequestButton:" destination="5JN-gf-tQU" eventType="touchUpInside" id="Xcx-RR-GLn"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PZ-jx-AH5">
                                             <rect key="frame" x="215" y="30" width="120" height="30"/>
@@ -423,6 +426,9 @@
                                             <state key="normal" title="Delete Request">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             </state>
+                                            <connections>
+                                                <action selector="deleteRequestButton:" destination="5JN-gf-tQU" eventType="touchUpInside" id="9ql-fI-tpo"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -437,6 +443,10 @@
                                         <constraint firstItem="5gV-yf-AT8" firstAttribute="leading" secondItem="3u1-UZ-mpG" secondAttribute="trailing" constant="8" id="qc8-bx-smq"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="5gV-yf-AT8" id="EYL-lC-W4b"/>
+                                    <outlet property="userImageView" destination="3u1-UZ-mpG" id="Tka-9b-YzR"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

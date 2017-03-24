@@ -10,9 +10,18 @@ import UIKit
 
 class FriendRequestTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    }
+    
+    @IBAction func acceptRequestButton(_ sender: UIButton) {
+        
+    }
+    
+    @IBAction func deleteRequestButton(_ sender: UIButton) {
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
