@@ -192,7 +192,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="RgS-EK-VAq" id="Xvt-HZ-Z5U">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Yf-NP8">
@@ -207,7 +207,7 @@
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vKp-Tz-eqz" id="I7d-za-Ghx">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ2-je-hq7">
@@ -225,7 +225,7 @@
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="UTz-5x-h7H" id="Tuj-FQ-Jug">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KY3-2A-Qfe">
@@ -277,7 +277,7 @@
                                 <rect key="frame" x="0.0" y="72" width="375" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uUZ-fM-ze6" id="mjx-4u-j9O">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="genericUser" translatesAutoresizingMaskIntoConstraints="NO" id="v1G-PF-idE">
@@ -382,7 +382,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="D4d-Z9-tWH">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="backgroundColor" red="0.12549019607843137" green="0.33725490196078434" blue="0.56862745098039214" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendRequestCell" rowHeight="70" id="5JN-gf-tQU" customClass="FriendRequestTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="70"/>
@@ -417,19 +417,6 @@
                                                 <action selector="acceptRequestButton:" destination="5JN-gf-tQU" eventType="touchUpInside" id="Xcx-RR-GLn"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8PZ-jx-AH5">
-                                            <rect key="frame" x="215" y="30" width="120" height="30"/>
-                                            <color key="backgroundColor" red="1" green="0.25460605479999998" blue="0.22911129969999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="120" id="ruE-Aa-2tw"/>
-                                            </constraints>
-                                            <state key="normal" title="Delete Request">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="deleteRequestButton:" destination="5JN-gf-tQU" eventType="touchUpInside" id="9ql-fI-tpo"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="lZ9-8h-Vgt" firstAttribute="leading" secondItem="3u1-UZ-mpG" secondAttribute="trailing" constant="8" id="Aw3-TA-Cjb"/>
@@ -438,12 +425,11 @@
                                         <constraint firstItem="3u1-UZ-mpG" firstAttribute="top" secondItem="Mir-ti-wYu" secondAttribute="top" id="JM3-sP-59e"/>
                                         <constraint firstItem="3u1-UZ-mpG" firstAttribute="leading" secondItem="Mir-ti-wYu" secondAttribute="leading" id="KHT-PZ-9N6"/>
                                         <constraint firstItem="5gV-yf-AT8" firstAttribute="trailing" secondItem="Mir-ti-wYu" secondAttribute="trailingMargin" constant="8" id="LvQ-os-LKh"/>
-                                        <constraint firstItem="8PZ-jx-AH5" firstAttribute="leading" secondItem="lZ9-8h-Vgt" secondAttribute="trailing" constant="17" id="ZLq-St-Wn6"/>
-                                        <constraint firstItem="8PZ-jx-AH5" firstAttribute="top" secondItem="5gV-yf-AT8" secondAttribute="bottom" constant="5" id="kqO-Tn-ORh"/>
                                         <constraint firstItem="5gV-yf-AT8" firstAttribute="leading" secondItem="3u1-UZ-mpG" secondAttribute="trailing" constant="8" id="qc8-bx-smq"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="acceptRequestButton" destination="lZ9-8h-Vgt" id="gPM-DO-ac1"/>
                                     <outlet property="nameLabel" destination="5gV-yf-AT8" id="EYL-lC-W4b"/>
                                     <outlet property="userImageView" destination="3u1-UZ-mpG" id="Tka-9b-YzR"/>
                                 </connections>

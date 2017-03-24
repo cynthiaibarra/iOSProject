@@ -15,22 +15,16 @@ class FriendRequestsTableViewController: UITableViewController {
     private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
     private var friendRequestsList:[String:String] = [:]
     private var friendRequests:[String] = []
+    private var userEmail = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        userEmail = (FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_"))!
         getFriendRequests()
-        
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -55,7 +49,9 @@ class FriendRequestsTableViewController: UITableViewController {
             if snapshot.exists() {
                 print(snapshot.value ?? "meep")
                 if let user = snapshot.value as? [String: Any] {
-                    cell.nameLabel.text = user["fullName"]! as! String
+                    cell.nameLabel.text = (user["fullName"]! as! String)
+                    cell.userEmail = self.userEmail
+                    cell.friendEmail = friendRequestEmail
                 }
             }
         })
@@ -65,8 +61,8 @@ class FriendRequestsTableViewController: UITableViewController {
     }
     
     private func getFriendRequests() {
-        let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
-        let userFriendRequestsDB = databaseRef.child(userEmail!).child("friendRequests")
+        
+        let userFriendRequestsDB = databaseRef.child(userEmail).child("friendRequests")
         
         userFriendRequestsDB.queryOrdered(byChild: "fullName").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists() {
@@ -81,7 +77,32 @@ class FriendRequestsTableViewController: UITableViewController {
             }
         })
     }
- 
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            friendRequests.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            deleteRequest(friendEmail: friendRequests[indexPath.row])
+            
+        }
+    }
+    
+    private func deleteRequest(friendEmail: String) {
+        // Delete email from friend requests list of current user
+        databaseRef.child(userEmail).child("friendRequests").child(friendEmail).removeValue { (error, ref) in
+            if error != nil {
+                print("error \(error)")
+            }
+        }
+        
+        // Delete the current user's email from the other user's sent friend requests list
+        databaseRef.child(friendEmail).child("sentFriendRequests").child(userEmail).removeValue { (error, ref) in
+            if error != nil {
+                print("error \(error)")
+            }
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 70;
