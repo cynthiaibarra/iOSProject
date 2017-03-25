@@ -11,7 +11,7 @@ import Firebase
 import FirebaseAuth
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -21,6 +21,9 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+        
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         
         handler = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
@@ -67,6 +70,15 @@ class SignInViewController: UIViewController {
                 
             }
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
 }
