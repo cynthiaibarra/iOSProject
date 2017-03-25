@@ -20,11 +20,10 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     private var currentUserSentRequests:[String: Any]? = nil
     private var currentUserReceivedRequests:[String:Any]? = nil
     private var users:[[String:Any]] = []
-    private var usersByName:[String:Any] = [String:Any]()
-    private var usersByEmail:[String:Any] = [String:Any]()
-    private var searching:Bool = false
+    
     
     // Search functionality
+    private var searching:Bool = false
     var friendSearchResults:[[String:Any]] = []
     
     override func viewDidLoad() {
@@ -133,10 +132,7 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
                                 self.currentUserSentRequests = user["sentFriendRequests"] as? [String:Any]
                                 self.currentUserReceivedRequests = user["friendRequests"] as? [String:Any]
                             } else {
-                                let fullName:String = user["fullName"] as! String
                                 self.users.append(user)
-                                self.usersByName[fullName] = user
-                                self.usersByEmail[email] = user
                                 self.tableView.insertRows(at: [IndexPath(row: self.users.count - 1, section: 0)], with: .automatic)
                             }
                         }
@@ -158,6 +154,9 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searching = false;
+        searchBar.text = nil
+        searchBar.endEditing(true)
+        self.tableView.reloadData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -166,8 +165,12 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     
    func searchBar(_ searchBar: UISearchBar,
                             textDidChange searchText: String) {
-        print(searchText)
+    if searchText.isEmpty {
+        searching = false
+    } else {
+        searching = true
         filterContentForSearchText(searchText: searchText)
+    }
         self.tableView.reloadData()
         
     }
