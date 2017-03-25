@@ -22,8 +22,8 @@ class Theme {
             dict["textColor"] = UIColor.black
         }
         else {
-            dict["viewColor"] = UIColor.brown
-            dict["textColor"] = UIColor.white
+            dict["viewColor"] = UIColor.darkGray
+            dict["textColor"] = UIColor.brown
         }
         
         return dict
