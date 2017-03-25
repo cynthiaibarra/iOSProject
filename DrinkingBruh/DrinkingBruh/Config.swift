@@ -23,9 +23,21 @@ class Config: NSObject {
     }
     
     class func theme() -> String {
-        return UserDefaults.standard.object(forKey: themeKey) as! String
+        if let s = UserDefaults.standard.object(forKey: themeKey) as? String {
+            return s
+        }
+        else {
+            self.setTheme("light")
+            return "light"
+        }
     }
     class func drunkMode() -> String {
-        return UserDefaults.standard.object(forKey: dModeKey) as! String
+        if let s = UserDefaults.standard.object(forKey: dModeKey) as? String {
+            return s
+        }
+        else {
+            self.setDrunkMode("off")
+            return "off"
+        }
     }
 }

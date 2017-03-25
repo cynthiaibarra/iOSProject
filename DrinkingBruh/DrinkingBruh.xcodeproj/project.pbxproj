@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		27D30AA9CD52C80F1C65B44C /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */; };
 		451CB1C1E59052720E5A3C3A /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */; };
+		855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E881E8600FD00E1B83D /* Config.swift */; };
+		855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B5E891E8600FD00E1B83D /* Settings.storyboard */; };
+		855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E8A1E8600FD00E1B83D /* SettingsTableViewController.swift */; };
+		855B5E8F1E8600FD00E1B83D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E8B1E8600FD00E1B83D /* Theme.swift */; };
+		855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */; };
 		CD8C4B42B871C5E5E0D00B60 /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */; };
 		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
 		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
@@ -48,6 +53,11 @@
 		2F8B250EC5EA89D84F188A92 /* Pods-DrinkingBruh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.release.xcconfig"; sourceTree = "<group>"; };
 		33D0049DC12BF93CCEABFE31 /* Pods-DrinkingBruhTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.release.xcconfig"; sourceTree = "<group>"; };
 		380EB5435B58586BD3D29EB3 /* Pods-DrinkingBruhTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.debug.xcconfig"; sourceTree = "<group>"; };
+		855B5E881E8600FD00E1B83D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		855B5E891E8600FD00E1B83D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		855B5E8A1E8600FD00E1B83D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		855B5E8B1E8600FD00E1B83D /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		AD7CBB29FBB31F91CD9BC77A /* Pods-DrinkingBruh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.debug.xcconfig"; sourceTree = "<group>"; };
 		BE1A713617BE92617919251B /* Pods-DrinkingBruhUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -128,6 +138,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		855B5E901E86010700E1B83D /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				855B5E891E8600FD00E1B83D /* Settings.storyboard */,
+				855B5E8A1E8600FD00E1B83D /* SettingsTableViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
 		DC3609881E84610E006ECA50 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +185,9 @@
 		DC5CFE2F1E55297B00205DF4 /* DrinkingBruh */ = {
 			isa = PBXGroup;
 			children = (
+				855B5E901E86010700E1B83D /* Settings */,
+				855B5E8B1E8600FD00E1B83D /* Theme.swift */,
+				855B5E881E8600FD00E1B83D /* Config.swift */,
 				DC3609881E84610E006ECA50 /* Friends */,
 				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
@@ -173,6 +195,7 @@
 				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */,
 				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
+				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
 			);
@@ -319,6 +342,7 @@
 				DC45DAB71E68E4170038F653 /* GoogleService-Info.plist in Resources */,
 				DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */,
 				DC5CFE361E55297B00205DF4 /* Main.storyboard in Resources */,
+				855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,12 +509,16 @@
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
+				855B5E8F1E8600FD00E1B83D /* Theme.swift in Sources */,
+				855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */,
 				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
 				DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */,
+				855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */,
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,
+				855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
