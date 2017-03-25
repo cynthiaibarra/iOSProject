@@ -19,7 +19,6 @@ class FriendsTableViewController: UITableViewController {
     private var friendEmailList:[String] = []
     private var friends:[[String:Any]] = []
 
-    @IBOutlet weak var searchBar: UISearchBar!
     override func viewDidLoad() {
         super.viewDidLoad()
         userEmail = (FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_"))!
