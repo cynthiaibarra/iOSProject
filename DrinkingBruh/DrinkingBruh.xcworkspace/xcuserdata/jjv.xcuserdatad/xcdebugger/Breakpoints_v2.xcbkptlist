@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/SignInViewController.swift"
+            timestampString = "512083307.105616"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "SignInViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkingBruh.SignInViewController.init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DrinkingBruh.SignInViewController"
+                  moduleName = "DrinkingBruh"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjv/Desktop/iOS/iOSProject/DrinkingBruh/DrinkingBruh/SignInViewController.swift"
+                  timestampString = "512084054.483491"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "70">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkingBruh.SignInViewController.__allocating_init (nibName : Swift.Optional&lt;Swift.String&gt;, bundle : Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; DrinkingBruh.SignInViewController"
+                  moduleName = "DrinkingBruh"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjv/Desktop/iOS/iOSProject/DrinkingBruh/DrinkingBruh/SignInViewController.swift"
+                  timestampString = "512084054.487051"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkingBruh.SignInViewController.__allocating_init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;DrinkingBruh.SignInViewController&gt;"
+                  moduleName = "DrinkingBruh"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjv/Desktop/iOS/iOSProject/DrinkingBruh/DrinkingBruh/SignInViewController.swift"
+                  timestampString = "512084054.490256"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkingBruh.SignInViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;DrinkingBruh.SignInViewController&gt;"
+                  moduleName = "DrinkingBruh"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjv/Desktop/iOS/iOSProject/DrinkingBruh/DrinkingBruh/SignInViewController.swift"
+                  timestampString = "512084054.494412"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "31">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/SignInViewController.swift"
+            timestampString = "512092594.287494"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "handleFBLogin()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

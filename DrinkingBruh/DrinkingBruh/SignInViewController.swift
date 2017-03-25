@@ -9,10 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FBSDKLoginKit
 
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
     
+    @IBOutlet weak var facebookLogin: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -33,8 +35,38 @@ class SignInViewController: UIViewController {
                 print("Not authenticated.")
            }
         }
+        
+        facebookLogin.addTarget(self, action: #selector(handleFBLogin), for: .touchUpInside)
+        
     }
-
+    
+    func handleFBLogin(){
+        FBSDKLoginManager().logIn(withReadPermissions: ["email","public_profile"], from: self) { (result, err) in
+            if(err != nil) {
+                return
+            }
+            let accessToken = FBSDKAccessToken.current()
+            let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accessToken?.tokenString)!)
+            
+            FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+                if(err != nil){
+                    
+                }
+                print("Logged in")
+            })
+            
+        }
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        FBSDKGraphRequest(graphPath:"/me", parameters: ["fields": "id, name, email"]).start{(connection, result, err) in
+            print(123)
+        }
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     

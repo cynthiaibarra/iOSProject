@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		27D30AA9CD52C80F1C65B44C /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */; };
 		451CB1C1E59052720E5A3C3A /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */; };
+		7C4509BA1E85B56300CFC4E4 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C4509B91E85B56300CFC4E4 /* FBSDKLoginKit.framework */; };
 		CD8C4B42B871C5E5E0D00B60 /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */; };
 		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
 		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
@@ -45,6 +46,8 @@
 		2F8B250EC5EA89D84F188A92 /* Pods-DrinkingBruh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.release.xcconfig"; sourceTree = "<group>"; };
 		33D0049DC12BF93CCEABFE31 /* Pods-DrinkingBruhTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.release.xcconfig"; sourceTree = "<group>"; };
 		380EB5435B58586BD3D29EB3 /* Pods-DrinkingBruhTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7C4509B91E85B56300CFC4E4 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		7C4509BB1E85C65D00CFC4E4 /* DrinkingBruh.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DrinkingBruh.entitlements; sourceTree = "<group>"; };
 		AD7CBB29FBB31F91CD9BC77A /* Pods-DrinkingBruh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.debug.xcconfig"; sourceTree = "<group>"; };
 		BE1A713617BE92617919251B /* Pods-DrinkingBruhUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C4509BA1E85B56300CFC4E4 /* FBSDKLoginKit.framework in Frameworks */,
 				27D30AA9CD52C80F1C65B44C /* Pods_DrinkingBruh.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +119,7 @@
 		59F707432F29AA2928E2EFA4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7C4509B91E85B56300CFC4E4 /* FBSDKLoginKit.framework */,
 				BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */,
 				CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */,
 				C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */,
@@ -157,6 +162,7 @@
 		DC5CFE2F1E55297B00205DF4 /* DrinkingBruh */ = {
 			isa = PBXGroup;
 			children = (
+				7C4509BB1E85C65D00CFC4E4 /* DrinkingBruh.entitlements */,
 				DC3609881E84610E006ECA50 /* Friends */,
 				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
@@ -265,8 +271,13 @@
 				TargetAttributes = {
 					DC5CFE2C1E55297B00205DF4 = {
 						CreatedOnToolsVersion = 8.2;
-						DevelopmentTeam = 7GGJ3YUFK7;
+						DevelopmentTeam = VUC4D94S2A;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					DC5CFE401E55297B00205DF4 = {
 						CreatedOnToolsVersion = 8.2;
@@ -621,7 +632,13 @@
 			baseConfigurationReference = AD7CBB29FBB31F91CD9BC77A /* Pods-DrinkingBruh.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7GGJ3YUFK7;
+				CODE_SIGN_ENTITLEMENTS = DrinkingBruh/DrinkingBruh.entitlements;
+				DEVELOPMENT_TEAM = VUC4D94S2A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = DrinkingBruh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs378.DrinkingBruh;
@@ -635,7 +652,13 @@
 			baseConfigurationReference = 2F8B250EC5EA89D84F188A92 /* Pods-DrinkingBruh.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 7GGJ3YUFK7;
+				CODE_SIGN_ENTITLEMENTS = DrinkingBruh/DrinkingBruh.entitlements;
+				DEVELOPMENT_TEAM = VUC4D94S2A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+					"~/Documents/FacebookSDK",
+				);
 				INFOPLIST_FILE = DrinkingBruh/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.cs378.DrinkingBruh;
