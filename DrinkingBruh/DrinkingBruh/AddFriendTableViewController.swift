@@ -114,8 +114,9 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
             cell.button.backgroundColor = UIColor.lightGray
             cell.button.isEnabled = false
         } else if receivedRequestFrom {
-            cell.button.backgroundColor = UIColor.green
-            cell.button.setTitle("Add Friend", for: .normal)
+            print("Received request")
+//            cell.button.backgroundColor = UIColor.green
+//            cell.button.setTitle("Add Friend", for: .normal)
         }
         
     }
