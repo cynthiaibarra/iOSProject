@@ -13,6 +13,7 @@ target 'DrinkingBruh' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'
   pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
 
   # UI
   pod 'SideMenu'

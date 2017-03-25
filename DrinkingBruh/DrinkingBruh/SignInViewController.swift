@@ -10,20 +10,25 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FBSDKLoginKit
+import GoogleSignIn
 
 
-class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
+class SignInViewController: UIViewController, FBSDKLoginButtonDelegate, GIDSignInUIDelegate {
     
     @IBOutlet weak var facebookLogin: UIButton!
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var googleLoginButton: UIButton!
     
     var handler:FIRAuthStateDidChangeListenerHandle?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
+        
+        GIDSignIn.sharedInstance().clientID = FIRApp.defaultApp()?.options.clientID
+        GIDSignIn.sharedInstance().uiDelegate = self
         
         handler = FIRAuth.auth()?.addStateDidChangeListener() { (auth, user) in
             print("=================================")
@@ -36,7 +41,15 @@ class SignInViewController: UIViewController, FBSDKLoginButtonDelegate {
            }
         }
         
+        //Facebook button
         facebookLogin.addTarget(self, action: #selector(handleFBLogin), for: .touchUpInside)
+        
+        //Google button
+        googleLoginButton.addTarget(self, action: #selector(handleGoogleLogin), for: .touchUpInside)
+        
+    }
+    
+    func handleGoogleLogin(){
         
     }
     
