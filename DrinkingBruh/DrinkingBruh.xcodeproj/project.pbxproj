@@ -13,6 +13,7 @@
 		855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B5E891E8600FD00E1B83D /* Settings.storyboard */; };
 		855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E8A1E8600FD00E1B83D /* SettingsTableViewController.swift */; };
 		855B5E8F1E8600FD00E1B83D /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E8B1E8600FD00E1B83D /* Theme.swift */; };
+		855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */; };
 		CD8C4B42B871C5E5E0D00B60 /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */; };
 		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
 		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
@@ -56,6 +57,7 @@
 		855B5E891E8600FD00E1B83D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
 		855B5E8A1E8600FD00E1B83D /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		855B5E8B1E8600FD00E1B83D /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
 		AD7CBB29FBB31F91CD9BC77A /* Pods-DrinkingBruh.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.debug.xcconfig"; sourceTree = "<group>"; };
 		BE1A713617BE92617919251B /* Pods-DrinkingBruhUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhUITests/Pods-DrinkingBruhUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,6 +195,7 @@
 				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */,
 				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
+				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
 			);
@@ -515,6 +518,7 @@
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,
+				855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
