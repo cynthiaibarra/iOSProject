@@ -27,6 +27,8 @@
 		DC5CFE461E55297B00205DF4 /* DrinkingBruhTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE451E55297B00205DF4 /* DrinkingBruhTests.swift */; };
 		DC5CFE511E55297B00205DF4 /* DrinkingBruhUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */; };
 		DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */; };
+		DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */; };
+		DCA20E811E8DB91400ACD277 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E801E8DB91400ACD277 /* CreateEventViewController.swift */; };
 		DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CA3E1E84EE5E00424D3B /* FriendRequestsTableViewController.swift */; };
 		DCA6CA411E84F6B400424D3B /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CA401E84F6B400424D3B /* FriendRequestTableViewCell.swift */; };
 		DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAEF4591E85A15C000C8298 /* FriendTableViewCell.swift */; };
@@ -82,6 +84,8 @@
 		DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingBruhUITests.swift; sourceTree = "<group>"; };
 		DC5CFE521E55297B00205DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
+		DCA20E801E8DB91400ACD277 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
 		DCA6CA3E1E84EE5E00424D3B /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		DCA6CA401E84F6B400424D3B /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
 		DCAEF4591E85A15C000C8298 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
@@ -185,18 +189,19 @@
 		DC5CFE2F1E55297B00205DF4 /* DrinkingBruh */ = {
 			isa = PBXGroup;
 			children = (
+				DCA20E7D1E8DA47D00ACD277 /* Events */,
 				855B5E901E86010700E1B83D /* Settings */,
 				855B5E8B1E8600FD00E1B83D /* Theme.swift */,
 				855B5E881E8600FD00E1B83D /* Config.swift */,
 				DC3609881E84610E006ECA50 /* Friends */,
-				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
+				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
 				DC45DABA1E68E5780038F653 /* SignInViewController.swift */,
 				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */,
-				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
 				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
+				DC45DAB61E68E4170038F653 /* GoogleService-Info.plist */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
 			);
 			path = DrinkingBruh;
@@ -218,6 +223,15 @@
 				DC5CFE521E55297B00205DF4 /* Info.plist */,
 			);
 			path = DrinkingBruhUITests;
+			sourceTree = "<group>";
+		};
+		DCA20E7D1E8DA47D00ACD277 /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */,
+				DCA20E801E8DB91400ACD277 /* CreateEventViewController.swift */,
+			);
+			name = Events;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,12 +527,14 @@
 				855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */,
 				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
+				DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */,
 				DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */,
 				855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */,
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,
 				855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */,
+				DCA20E811E8DB91400ACD277 /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
