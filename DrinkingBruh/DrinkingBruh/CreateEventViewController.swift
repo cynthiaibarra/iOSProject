@@ -20,6 +20,8 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     private let datePicker:UIDatePicker = UIDatePicker()
     private let dateFormatter:DateFormatter = DateFormatter()
     private let imagePicker:UIImagePickerController = UIImagePickerController()
+    private var eventImage:UIImage?
+    
     @IBOutlet weak var imageView: UIImageView!
     
     override func viewDidLoad() {
@@ -45,6 +47,12 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     @objc private func chooseDateAndTime(_ sender: SkyFloatingLabelTextField) {
         sender.inputView = datePicker
+        if eventStartTextField.editingOrSelected {
+            datePicker.minimumDate = Date()
+        } else if !(eventStartTextField.text?.isEmpty)! {
+            datePicker.minimumDate = dateFormatter.date(from: eventStartTextField.text!)
+        }
+        
     }
     
     @IBAction func uploadPhoto(_ sender: UIButton) {
@@ -84,11 +92,9 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage //2
-        imageView.image = image
-        
+        self.eventImage = info[UIImagePickerControllerOriginalImage] as? UIImage //2
+        imageView.image = self.eventImage
         dismiss(animated:true, completion: nil) //5
-        
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
