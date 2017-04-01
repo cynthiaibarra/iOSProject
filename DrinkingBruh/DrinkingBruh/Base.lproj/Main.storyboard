@@ -391,8 +391,9 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-zg-U0m">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="austin" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-zg-U0m">
                                 <rect key="frame" x="0.0" y="64" width="375" height="160"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="160" id="aeX-Gv-V0k"/>
                                 </constraints>
@@ -453,8 +454,16 @@
                                     <userDefinedRuntimeAttribute type="string" keyPath="title" value="End Date"/>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Z8-og-nn5">
-                                <rect key="frame" x="299" y="251" width="30" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7GV-Vb-2ay">
+                                <rect key="frame" x="305" y="246" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="dKG-eJ-PHT"/>
+                                    <constraint firstAttribute="width" constant="40" id="pwd-O1-tg3"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="uploadImage"/>
+                                <connections>
+                                    <action selector="uploadPhoto:" destination="b9k-Pp-cse" eventType="touchUpInside" id="Gbi-Hs-eT2"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019610000001" green="0.33725490200000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -464,25 +473,44 @@
                             <constraint firstItem="eop-1U-9wb" firstAttribute="top" secondItem="8Vb-XG-e2X" secondAttribute="bottom" constant="15" id="DV8-iU-5V9"/>
                             <constraint firstItem="s4y-cs-fkM" firstAttribute="trailing" secondItem="b3l-ox-57p" secondAttribute="trailingMargin" id="DnY-VZ-Ca6"/>
                             <constraint firstItem="eop-1U-9wb" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leadingMargin" id="DqG-jr-vm8"/>
-                            <constraint firstItem="8Vb-XG-e2X" firstAttribute="top" secondItem="nD3-zg-U0m" secondAttribute="bottom" constant="20" id="VVr-Fv-URS"/>
+                            <constraint firstItem="eop-1U-9wb" firstAttribute="top" secondItem="7GV-Vb-2ay" secondAttribute="bottom" constant="18" id="T9s-hJ-rNL"/>
+                            <constraint firstItem="8Vb-XG-e2X" firstAttribute="top" secondItem="nD3-zg-U0m" secondAttribute="bottom" constant="20" identifier="eventTitleTopConstraint" id="VVr-Fv-URS"/>
                             <constraint firstItem="8Vb-XG-e2X" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leadingMargin" id="WFN-3P-EV3"/>
                             <constraint firstItem="nD3-zg-U0m" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leading" id="Y3E-GN-X5D"/>
                             <constraint firstItem="nD3-zg-U0m" firstAttribute="top" secondItem="GTC-yD-YMp" secondAttribute="bottom" id="Z5N-tR-yLR"/>
-                            <constraint firstItem="9Z8-og-nn5" firstAttribute="top" secondItem="nD3-zg-U0m" secondAttribute="bottom" constant="27" id="aTE-LX-tSf"/>
                             <constraint firstItem="s4y-cs-fkM" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leadingMargin" id="fB5-J0-6Ax"/>
-                            <constraint firstItem="9Z8-og-nn5" firstAttribute="leading" secondItem="8Vb-XG-e2X" secondAttribute="trailing" constant="15" id="fIL-0y-wuL"/>
                             <constraint firstAttribute="trailing" secondItem="nD3-zg-U0m" secondAttribute="trailing" id="rrP-gT-TSB"/>
+                            <constraint firstItem="7GV-Vb-2ay" firstAttribute="leading" secondItem="8Vb-XG-e2X" secondAttribute="trailing" constant="21" id="tPg-36-xo1"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="eventEndTextField" destination="s4y-cs-fkM" id="i1I-iK-zrr"/>
                         <outlet property="eventStartTextField" destination="eop-1U-9wb" id="Zn0-Hg-XNz"/>
                         <outlet property="eventTitleTextField" destination="8Vb-XG-e2X" id="Q47-m7-fYA"/>
+                        <outlet property="imageView" destination="nD3-zg-U0m" id="ooo-Vh-i6J"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXS-iq-EBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3181.5999999999999" y="760.56971514242889"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="NYt-dY-nZb">
+            <objects>
+                <viewController id="wGr-Gu-DcL" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="rPP-KV-ILf"/>
+                        <viewControllerLayoutGuide type="bottom" id="OdN-Mq-haG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="APi-KG-VnQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tfn-8q-w6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3886" y="761"/>
         </scene>
         <!--Friends-->
         <scene sceneID="kcm-W1-OB0">
@@ -931,11 +959,13 @@
         <image name="account-multiple" width="18" height="18"/>
         <image name="account-plus" width="18" height="18"/>
         <image name="account-search" width="18" height="18"/>
+        <image name="austin" width="1130" height="753"/>
         <image name="austin-blur" width="1130" height="753"/>
         <image name="drinkingbruh3" width="906" height="134"/>
         <image name="genericUser" width="512" height="512"/>
         <image name="menu" width="48" height="48"/>
         <image name="registration" width="642" height="118"/>
+        <image name="uploadImage" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="LXb-Nj-lK9"/>
