@@ -363,11 +363,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Vb-XG-e2X" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="166" y="86" width="178" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Vb-XG-e2X" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="16" y="244" width="268" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="YhB-d8-VwX"/>
+                                </constraints>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="textColor">
@@ -382,40 +384,101 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Name"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Event Name"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Title"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Event Title"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vgc-I7-Zc7" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="166" y="124" width="178" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Event Name"/>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Event Name"/>
-                                </userDefinedRuntimeAttributes>
-                            </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-zg-U0m">
-                                <rect key="frame" x="9" y="75" width="149" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-zg-U0m">
+                                <rect key="frame" x="0.0" y="64" width="375" height="160"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="160" id="aeX-Gv-V0k"/>
+                                </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eop-1U-9wb" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="16" y="304" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="C84-4M-U64"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Start Date"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="Start Date"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s4y-cs-fkM" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
+                                <rect key="frame" x="16" y="354" width="343" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="jba-ps-Z6X"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="End Date"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="title" value="End Date"/>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Z8-og-nn5">
+                                <rect key="frame" x="299" y="251" width="30" height="30"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12549019610000001" green="0.33725490200000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="eop-1U-9wb" firstAttribute="trailing" secondItem="b3l-ox-57p" secondAttribute="trailingMargin" id="7Xh-tu-kss"/>
+                            <constraint firstItem="s4y-cs-fkM" firstAttribute="top" secondItem="eop-1U-9wb" secondAttribute="bottom" constant="15" id="950-YS-kJJ"/>
+                            <constraint firstItem="eop-1U-9wb" firstAttribute="top" secondItem="8Vb-XG-e2X" secondAttribute="bottom" constant="15" id="DV8-iU-5V9"/>
+                            <constraint firstItem="s4y-cs-fkM" firstAttribute="trailing" secondItem="b3l-ox-57p" secondAttribute="trailingMargin" id="DnY-VZ-Ca6"/>
+                            <constraint firstItem="eop-1U-9wb" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leadingMargin" id="DqG-jr-vm8"/>
+                            <constraint firstItem="8Vb-XG-e2X" firstAttribute="top" secondItem="nD3-zg-U0m" secondAttribute="bottom" constant="20" id="VVr-Fv-URS"/>
+                            <constraint firstItem="8Vb-XG-e2X" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leadingMargin" id="WFN-3P-EV3"/>
+                            <constraint firstItem="nD3-zg-U0m" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leading" id="Y3E-GN-X5D"/>
+                            <constraint firstItem="nD3-zg-U0m" firstAttribute="top" secondItem="GTC-yD-YMp" secondAttribute="bottom" id="Z5N-tR-yLR"/>
+                            <constraint firstItem="9Z8-og-nn5" firstAttribute="top" secondItem="nD3-zg-U0m" secondAttribute="bottom" constant="27" id="aTE-LX-tSf"/>
+                            <constraint firstItem="s4y-cs-fkM" firstAttribute="leading" secondItem="b3l-ox-57p" secondAttribute="leadingMargin" id="fB5-J0-6Ax"/>
+                            <constraint firstItem="9Z8-og-nn5" firstAttribute="leading" secondItem="8Vb-XG-e2X" secondAttribute="trailing" constant="15" id="fIL-0y-wuL"/>
+                            <constraint firstAttribute="trailing" secondItem="nD3-zg-U0m" secondAttribute="trailing" id="rrP-gT-TSB"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="eventEndTextField" destination="s4y-cs-fkM" id="i1I-iK-zrr"/>
+                        <outlet property="eventStartTextField" destination="eop-1U-9wb" id="Zn0-Hg-XNz"/>
+                        <outlet property="eventTitleTextField" destination="8Vb-XG-e2X" id="Q47-m7-fYA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXS-iq-EBx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -845,6 +908,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YQq-9p-Lp9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2476" y="761"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ZDB-SE-t5b">
+            <objects>
+                <viewController id="frR-JC-wkl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1Hg-Oi-U3V"/>
+                        <viewControllerLayoutGuide type="bottom" id="mSW-rE-01j"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8O4-pN-Ifq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MaW-S8-Sjt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

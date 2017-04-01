@@ -45,12 +45,12 @@ class EventsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
         
-        var event:[String:Any] = [:]
-        if indexPath.section == 0 {
-            event = invitedEvents[indexPath.row]
-        } else {
-            event = myEvents[indexPath.row]
-        }
+//        var event:[String:Any] = [:]
+//        if indexPath.section == 0 {
+//            event = invitedEvents[indexPath.row]
+//        } else {
+//            event = myEvents[indexPath.row]
+//        }
         // Configure the cell...
 
         return cell
