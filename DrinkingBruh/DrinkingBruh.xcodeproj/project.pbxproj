@@ -29,7 +29,6 @@
 		DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */; };
 		DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */; };
 		DCA20E811E8DB91400ACD277 /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E801E8DB91400ACD277 /* CreateEventViewController.swift */; };
-		DCA20E831E90052300ACD277 /* ImageUploaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E821E90052300ACD277 /* ImageUploaderViewController.swift */; };
 		DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CA3E1E84EE5E00424D3B /* FriendRequestsTableViewController.swift */; };
 		DCA6CA411E84F6B400424D3B /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CA401E84F6B400424D3B /* FriendRequestTableViewCell.swift */; };
 		DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAEF4591E85A15C000C8298 /* FriendTableViewCell.swift */; };
@@ -87,7 +86,6 @@
 		DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
 		DCA20E801E8DB91400ACD277 /* CreateEventViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
-		DCA20E821E90052300ACD277 /* ImageUploaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageUploaderViewController.swift; sourceTree = "<group>"; };
 		DCA6CA3E1E84EE5E00424D3B /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		DCA6CA401E84F6B400424D3B /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
 		DCAEF4591E85A15C000C8298 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
@@ -199,7 +197,6 @@
 				DC5CFE341E55297B00205DF4 /* Main.storyboard */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
 				DC45DABA1E68E5780038F653 /* SignInViewController.swift */,
-				DCA20E821E90052300ACD277 /* ImageUploaderViewController.swift */,
 				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */,
 				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
@@ -526,7 +523,6 @@
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
-				DCA20E831E90052300ACD277 /* ImageUploaderViewController.swift in Sources */,
 				855B5E8F1E8600FD00E1B83D /* Theme.swift in Sources */,
 				855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */,
 				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,

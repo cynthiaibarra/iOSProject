@@ -61,6 +61,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                 if error != nil {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    print(error)
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
