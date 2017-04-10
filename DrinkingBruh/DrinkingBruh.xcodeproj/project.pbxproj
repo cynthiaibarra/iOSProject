@@ -20,7 +20,6 @@
 		DC04845F1E96D9E800EE7623 /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC04845E1E96D9E800EE7623 /* DBHandler.swift */; };
 		DC0484631E96FA0000EE7623 /* InviteFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0484621E96FA0000EE7623 /* InviteFriendsTableViewCell.swift */; };
 		DC0484651E970D8D00EE7623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0484641E970D8D00EE7623 /* Main.storyboard */; };
-		DC3069781E9337C60034A2E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC3069771E9337C60034A2E5 /* GoogleService-Info.plist */; };
 		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
 		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
 		DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */; };
@@ -30,6 +29,8 @@
 		DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC5CFE371E55297B00205DF4 /* Assets.xcassets */; };
 		DC5CFE461E55297B00205DF4 /* DrinkingBruhTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE451E55297B00205DF4 /* DrinkingBruhTests.swift */; };
 		DC5CFE511E55297B00205DF4 /* DrinkingBruhUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */; };
+		DC61FF651E9C15EE000E8299 /* GetHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61FF641E9C15EE000E8299 /* GetHomeViewController.swift */; };
+		DC61FF671E9C2173000E8299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */; };
 		DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */; };
 		DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */; };
 		DC9B046B1E97671700DD6FFF /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */; };
@@ -77,7 +78,6 @@
 		DC04845E1E96D9E800EE7623 /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
 		DC0484621E96FA0000EE7623 /* InviteFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		DC0484641E970D8D00EE7623 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		DC3069771E9337C60034A2E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewController.swift; sourceTree = "<group>"; };
 		DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -93,6 +93,8 @@
 		DC5CFE4C1E55297B00205DF4 /* DrinkingBruhUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrinkingBruhUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC5CFE501E55297B00205DF4 /* DrinkingBruhUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingBruhUITests.swift; sourceTree = "<group>"; };
 		DC5CFE521E55297B00205DF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DC61FF641E9C15EE000E8299 /* GetHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHomeViewController.swift; sourceTree = "<group>"; };
+		DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
@@ -220,11 +222,12 @@
 				DC0484641E970D8D00EE7623 /* Main.storyboard */,
 				DC5CFE301E55297B00205DF4 /* AppDelegate.swift */,
 				DC45DABA1E68E5780038F653 /* SignInViewController.swift */,
+				DC61FF641E9C15EE000E8299 /* GetHomeViewController.swift */,
 				DC45DABC1E68E6600038F653 /* RegistrationViewController.swift */,
 				DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */,
 				DC5CFE371E55297B00205DF4 /* Assets.xcassets */,
+				DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */,
 				DC5CFE3C1E55297B00205DF4 /* Info.plist */,
-				DC3069771E9337C60034A2E5 /* GoogleService-Info.plist */,
 			);
 			path = DrinkingBruh;
 			sourceTree = "<group>";
@@ -380,7 +383,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */,
-				DC3069781E9337C60034A2E5 /* GoogleService-Info.plist in Resources */,
+				DC61FF671E9C2173000E8299 /* GoogleService-Info.plist in Resources */,
 				855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */,
 				DC0484651E970D8D00EE7623 /* Main.storyboard in Resources */,
 			);
@@ -562,6 +565,7 @@
 				855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */,
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
+				DC61FF651E9C15EE000E8299 /* GetHomeViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,
 				DC04845B1E96C23B00EE7623 /* Extensions.swift in Sources */,
 				DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */,

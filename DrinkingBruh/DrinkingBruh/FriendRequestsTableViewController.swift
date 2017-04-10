@@ -86,7 +86,6 @@ class FriendRequestsTableViewController: UITableViewController {
                     print(index)
                     self.friendRequests.remove(at: index)
                     self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
-                    
                     break
                 }
                 index += 1
