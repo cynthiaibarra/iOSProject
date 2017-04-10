@@ -61,6 +61,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
             FIRAuth.auth()?.signIn(withEmail: email, password: password) { (user, error) in
                 if error != nil {
                     let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    print(error ?? "error")
                     
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
@@ -83,12 +84,4 @@ class SignInViewController: UIViewController, UITextFieldDelegate {
     
 }
 
-public extension UIView {
-    func shake() {
-        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
-        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
-        animation.duration = 0.6
-        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
-        layer.add(animation, forKey: "shake")
-    }
-}
+

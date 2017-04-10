@@ -13,14 +13,17 @@ import FirebaseDatabase
 class FriendRequestsTableViewController: UITableViewController {
     
     private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
-    private var friendRequestsList:[String:String] = [:]
-    private var friendRequests:[String] = []
-    private var userEmail = ""
+    private var friendRequests:[[String:Any]] = []
+    private var userEmail:String = (FIRAuth.auth()?.currentUser?.email)!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userEmail = (FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_"))!
-        getFriendRequests()
+        DBHandler.getFriendRequests(userEmail: userEmail) { (requestEmail) -> () in
+            DBHandler.getUserInfo(userEmail: requestEmail) { (user) -> () in
+                self.friendRequests.append(user)
+                self.tableView.insertRows(at: [IndexPath(row: self.friendRequests.count - 1, section: 0)], with: .automatic)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -42,70 +45,54 @@ class FriendRequestsTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendRequestCell", for: indexPath) as! FriendRequestTableViewCell
         
         //Get user data
-        let friendRequestEmail:String = friendRequests[indexPath.row]
-        let userDB = databaseRef.child(friendRequestEmail)
+        let friendRequest:[String:Any] = friendRequests[indexPath.row]
         
-        userDB.observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.exists() {
-                print(snapshot.value ?? "meep")
-                if let user = snapshot.value as? [String: Any] {
-                    cell.nameLabel.text = (user["fullName"]! as! String)
-                    cell.userEmail = self.userEmail
-                    cell.friendEmail = friendRequestEmail
-                }
+        cell.nameLabel.text = friendRequest["fullName"]! as? String
+        cell.userEmail = self.userEmail
+        cell.friendEmail = friendRequest["email"] as? String
+        
+        let imageID = friendRequest["image"]
+        if imageID != nil {
+            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
+                cell.userImageView.image = image
             }
-        })
+        }
         
-        cell.nameLabel.text = friendRequests[indexPath.row]
         return cell
-    }
-    
-    private func getFriendRequests() {
-        
-        let userFriendRequestsDB = databaseRef.child(userEmail).child("friendRequests")
-        
-        userFriendRequestsDB.queryOrdered(byChild: "fullName").observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.exists() {
-                if let friendRequests = snapshot.value as? [String:String]{
-                    print(friendRequests)
-                    self.friendRequestsList = friendRequests
-                    for key in friendRequests.keys {
-                        self.friendRequests.append(key)
-                        self.tableView.insertRows(at: [IndexPath(row: self.friendRequests.count - 1, section: 0)], with: .automatic)
-                    }
-                }
-            }
-        })
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            DBHandler.deleteFriendRequest(userEmail: self.userEmail, friendEmail: (friendRequests[indexPath.row]["email"] as? String)!)
             friendRequests.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            deleteRequest(friendEmail: friendRequests[indexPath.row])
-            
-        }
-    }
-    
-    private func deleteRequest(friendEmail: String) {
-        // Delete email from friend requests list of current user
-        databaseRef.child(userEmail).child("friendRequests").child(friendEmail).removeValue { (error, ref) in
-            if error != nil {
-                print("error \(error)")
-            }
-        }
-        
-        // Delete the current user's email from the other user's sent friend requests list
-        databaseRef.child(friendEmail).child("sentFriendRequests").child(userEmail).removeValue { (error, ref) in
-            if error != nil {
-                print("error \(error)")
-            }
         }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
     {
         return 70;
+    }
+    
+    func friendRequestAcceptedElsewhere(){
+        DBHandler.friendRequestRemovedObserver(userEmail: userEmail) { (requestEmail) -> () in
+            print("hereereregargda")
+            var index:Int = 0
+            for request in self.friendRequests {
+                let friendRequestEmail:String = (request["email"] as? String)!
+                print(requestEmail)
+                print(friendRequestEmail.firebaseSanitize())
+                if requestEmail == friendRequestEmail.firebaseSanitize() {
+                    print(index)
+                    self.friendRequests.remove(at: index)
+                    self.tableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+                    
+                    break
+                }
+                index += 1
+            }
+            
+        }
     }
 
 }

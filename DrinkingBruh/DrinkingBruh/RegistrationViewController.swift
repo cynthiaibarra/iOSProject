@@ -164,8 +164,3 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-public extension String {
-    func trim() -> String {
-        return self.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
-}
