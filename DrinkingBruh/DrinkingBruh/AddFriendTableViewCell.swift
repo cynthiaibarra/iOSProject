@@ -39,6 +39,13 @@ class AddFriendTableViewCell: UITableViewCell {
             button.setTitle("Request Sent", for: .normal)
             button.backgroundColor = UIColor.lightGray
             button.isEnabled = false
+        } else if requestReceived && !friends {
+            DBHandler.acceptFriendRequest(userEmail: userEmail, friendEmail: friendEmail)
+            button.backgroundColor = UIColor(hex: 0x205691)
+            button.setTitle("Friends", for: .normal)
+            button.isEnabled = false
+            print("###################")
+            print("Friend Accepted")
         }
     }
     

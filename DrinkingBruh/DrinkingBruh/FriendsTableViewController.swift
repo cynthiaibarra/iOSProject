@@ -8,34 +8,20 @@
 
 import UIKit
 import FirebaseAuth
-import FirebaseDatabase
 
 class FriendsTableViewController: UITableViewController {
     
-   // private let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
-    private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
-    private var friendsList:[String:String] = [:]
-    private var userEmail:String = ""
-    private var friendEmailList:[String] = []
     private var friends:[[String:Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        userEmail = (FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_"))!
-        
-        let userFriendsDB = databaseRef.child(userEmail).child("friends")
-        
-        userFriendsDB.observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.exists() {
-                if let friends = snapshot.value as? [String:String]{
-                    print(friends)
-                    for key in friends.keys {
-                        self.friendEmailList.append(key)
-                        self.tableView.insertRows(at: [IndexPath(row: self.friendEmailList.count - 1, section: 0)], with: .automatic)
-                    }
-                }
+        let userEmail:String = (FIRAuth.auth()?.currentUser?.email!)!
+        DBHandler.getFriends(userEmail: userEmail) { (friend) -> () in
+            DBHandler.getUserInfo(userEmail: friend) { (friendInfo) -> () in
+                self.friends.append(friendInfo)
+                self.tableView.insertRows(at: [IndexPath(row: self.friends.count - 1, section: 0)], with: .automatic)
             }
-        })
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,26 +37,22 @@ class FriendsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return friendEmailList.count
+        return friends.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
         
         //Get user data
-        let friendEmail:String = friendEmailList[indexPath.row]
-        let userDB = databaseRef.child(friendEmail)
-        
-        userDB.observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.exists() {
-                print(snapshot.value ?? "meep")
-                if let user = snapshot.value as? [String: Any] {
-                    cell.nameLabel.text = (user["fullName"]! as! String)
-                }
+        let friend:[String:Any] = friends[indexPath.row]
+        cell.nameLabel.text = friend["fullName"] as? String
+        let imageID = friend["image"]
+        if imageID != nil {
+            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
+                cell.userImageView.image = image
             }
-        })
+        }
         
-        cell.nameLabel.text = friendEmailList[indexPath.row]
         return cell
     }
     

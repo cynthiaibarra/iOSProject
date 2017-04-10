@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 import FirebaseAuth
 import FirebaseDatabase
 
@@ -16,9 +15,9 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     @IBOutlet weak var searchBar: UISearchBar!
     
     private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
-    private var currentUserFriends:[String: Any]? = nil
-    private var currentUserSentRequests:[String: Any]? = nil
-    private var currentUserReceivedRequests:[String:Any]? = nil
+    private var currentUserFriends:[String: Any] = [:]
+    private var currentUserSentRequests:[String: Any] = [:]
+    private var currentUserReceivedRequests:[String:Any] = [:]
     private var users:[[String:Any]] = []
     
     
@@ -28,14 +27,36 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        getUsersFromDatabase()
         searchBar.delegate = self
+        
+        let email:String = (FIRAuth.auth()?.currentUser?.email)!
+        
+        DBHandler.getFriends(userEmail: email) { (user) -> () in
+            self.currentUserFriends[user] = user
+        }
+        
+        DBHandler.getFriendRequests(userEmail: email) { (user) -> () in
+            self.currentUserReceivedRequests[user] = user
+        }
+        
+        DBHandler.getSentFriendRequests(userEmail: email) { (user) -> () in
+            self.currentUserSentRequests[user] = user
+        }
+        
+        DBHandler.getAllUsers() { (userDictionary) -> () in
+            for user in userDictionary {
+                if user.key != email.replacingOccurrences(of: ".", with: "\\_") {
+                    self.users.append(user.value as! [String : Any])
+                    self.tableView.insertRows(at: [IndexPath(row: self.users.count - 1, section: 0)], with: .automatic)
+                }
+
+            }
+        }
         
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     // MARK: - Table view data source
@@ -48,10 +69,8 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if searching {
-            print(friendSearchResults.count)
             return friendSearchResults.count
         }
-        print(users.count)
         return users.count
         
     }
@@ -70,14 +89,20 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
             user = users[indexPath.row]
         }
         let emailKey:String = (user["email"] as! String).replacingOccurrences(of: ".", with: "\\_")
-        let fullName:String = user["fullName"] as! String
 
-        cell.nameLabel.text = fullName
+        cell.nameLabel.text = user["fullName"] as? String
         cell.friends = isFriend(email: emailKey)
         cell.requestSent = sentRequestAlready(email: emailKey)
         cell.requestReceived = requestReceivedAlready(email: emailKey)
-        cell.userEmail = (FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_"))!
-        cell.friendEmail = emailKey
+        cell.userEmail = (FIRAuth.auth()?.currentUser?.email)!
+        cell.friendEmail = user["email"] as! String
+        
+        let imageID = user["image"]
+        if imageID != nil {
+            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
+                cell.userImageView.image = image
+            }
+        }
         
         updateButtonUI(cell: cell, friends: cell.friends, sentRequestTo: cell.requestSent, receivedRequestFrom: cell.requestReceived)
 
@@ -85,22 +110,22 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     }
     
     private func isFriend(email: String) -> Bool {
-        if currentUserFriends != nil {
-            return currentUserFriends![email] != nil
+        if currentUserFriends[email] != nil {
+            return currentUserFriends[email] != nil
         }
         return false
     }
     
     private func sentRequestAlready(email: String) -> Bool {
-        if currentUserSentRequests != nil {
-            return currentUserSentRequests![email] != nil
+        if currentUserSentRequests[email] != nil {
+            return currentUserSentRequests[email] != nil
         }
         return false
     }
     
     private func requestReceivedAlready(email: String) -> Bool {
-        if currentUserReceivedRequests != nil {
-            return currentUserReceivedRequests![email] != nil
+        if currentUserReceivedRequests[email] != nil {
+            return currentUserReceivedRequests[email] != nil
         }
         return false
     }
@@ -114,36 +139,12 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
             cell.button.backgroundColor = UIColor.lightGray
             cell.button.isEnabled = false
         } else if receivedRequestFrom {
-            print("Received request")
-//            cell.button.backgroundColor = UIColor.green
-//            cell.button.setTitle("Add Friend", for: .normal)
+            cell.button.backgroundColor = UIColor(hex: 0x4ACE36)
+            cell.button.setTitle("Accept Request", for: .normal)
         }
         
     }
     
-    private func getUsersFromDatabase() {
-        databaseRef.queryOrdered(byChild: "fullName").observeSingleEvent(of: .value, with: { (snapshot) in
-            if snapshot.exists() {
-                if let userDictionary = snapshot.value as? [String:Any] {
-                    for userEntry in userDictionary.values {
-                        if let user = userEntry as? [String:Any] {
-                            let email:String = user["email"] as! String
-                            if email == FIRAuth.auth()?.currentUser?.email {
-                                self.currentUserFriends = user["friends"] as? [String:Any]
-                                self.currentUserSentRequests = user["sentFriendRequests"] as? [String:Any]
-                                self.currentUserReceivedRequests = user["friendRequests"] as? [String:Any]
-                            } else {
-                                self.users.append(user)
-                                self.tableView.insertRows(at: [IndexPath(row: self.users.count - 1, section: 0)], with: .automatic)
-                            }
-                        }
-                    }
-                }
-                
-            }
-            
-        })
-    }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         searching = true;

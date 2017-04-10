@@ -27,12 +27,15 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     private let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
     private let storageRef = FIRStorage.storage().reference()
-    private let dbRef = FIRDatabase.database().reference().child("users")
+    private let dbRef = FIRDatabase.database().reference()
     private let datePicker:UIDatePicker = UIDatePicker()
     private let dateFormatter:DateFormatter = DateFormatter()
     private let imagePicker:UIImagePickerController = UIImagePickerController()
     private var eventImage:UIImage?
     private var placesClient:GMSPlacesClient = GMSPlacesClient.shared()
+    private var eventID:String = ""
+    private var longitude:CLLocationDegrees = 0.0
+    private var latitude:CLLocationDegrees = 0.0
     
     
     
@@ -41,6 +44,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         locationTextField.isEnabled = false
         initDelegates()
         initViews()
+        eventID = UUID().uuidString
     }
 
     override func didReceiveMemoryWarning() {
@@ -92,6 +96,8 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
             print("Place name \(place.name)")
             print("Place address \(place.formattedAddress)")
             print("Place attributions \(place.attributions)")
+            self.longitude = place.coordinate.longitude
+            self.latitude = place.coordinate.latitude
         })
     }
     
@@ -117,32 +123,22 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         }
         
         if incomplete { return }
-        let imageName = UUID().uuidString
-        let eventUUID = UUID().uuidString
+        let imageName:String = UUID().uuidString
         let eventImageRef = storageRef.child(imageName)
-        let data = UIImageJPEGRepresentation(imageView.image!, 0.7)
-        let uploadTask = eventImageRef.put(data!, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-                if error != nil {
-                    print(error?.localizedDescription ?? "error: image upload")
-                }
-                return
-            }
-            // Metadata contains file metadata such as size, content-type, and download URL.
-            let downloadURL = metadata.downloadURL
-            self.dbRef.child("events").child(eventUUID).child("imageURL").setValue(downloadURL)
-            
-           
-        }
+        let data = UIImageJPEGRepresentation(imageView.image!, 0.3)
+        let uploadTask = eventImageRef.put(data!)
         
         let title:String = self.eventTitleTextField.text!
         let start:String = self.eventStartTextField.text!
         let end:String = self.eventEndTextField.text!
-        let location = self.locationTextField.text!
-        let address = self.addressTextField.text!
+        let location:String = self.locationTextField.text!
+        let address:String = self.addressTextField.text!
         
-        dbRef.child("events").child(eventUUID).setValue(["title":title, "start":start, "end":end, "location":location, "address":address])
+        dbRef.child("users").child(userEmail!).child("events").child(eventID).setValue(eventID)
+        dbRef.child("events").child(eventID).setValue(["title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageName, "longitude" : longitude, "latitude" : latitude])
         
+        performSegue(withIdentifier: "segueToInviteFriends", sender: nil)
+  
     }
     
     
@@ -188,6 +184,14 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToInviteFriends" {
+            if let inviteFriendsVC = segue.destination as? InviteFriendsTableViewController {
+                inviteFriendsVC.eventID = self.eventID
+            }
+        }
     }
 
 }
