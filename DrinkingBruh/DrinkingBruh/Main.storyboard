@@ -771,10 +771,10 @@
             </objects>
             <point key="canvasLocation" x="2476" y="1529"/>
         </scene>
-        <!--View Controller-->
+        <!--Get Home View Controller-->
         <scene sceneID="YZc-pB-c3C">
             <objects>
-                <viewController id="uHz-yn-rkx" sceneMemberID="viewController">
+                <viewController id="uHz-yn-rkx" customClass="GetHomeViewController" customModule="DrinkingBruh" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="uEA-Bc-fiP"/>
                         <viewControllerLayoutGuide type="bottom" id="jfM-wa-7dI"/>
@@ -869,16 +869,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5E3-yU-GA1">
-                                <rect key="frame" x="234" y="255" width="93" height="29"/>
+                                <rect key="frame" x="234" y="255" width="98" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="512-591-0752">
+                                <state key="normal" title="512-580-4343">
                                     <color key="titleColor" red="0.2901960784" green="0.80784313730000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z5Q-FC-Cba">
-                                <rect key="frame" x="234" y="284" width="93" height="29"/>
+                                <rect key="frame" x="234" y="284" width="97" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <state key="normal" title="512-591-0752">
+                                <state key="normal" title="512-452-9999">
                                     <color key="titleColor" red="0.2901960784" green="0.80784313730000001" blue="0.21176470589999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
@@ -964,6 +964,16 @@
                             <constraint firstItem="qUS-jt-hGb" firstAttribute="leading" secondItem="2Tm-VS-dD1" secondAttribute="leadingMargin" constant="10" id="zbC-wp-Ikv"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="phoneButton1" destination="TVH-OH-ldH" id="8sF-5o-hQ8"/>
+                        <outlet property="phoneButton2" destination="12e-aK-Xtw" id="OgN-Ck-7Sc"/>
+                        <outlet property="phoneButton3" destination="YiA-yY-EeP" id="eKi-AQ-Vak"/>
+                        <outlet property="phoneButton4" destination="5E3-yU-GA1" id="iVt-fk-Vtu"/>
+                        <outlet property="phoneButton5" destination="z5Q-FC-Cba" id="b8K-6s-MkL"/>
+                        <outlet property="routeButton1" destination="p7y-L4-wjx" id="9eN-K6-8cM"/>
+                        <outlet property="routeButton2" destination="ZKw-Xp-P3h" id="3Xo-bn-2VT"/>
+                        <outlet property="routeButton3" destination="UgD-J2-k6a" id="dor-Az-VAT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GEZ-SU-XWa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
