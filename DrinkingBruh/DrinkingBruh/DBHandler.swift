@@ -61,7 +61,8 @@ class DBHandler {
         })
     }
     
-    // Given an event ID, retrieves the information about the party and returns it in a map
+    // Parameters: [String] Event ID
+    // Returns: [Dictionary] Event Information from Database
     static func getEventInfo(eventID: String, completion: @escaping ([String:Any]) -> ()) {
         eventDBRef.child(eventID).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists() {
@@ -74,7 +75,8 @@ class DBHandler {
         })
     }
     
-    // Gets the friends that were invited to an event, given an event ID
+    // Parameters: [String] Event ID
+    // Returns: [String] Emails of friend's invited to the event
     static func getFriendsInvited(eventID: String, completion: @escaping ([String]) -> ()) {
         eventDBRef.child(eventID).child(invitees).observeSingleEvent(of: .value, with: { (snapshot) in
             var inviteeList:[String] = []
@@ -90,6 +92,8 @@ class DBHandler {
         
     }
     
+    // Parameters: [String] Event ID
+    // Returns: [String] Emails of friend's that are attending the event
     static func getFriendsAttending(eventID: String, completion: @escaping ([String]) -> ()) {
         eventDBRef.child(eventID).child(attendees).observeSingleEvent(of: .value, with: { (snapshot) in
             var attendeeList:[String] = []
@@ -102,9 +106,10 @@ class DBHandler {
             }
             completion(attendeeList)
         })
-        
     }
     
+    // Parameters: [String] Current user's email
+    // Returns: [String] Emails of current user's friends
     static func getFriends(userEmail: String, completion: @escaping (String) -> ()) {
         let email = userEmail.firebaseSanitize()
         usersDBRef.child(email).child("friends").observe(.childAdded, with: { (snapshot) in
