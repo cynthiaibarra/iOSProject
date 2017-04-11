@@ -35,7 +35,7 @@ class AddFriendTableViewCell: UITableViewCell {
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         if !friends && !requestSent && !requestReceived {
-            sendFriendRequest()
+            DBHandler.sendFriendRequest(userEmail: userEmail, friendEmail: friendEmail)
             button.setTitle("Request Sent", for: .normal)
             button.backgroundColor = UIColor.lightGray
             button.isEnabled = false
@@ -47,12 +47,6 @@ class AddFriendTableViewCell: UITableViewCell {
             print("###################")
             print("Friend Accepted")
         }
-    }
-    
-    private func sendFriendRequest() {
-        self.databaseRef.child(friendEmail).child("friendRequests").child(userEmail).setValue(userEmail)
-        self.databaseRef.child(userEmail).child("sentFriendRequests").child(friendEmail).setValue(friendEmail)
-        
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
