@@ -93,9 +93,6 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
             self.locationTextField.text = place.name
             self.addressTextField.text = place.formattedAddress
             
-            print("Place name \(place.name)")
-            print("Place address \(place.formattedAddress)")
-            print("Place attributions \(place.attributions)")
             self.longitude = place.coordinate.longitude
             self.latitude = place.coordinate.latitude
         })

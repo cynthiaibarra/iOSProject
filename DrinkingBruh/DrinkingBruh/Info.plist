@@ -12,6 +12,11 @@
 	<string>Need location access for updating nearby friends</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs libary access for uploading images</string>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>tel</string>
+        <string>telprompt</string>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
