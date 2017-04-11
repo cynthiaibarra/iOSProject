@@ -1,6 +1,0 @@
-framework module Pods_DrinkingBruh {
-  umbrella header "Pods-DrinkingBruh-umbrella.h"
-
-  export *
-  module * { export * }
-}
