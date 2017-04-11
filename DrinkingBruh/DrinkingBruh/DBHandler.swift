@@ -251,8 +251,8 @@ class DBHandler {
     static func sendFriendRequest(userEmail:String, friendEmail:String) {
         let email = userEmail.firebaseSanitize()
         let fEmail = friendEmail.firebaseSanitize()
-        usersDBRef.child(fEmail).child("friendRequests").child(email).setValue(fEmail)
-        usersDBRef.child(email).child("sentFriendRequests").child(fEmail).setValue(email)
+        usersDBRef.child(fEmail).child("friendRequests").child(email).setValue(email)
+        usersDBRef.child(email).child("sentFriendRequests").child(fEmail).setValue(fEmail)
     }
     
 }
