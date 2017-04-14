@@ -31,6 +31,8 @@ class EventsTableViewController: UITableViewController {
         self.title = "Events"
         setBackButton()
         DBHandler.getUserEventIDs(userEmail: (FIRAuth.auth()?.currentUser?.email)!) { (eventID) -> () in
+            
+            
             DBHandler.getEventInfo(eventID: eventID) { (event) -> () in
                 self.myEvents.append(event)
                 self.tableView.insertRows(at: [IndexPath(row: self.myEvents.count - 1, section: 2)], with: .automatic)

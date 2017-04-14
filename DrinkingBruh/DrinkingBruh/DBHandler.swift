@@ -16,6 +16,7 @@ class DBHandler {
     
     private static let eventDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("events")
     private static let usersDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("users")
+    private static let locationDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("locations")
     private static let invitees:String = "invitees"
     private static let attendees:String = "attendees"
     private static let invites:String = "invites"
@@ -255,4 +256,50 @@ class DBHandler {
         usersDBRef.child(email).child("sentFriendRequests").child(fEmail).setValue(fEmail)
     }
     
+    static func addDrink(eventID:String, drinks:[String:Int]) {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        eventDBRef.child(eventID).child("drinkLog").child(email!).setValue(["beer":drinks["beer"], "vodka":drinks["vodka"], "gin":drinks["gin"], "whiskey":drinks["whiskey"], "tequila":drinks["tequila"], "wine":drinks["wine"]])
+    }
+    
+    static func getDrinks(eventID:String, completion: @escaping ([String:Int]?) -> ()) {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        print(email!)
+        eventDBRef.child(eventID).child("drinkLog").child(email!).observeSingleEvent(of: .value,  with: { (snapshot) in
+            if snapshot.exists() {
+                completion(snapshot.value as? [String:Int])
+            } else {
+                completion(nil)
+            }
+        })
+    }
+    
+    static func addLocation(latitude: Double, longitude: Double) {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        locationDBRef.child(email!).setValue(["latitude":latitude, "longitude":longitude])
+    }
+    
+    static func getAllUsersLocations(completion: @escaping ([String:[String:Double]]?) -> ()) {
+        locationDBRef.observeSingleEvent(of: .value,  with: { (snapshot) in
+            if snapshot.exists() {
+                completion(snapshot.value as? [String:[String:Double]])
+            } else {
+                completion(nil)
+            }
+        })
+    }
+    
+//    static func getUserLocation(email: String, completion: @escaping ([String:Double]) -> ()) {
+//        locationDBRef.child(userEmail)observeSingleEvent(of: .value,  with: { (snapshot) in
+//            if snapshot.exists() {
+//                completion(snapshot.value as? [String:[String:Double]])
+//            } else {
+//                completion(nil)
+//            }
+//        })
+//    }
+//    
+    // locations
+    //    email
+    //        "lat" : 34.235
+    //         "long": 325.35
 }
