@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         self.title = "Home"      
         // Do any additional setup after loading the view.
+        LocationTracker.getInstance().requestLocation()
     }
 
     override func didReceiveMemoryWarning() {
