@@ -132,7 +132,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         let address:String = self.addressTextField.text!
         
         dbRef.child("users").child(userEmail!).child("events").child(eventID).setValue(eventID)
-        dbRef.child("events").child(eventID).setValue(["title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageName, "longitude" : longitude, "latitude" : latitude])
+        dbRef.child("events").child(eventID).setValue(["title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageName, "longitude" : longitude, "latitude" : latitude, "eventOwner" : userEmail!])
         
         performSegue(withIdentifier: "segueToInviteFriends", sender: nil)
   
