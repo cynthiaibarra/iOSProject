@@ -20,6 +20,9 @@
 		DC04845F1E96D9E800EE7623 /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC04845E1E96D9E800EE7623 /* DBHandler.swift */; };
 		DC0484631E96FA0000EE7623 /* InviteFriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0484621E96FA0000EE7623 /* InviteFriendsTableViewCell.swift */; };
 		DC0484651E970D8D00EE7623 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC0484641E970D8D00EE7623 /* Main.storyboard */; };
+		DC243AB91EA4756F000E7806 /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243AB81EA4756F000E7806 /* GuestsTableViewController.swift */; };
+		DC243ABB1EA4A54E000E7806 /* GuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243ABA1EA4A54E000E7806 /* GuestTableViewCell.swift */; };
+		DC243ABD1EA52DAB000E7806 /* DrinkQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243ABC1EA52DAB000E7806 /* DrinkQuotes.swift */; };
 		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
 		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
 		DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */; };
@@ -39,6 +42,7 @@
 		DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CA3E1E84EE5E00424D3B /* FriendRequestsTableViewController.swift */; };
 		DCA6CA411E84F6B400424D3B /* FriendRequestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA6CA401E84F6B400424D3B /* FriendRequestTableViewCell.swift */; };
 		DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAEF4591E85A15C000C8298 /* FriendTableViewCell.swift */; };
+		DCC92B371EA1380D001B5DAF /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC92B361EA1380D001B5DAF /* NotificationManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +82,9 @@
 		DC04845E1E96D9E800EE7623 /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
 		DC0484621E96FA0000EE7623 /* InviteFriendsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsTableViewCell.swift; sourceTree = "<group>"; };
 		DC0484641E970D8D00EE7623 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		DC243AB81EA4756F000E7806 /* GuestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
+		DC243ABA1EA4A54E000E7806 /* GuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestTableViewCell.swift; sourceTree = "<group>"; };
+		DC243ABC1EA52DAB000E7806 /* DrinkQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkQuotes.swift; sourceTree = "<group>"; };
 		DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewController.swift; sourceTree = "<group>"; };
 		DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +110,7 @@
 		DCA6CA3E1E84EE5E00424D3B /* FriendRequestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestsTableViewController.swift; sourceTree = "<group>"; };
 		DCA6CA401E84F6B400424D3B /* FriendRequestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendRequestTableViewCell.swift; sourceTree = "<group>"; };
 		DCAEF4591E85A15C000C8298 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		DCC92B361EA1380D001B5DAF /* NotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,8 @@
 				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DC04845A1E96C23B00EE7623 /* Extensions.swift */,
 				DC04845E1E96D9E800EE7623 /* DBHandler.swift */,
+				DCC92B361EA1380D001B5DAF /* NotificationManager.swift */,
+				DC243ABC1EA52DAB000E7806 /* DrinkQuotes.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -255,6 +265,8 @@
 			children = (
 				DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */,
 				DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */,
+				DC243AB81EA4756F000E7806 /* GuestsTableViewController.swift */,
+				DC243ABA1EA4A54E000E7806 /* GuestTableViewCell.swift */,
 				DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */,
 				DCA20E801E8DB91400ACD277 /* CreateEventViewController.swift */,
 				DC04845C1E96D70B00EE7623 /* InviteFriendsTableViewController.swift */,
@@ -550,10 +562,12 @@
 			files = (
 				DC0484631E96FA0000EE7623 /* InviteFriendsTableViewCell.swift in Sources */,
 				DC04845D1E96D70B00EE7623 /* InviteFriendsTableViewController.swift in Sources */,
+				DC243ABD1EA52DAB000E7806 /* DrinkQuotes.swift in Sources */,
 				DCA6CA411E84F6B400424D3B /* FriendRequestTableViewCell.swift in Sources */,
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
+				DCC92B371EA1380D001B5DAF /* NotificationManager.swift in Sources */,
 				DC04845F1E96D9E800EE7623 /* DBHandler.swift in Sources */,
 				855B5E8F1E8600FD00E1B83D /* Theme.swift in Sources */,
 				855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */,
@@ -561,9 +575,11 @@
 				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
 				DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */,
+				DC243AB91EA4756F000E7806 /* GuestsTableViewController.swift in Sources */,
 				DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */,
 				855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */,
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
+				DC243ABB1EA4A54E000E7806 /* GuestTableViewCell.swift in Sources */,
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC61FF651E9C15EE000E8299 /* GetHomeViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,

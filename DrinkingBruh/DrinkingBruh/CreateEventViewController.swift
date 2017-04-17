@@ -8,8 +8,6 @@
 
 import UIKit
 import SkyFloatingLabelTextField
-import FirebaseDatabase
-import FirebaseAuth
 import FirebaseStorage
 import GooglePlaces
 import GoogleMaps
@@ -23,28 +21,51 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     @IBOutlet weak var locationTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var addressTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var createEventButton: UIButton!
     
-    
-    private let userEmail = FIRAuth.auth()?.currentUser?.email?.replacingOccurrences(of: ".", with: "\\_")
     private let storageRef = FIRStorage.storage().reference()
-    private let dbRef = FIRDatabase.database().reference()
     private let datePicker:UIDatePicker = UIDatePicker()
     private let dateFormatter:DateFormatter = DateFormatter()
     private let imagePicker:UIImagePickerController = UIImagePickerController()
     private var eventImage:UIImage?
     private var placesClient:GMSPlacesClient = GMSPlacesClient.shared()
-    private var eventID:String = ""
-    private var longitude:CLLocationDegrees = 0.0
-    private var latitude:CLLocationDegrees = 0.0
     
+    var eventID:String = ""
+    var longitude:CLLocationDegrees = 0.0
+    var latitude:CLLocationDegrees = 0.0
+    var eventTitle:String?
+    var eventStart:String?
+    var eventEnd:String?
+    var eventAddress:String?
+    var eventLocation:String?
+    var invitees:[String:String]?
+    var imageID:String?
     
+    var edit:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         locationTextField.isEnabled = false
         initDelegates()
         initViews()
-        eventID = UUID().uuidString
+        if !edit {
+            eventID = UUID().uuidString
+        }
+        if edit {
+            self.imageView.image = nil
+            DBHandler.getImage(imageID: imageID!) { (image) -> () in
+                self.imageView.image = image
+            }
+            createEventButton.setTitle("Save Changes", for: .normal)
+            self.title = "Edit Event"
+            print(eventID)
+            eventTitleTextField.text = eventTitle!
+            eventStartTextField.text = eventStart!
+            eventEndTextField.text = eventEnd!
+            addressTextField.text = eventAddress!
+            locationTextField.text = eventLocation!
+        }
+        createEventButton.addTarget(self, action: #selector(CreateEventViewController.save(_:)), for: .touchUpInside)
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,7 +123,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         present(imagePicker, animated: true, completion: nil)
     }
     
-    @IBAction func createEventButton(_ sender: UIButton) {
+    @objc private func save(_ sender: UIButton) {
         let incomplete:Bool = (eventEndTextField.text?.isEmpty)! || (eventStartTextField.text?.isEmpty)! || (eventTitleTextField.text?.isEmpty)! || (locationTextField.text?.isEmpty)!
         
         if (eventTitleTextField.text?.isEmpty)! {
@@ -120,8 +141,10 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         }
         
         if incomplete { return }
-        let imageName:String = UUID().uuidString
-        let eventImageRef = storageRef.child(imageName)
+        if !edit {
+            imageID = UUID().uuidString
+        }
+        let eventImageRef = storageRef.child(imageID!)
         let data = UIImageJPEGRepresentation(imageView.image!, 0.3)
         let uploadTask = eventImageRef.put(data!)
         
@@ -131,9 +154,12 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         let location:String = self.locationTextField.text!
         let address:String = self.addressTextField.text!
         
-        dbRef.child("users").child(userEmail!).child("events").child(eventID).setValue(eventID)
-        dbRef.child("events").child(eventID).setValue(["title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageName, "longitude" : longitude, "latitude" : latitude, "eventOwner" : userEmail!])
-        
+        if !edit {
+            DBHandler.createEvent(eventID: eventID, title: title, start: start, end: end, location: location, address: address, imageID: imageID!, longitude: self.longitude, latitude: self.latitude)
+        } else {
+            DBHandler.editEvent(eventID: eventID, title: title, start: start, end: end, location: location, address: address, imageID: imageID!, longitude: self.longitude, latitude: self.latitude, invitees: self.invitees!)
+        }
+        NotificationManager.eventNotification(date: start, eventTitle: title)
         performSegue(withIdentifier: "segueToInviteFriends", sender: nil)
   
     }
@@ -159,7 +185,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     private func initViews() {
         dateFormatter.dateStyle = DateFormatter.Style.medium
         dateFormatter.timeStyle = DateFormatter.Style.medium
-        dateFormatter.dateFormat = "EEEE, MMM d yyyy, hh:mm a zz"
+        dateFormatter.dateFormat = "EEEE, MMM d yyyy, hh:mm a"
         
         imagePicker.allowsEditing = false
         imagePicker.sourceType = .photoLibrary
@@ -187,6 +213,8 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         if segue.identifier == "segueToInviteFriends" {
             if let inviteFriendsVC = segue.destination as? InviteFriendsTableViewController {
                 inviteFriendsVC.eventID = self.eventID
+                inviteFriendsVC.invitees = invitees
+                inviteFriendsVC.edit = edit
             }
         }
     }

@@ -11,6 +11,7 @@ import Firebase
 import GooglePlaces
 import GoogleMaps
 import GooglePlacePicker
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -23,6 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FIRApp.configure()
         GMSPlacesClient.provideAPIKey("AIzaSyAXA1VOjJP3HES8p4PeY50cxNEMmwNVyGg")
         GMSServices.provideAPIKey("AIzaSyAXA1VOjJP3HES8p4PeY50cxNEMmwNVyGg ")
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) {(accepted, error) in
+            if !accepted {
+                print("Notification access denied.")
+            }
+        }
         return true
     }
 

@@ -9,9 +9,12 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import UserNotifications
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
+    @IBOutlet weak var eventLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"      
