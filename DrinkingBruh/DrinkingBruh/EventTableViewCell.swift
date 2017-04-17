@@ -11,14 +11,18 @@ import MapKit
 
 class EventTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var acceptInviteButton: UIButton!
     @IBOutlet weak var eventImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var startDateLabel: UILabel!
     
+    var id:String?
+    var index:Int?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

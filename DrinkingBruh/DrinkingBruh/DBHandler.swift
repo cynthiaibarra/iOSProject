@@ -25,13 +25,16 @@ class DBHandler {
     
     // Parameters: [String] The current user's email
     // Returns: [String] Values that contain the user's friend's emails
-    static func getUserEventIDs(userEmail: String, completion: @escaping (String) -> ()) {
+    static func getUserEventIDs(userEmail: String, completion: @escaping ([String:String]) -> ()) {
         let email = userEmail.firebaseSanitize()
+        
         usersDBRef.child(email).child(events).observe(.childAdded, with: { (snapshot) in
             if snapshot.exists() {
-                completion(snapshot.value as! String)
+                let eventID:String = snapshot.key
+                let status:String = snapshot.value as! String
+                completion(["id":eventID, "status":status])
             } else {
-                completion("")
+                completion([:])
             }
         })
     }
@@ -77,18 +80,18 @@ class DBHandler {
     }
     
     // Parameters: [String] Event ID
-    // Returns: [String] Emails of friend's invited to the event
-    static func getFriendsInvited(eventID: String, completion: @escaping ([String]) -> ()) {
-        eventDBRef.child(eventID).child(invitees).observeSingleEvent(of: .value, with: { (snapshot) in
-            var inviteeList:[String] = []
+    // Returns: [String:String] Email and status of friend invited to the event
+    static func getFriendsInvited(eventID: String, completion: @escaping ([String:String]) -> ()) {
+        eventDBRef.child(eventID).child(invitees).observe(.childAdded, with: { (snapshot) in
             if snapshot.exists() {
-                if let invitees = snapshot.value as? [String:String] {
-                    for invitee in invitees.keys {
-                        inviteeList.append(invitee)
-                    }
-                }
+                let email:String = snapshot.key 
+                let status:String = snapshot.value as! String
+                completion(["email":email, "status":status])
+
+            }else {
+                completion([:])
             }
-            completion(inviteeList)
+            
         })
         
     }
@@ -161,6 +164,7 @@ class DBHandler {
         
         userDB.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists() {
+                print(snapshot)
                 if let user = snapshot.value as? [String: Any] {
                     completion(user)
                 } else {
@@ -170,10 +174,23 @@ class DBHandler {
         })
     }
     
+    static func setHost(eventID: String) {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        eventDBRef.child(eventID).child(invitees).child(email!).setValue("hosting")
+        usersDBRef.child(email!).child(events).child(eventID).setValue("hosting")
+    }
+    
+    
     static func inviteFriend(eventID: String, friendEmail: String) {
         let email:String = friendEmail.firebaseSanitize()
-        eventDBRef.child(eventID).child(invitees).child(email).setValue(email)
-        usersDBRef.child(email).child(invites).child(eventID).setValue(eventID)
+        eventDBRef.child(eventID).child(invitees).child(email).setValue("pending")
+        usersDBRef.child(email).child(events).child(eventID).setValue("pending")
+    }
+    
+    static func acceptInvite(eventID: String) {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        eventDBRef.child(eventID).child(invitees).child(email!).setValue("attending")
+        usersDBRef.child(email!).child(events).child(eventID).setValue("attending")
     }
     
     static func removeOffInviteeList(eventID: String, userEmail: String) {
@@ -183,7 +200,7 @@ class DBHandler {
                 print("DBHandler.removeOffInviteeList error1: \(error.localizedDescription)")
             }
         }
-        usersDBRef.child(email).child(invites).child(eventID).removeValue { (error, ref) in
+        usersDBRef.child(email).child(events).child(eventID).removeValue { (error, ref) in
             if let error = error {
                 print("DBHandler.removeOffInviteeList error2: \(error.localizedDescription)")
             }
@@ -288,18 +305,22 @@ class DBHandler {
         })
     }
     
-//    static func getUserLocation(email: String, completion: @escaping ([String:Double]) -> ()) {
-//        locationDBRef.child(userEmail)observeSingleEvent(of: .value,  with: { (snapshot) in
-//            if snapshot.exists() {
-//                completion(snapshot.value as? [String:[String:Double]])
-//            } else {
-//                completion(nil)
-//            }
-//        })
-//    }
-//    
-    // locations
-    //    email
-    //        "lat" : 34.235
-    //         "long": 325.35
+    static func emailIsUsers(entry:String) -> Bool {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        return email == entry.firebaseSanitize()
+    }
+    
+    static func getUserEmail() -> String {
+        return (FIRAuth.auth()?.currentUser?.email?.firebaseSanitize())!
+    }
+    
+    static func createEvent(eventID:String, title:String, start:String, end:String, location:String, address:String, imageID:String, longitude: Double, latitude: Double) {
+        usersDBRef.child(getUserEmail()).child("events").child(eventID).setValue("hosting")
+        eventDBRef.child(eventID).setValue(["id":eventID, "title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageID, "longitude" : longitude, "latitude" : latitude])
+    }
+    
+    static func editEvent(eventID:String, title:String, start:String, end:String, location:String, address:String, imageID:String, longitude: Double, latitude: Double, invitees:[String:String]) {
+        usersDBRef.child(getUserEmail()).child("events").child(eventID).setValue("hosting")
+        eventDBRef.child(eventID).setValue(["id":eventID, "title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageID, "longitude" : longitude, "latitude" : latitude, "invitees":invitees])
+    }
 }

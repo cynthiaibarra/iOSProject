@@ -13,6 +13,8 @@ class InviteFriendsTableViewController: UITableViewController {
 
     private var friends:[[String:Any]] = []
     var eventID:String!
+    var invitees:[String:String]?
+    var edit:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,12 +22,15 @@ class InviteFriendsTableViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InviteFriendsTableViewController.performSegueToEvents))
         let userEmail:String = (FIRAuth.auth()?.currentUser?.email)!
         DBHandler.getFriends(userEmail: userEmail) { (friend) -> () in
-            DBHandler.getUserInfo(userEmail: friend) { (friendInfo) -> () in
-                self.friends.append(friendInfo)
-                self.tableView.insertRows(at: [IndexPath(row: self.friends.count - 1, section: 0)], with: .automatic)
+            if (self.edit && self.invitees?[friend] == nil) || !self.edit {
+                DBHandler.getUserInfo(userEmail: friend) { (friendInfo) -> () in
+                    self.friends.append(friendInfo)
+                    self.tableView.insertRows(at: [IndexPath(row: self.friends.count - 1, section: 0)], with: .automatic)
+                }
             }
-            
         }
+        
+        DBHandler.setHost(eventID: eventID)
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +56,13 @@ class InviteFriendsTableViewController: UITableViewController {
         cell.friendEmail = friend["email"] as? String
         cell.eventID = eventID
         
+        let imageID = friend["image"]
+        if imageID != nil {
+            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
+                cell.userImageView.image = image
+            }
+        }
+
         return cell
     }
     
