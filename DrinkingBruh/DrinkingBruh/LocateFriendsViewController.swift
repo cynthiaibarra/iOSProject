@@ -32,6 +32,7 @@ class LocateFriendsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Friend Locator"
         // Do any additional setup after loading the view.
         
         eventParticipantsNames = [String]()
