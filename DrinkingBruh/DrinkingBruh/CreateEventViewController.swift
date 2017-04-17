@@ -159,9 +159,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         } else {
             DBHandler.editEvent(eventID: eventID, title: title, start: start, end: end, location: location, address: address, imageID: imageID!, longitude: self.longitude, latitude: self.latitude, invitees: self.invitees!)
         }
-
         NotificationManager.eventNotification(date: start, eventTitle: title)
-       
         performSegue(withIdentifier: "segueToInviteFriends", sender: nil)
   
     }
