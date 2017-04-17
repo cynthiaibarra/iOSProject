@@ -273,17 +273,17 @@ class DBHandler {
         usersDBRef.child(email).child("sentFriendRequests").child(fEmail).setValue(fEmail)
     }
     
-    static func addDrink(eventID:String, drinks:[String:Int]) {
+    static func addDrink(eventID:String, drinks:[String:Any]) {
         let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
-        eventDBRef.child(eventID).child("drinkLog").child(email!).setValue(["beer":drinks["beer"], "vodka":drinks["vodka"], "gin":drinks["gin"], "whiskey":drinks["whiskey"], "tequila":drinks["tequila"], "wine":drinks["wine"]])
+        eventDBRef.child(eventID).child("drinkLog").child(email!).setValue(["beer":drinks["beer"], "vodka":drinks["vodka"], "gin":drinks["gin"], "whiskey":drinks["whiskey"], "tequila":drinks["tequila"], "wine":drinks["wine"], "elapsedTime":drinks["elapsedTime"]])
     }
     
-    static func getDrinks(eventID:String, completion: @escaping ([String:Int]?) -> ()) {
+    static func getDrinks(eventID:String, completion: @escaping ([String:Any]?) -> ()) {
         let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
         print(email!)
         eventDBRef.child(eventID).child("drinkLog").child(email!).observeSingleEvent(of: .value,  with: { (snapshot) in
             if snapshot.exists() {
-                completion(snapshot.value as? [String:Int])
+                completion(snapshot.value as? [String:Any])
             } else {
                 completion(nil)
             }

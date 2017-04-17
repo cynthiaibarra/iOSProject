@@ -32,6 +32,9 @@
                                 <rect key="frame" x="109" y="542" width="132" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Clear"/>
+                                <connections>
+                                    <action selector="clearButton:" destination="ST5-a9-ezd" eventType="touchUpInside" id="kEV-Jx-03n"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgk-49-P93">
                                 <rect key="frame" x="16" y="157" width="343" height="66"/>
@@ -68,7 +71,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tequilla:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-DK-7Ct">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tequila:" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6n-DK-7Ct">
                                 <rect key="frame" x="109" y="439" width="73" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -148,6 +151,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="BACLabel" destination="kgk-49-P93" id="1au-GZ-gY1"/>
+                        <outlet property="beerCountLabel" destination="PQ1-ac-VuF" id="W3a-BJ-wUn"/>
+                        <outlet property="drinkTotalLabel" destination="xDJ-vC-4uV" id="3Bf-F8-Mh7"/>
+                        <outlet property="ginCountLabel" destination="3za-zc-Ebo" id="kbW-cG-m18"/>
+                        <outlet property="tequilaCountLabel" destination="cZh-0s-cv2" id="oaX-bY-bro"/>
+                        <outlet property="vodkaCountLabel" destination="Tkj-WE-GCO" id="BNL-AG-yCl"/>
+                        <outlet property="whiskeyCountLabel" destination="kCk-nO-N82" id="maJ-xD-chG"/>
+                        <outlet property="wineCountLabel" destination="3yP-Hj-OiY" id="tUY-xr-5m6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="th7-1G-TZb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -193,7 +206,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tequilla" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qa8-jA-e7a">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tequila" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qa8-jA-e7a">
                                 <rect key="frame" x="16" y="306" width="73" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -224,14 +237,23 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jPe-Bz-viu">
                                 <rect key="frame" x="265" y="90" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="beerStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="BB2-Jm-nr3"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="4Yp-OX-NXC">
                                 <rect key="frame" x="265" y="144" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="vodkaStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="DNK-1T-GXt"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zMO-JM-b7B">
                                 <rect key="frame" x="265" y="198" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="ginStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="dUG-g0-QYh"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nDD-aD-0OK">
                                 <rect key="frame" x="182" y="198" width="42" height="29"/>
@@ -257,10 +279,16 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zZY-yi-SFE">
                                 <rect key="frame" x="265" y="252" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="whiskeyStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="Erk-pG-aHf"/>
+                                </connections>
                             </stepper>
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="idS-1g-PJn">
                                 <rect key="frame" x="265" y="306" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="tequilaStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="Z1l-h7-b5B"/>
+                                </connections>
                             </stepper>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zez-rm-S3p">
                                 <rect key="frame" x="182" y="360" width="42" height="29"/>
@@ -272,8 +300,11 @@
                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Ryt-Wp-4WJ">
                                 <rect key="frame" x="265" y="360" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="wineStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="P5B-Da-tlS"/>
+                                </connections>
                             </stepper>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g08-mO-G6j">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g08-mO-G6j">
                                 <rect key="frame" x="182" y="414" width="42" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -287,14 +318,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="zoP-kK-csW">
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" stepValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zoP-kK-csW">
                                 <rect key="frame" x="265" y="414" width="94" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="elapsedTimeStepper:" destination="iQk-R3-BDC" eventType="valueChanged" id="7XM-Dc-e83"/>
+                                </connections>
                             </stepper>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="thd-5z-9ko">
                                 <rect key="frame" x="178" y="566" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="iQk-R3-BDC" eventType="touchUpInside" id="YU6-Ee-scv"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Number Of Drinks" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uhn-mL-47d">
                                 <rect key="frame" x="16" y="484" width="208" height="29"/>
@@ -313,6 +350,23 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="beerCountLabel" destination="shq-1T-gya" id="40E-Xc-hyr"/>
+                        <outlet property="beerStep" destination="jPe-Bz-viu" id="6bz-yL-lfy"/>
+                        <outlet property="drinkTotalLabel" destination="igY-Im-Vzj" id="rzh-gd-syd"/>
+                        <outlet property="elapsedTimeLabel" destination="g08-mO-G6j" id="oF4-ws-wov"/>
+                        <outlet property="elapsedTimeStep" destination="zoP-kK-csW" id="ZrM-FF-PPX"/>
+                        <outlet property="ginCountLabel" destination="nDD-aD-0OK" id="luD-kn-b5S"/>
+                        <outlet property="ginStep" destination="zMO-JM-b7B" id="Lui-Qr-Msv"/>
+                        <outlet property="tequilaCountLabel" destination="wGs-OH-Ywx" id="bi3-FO-MJ0"/>
+                        <outlet property="tequilaStep" destination="idS-1g-PJn" id="MWe-Pc-pvx"/>
+                        <outlet property="vodkaCountLabel" destination="okH-n6-Tc2" id="Smc-1h-yTp"/>
+                        <outlet property="vodkaStep" destination="4Yp-OX-NXC" id="IdW-6f-wdA"/>
+                        <outlet property="whiskeyCountLabel" destination="18H-vV-kZu" id="cdp-wr-ycd"/>
+                        <outlet property="whiskeyStep" destination="zZY-yi-SFE" id="MTa-IJ-c65"/>
+                        <outlet property="wineCountLabel" destination="Zez-rm-S3p" id="M4n-Y1-Drf"/>
+                        <outlet property="wineStep" destination="Ryt-Wp-4WJ" id="kbK-k6-brP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="slI-29-amd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
