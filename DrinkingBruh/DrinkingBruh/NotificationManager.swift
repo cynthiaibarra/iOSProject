@@ -13,7 +13,7 @@ import UserNotifications
 
 class NotificationManager {
     
-    static func eventNotification (date:String, eventTitle:String) {
+    static func eventNotification (date:String, eventTitle:String, eventID:String) {
         
         let content = UNMutableNotificationContent()
         let dateFormatter = DateFormatter()
@@ -21,6 +21,7 @@ class NotificationManager {
         let date:Date = dateFormatter.date(from: date)!
         
         content.body = "\(eventTitle) is happening right now."
+        content.userInfo["eventID"] = eventID
         content.sound = UNNotificationSound.default()
         let timeInterval = date.timeIntervalSinceNow
         print(timeInterval)

@@ -23,6 +23,7 @@
 		DC243AB91EA4756F000E7806 /* GuestsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243AB81EA4756F000E7806 /* GuestsTableViewController.swift */; };
 		DC243ABB1EA4A54E000E7806 /* GuestTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243ABA1EA4A54E000E7806 /* GuestTableViewCell.swift */; };
 		DC243ABD1EA52DAB000E7806 /* DrinkQuotes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243ABC1EA52DAB000E7806 /* DrinkQuotes.swift */; };
+		DC243ABF1EA5535E000E7806 /* OccurringEventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC243ABE1EA5535E000E7806 /* OccurringEventsTableViewController.swift */; };
 		DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */; };
 		DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */; };
 		DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */; };
@@ -35,6 +36,7 @@
 		DC61FF651E9C15EE000E8299 /* GetHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC61FF641E9C15EE000E8299 /* GetHomeViewController.swift */; };
 		DC61FF671E9C2173000E8299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */; };
 		DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */; };
+		DC971D2D1EA55692005423DF /* OccurringEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC971D2C1EA55692005423DF /* OccurringEventTableViewCell.swift */; };
 		DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */; };
 		DC9B046B1E97671700DD6FFF /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */; };
 		DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */; };
@@ -85,6 +87,7 @@
 		DC243AB81EA4756F000E7806 /* GuestsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestsTableViewController.swift; sourceTree = "<group>"; };
 		DC243ABA1EA4A54E000E7806 /* GuestTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuestTableViewCell.swift; sourceTree = "<group>"; };
 		DC243ABC1EA52DAB000E7806 /* DrinkQuotes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkQuotes.swift; sourceTree = "<group>"; };
+		DC243ABE1EA5535E000E7806 /* OccurringEventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OccurringEventsTableViewController.swift; sourceTree = "<group>"; };
 		DC3609821E8460E0006ECA50 /* AddFriendTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewCell.swift; sourceTree = "<group>"; };
 		DC3609831E8460E0006ECA50 /* AddFriendTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendTableViewController.swift; sourceTree = "<group>"; };
 		DC36098B1E8461FE006ECA50 /* FriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +106,7 @@
 		DC61FF641E9C15EE000E8299 /* GetHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GetHomeViewController.swift; sourceTree = "<group>"; };
 		DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		DC971D2C1EA55692005423DF /* OccurringEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OccurringEventTableViewCell.swift; sourceTree = "<group>"; };
 		DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
 		DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
@@ -185,6 +189,15 @@
 			name = Support;
 			sourceTree = "<group>";
 		};
+		DC243AC01EA55368000E7806 /* OccurringEvents */ = {
+			isa = PBXGroup;
+			children = (
+				DC243ABE1EA5535E000E7806 /* OccurringEventsTableViewController.swift */,
+				DC971D2C1EA55692005423DF /* OccurringEventTableViewCell.swift */,
+			);
+			name = OccurringEvents;
+			sourceTree = "<group>";
+		};
 		DC3609881E84610E006ECA50 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,6 +236,7 @@
 		DC5CFE2F1E55297B00205DF4 /* DrinkingBruh */ = {
 			isa = PBXGroup;
 			children = (
+				DC243AC01EA55368000E7806 /* OccurringEvents */,
 				DC0484591E96C1F700EE7623 /* Support */,
 				DCA20E7D1E8DA47D00ACD277 /* Events */,
 				855B5E901E86010700E1B83D /* Settings */,
@@ -567,10 +581,12 @@
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
+				DC971D2D1EA55692005423DF /* OccurringEventTableViewCell.swift in Sources */,
 				DCC92B371EA1380D001B5DAF /* NotificationManager.swift in Sources */,
 				DC04845F1E96D9E800EE7623 /* DBHandler.swift in Sources */,
 				855B5E8F1E8600FD00E1B83D /* Theme.swift in Sources */,
 				855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */,
+				DC243ABF1EA5535E000E7806 /* OccurringEventsTableViewController.swift in Sources */,
 				DC9B046B1E97671700DD6FFF /* EventInfoViewController.swift in Sources */,
 				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,

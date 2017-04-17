@@ -191,6 +191,8 @@ class DBHandler {
         let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
         eventDBRef.child(eventID).child(invitees).child(email!).setValue("attending")
         usersDBRef.child(email!).child(events).child(eventID).setValue("attending")
+        
+        //NotificationManager.eventNotification(date: startDate, eventTitle: eventTitle, eventID: eventID)
     }
     
     static func removeOffInviteeList(eventID: String, userEmail: String) {
@@ -213,11 +215,6 @@ class DBHandler {
         usersDBRef.child(email).child(eventsAttending).child(eventID).setValue(eventID)
     }
     
-    static func acceptEventRequest(eventID:String, userEmail:String) {
-        addToAttendeesList(eventID: eventID, userEmail: userEmail)
-        removeOffInviteeList(eventID: eventID, userEmail: userEmail)
-    }
-    
     static func getImage(imageID:String, completion: @escaping (UIImage) -> ()){
         let imageRef = FIRStorage.storage().reference(withPath: imageID)
         imageRef.data(withMaxSize: 3 * 1024 * 1024) { data, error in
@@ -234,6 +231,17 @@ class DBHandler {
             if snapshot.exists() {
                 if let userDictionary = snapshot.value as? [String:Any] {
                     completion(userDictionary)
+                }
+            }
+        })
+    }
+    
+    static func getUserEvents(completion: @escaping ([String:String]) -> ()) {
+        usersDBRef.child(getUserEmail()).child("events").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                print(snapshot.value ?? "error")
+                if let userEvents = snapshot.value as? [String:String] {
+                    completion(userEvents)
                 }
             }
         })
@@ -323,4 +331,9 @@ class DBHandler {
         usersDBRef.child(getUserEmail()).child("events").child(eventID).setValue("hosting")
         eventDBRef.child(eventID).setValue(["id":eventID, "title" : title, "start" : start, "end" : end, "location" : location, "address" : address, "image" : imageID, "longitude" : longitude, "latitude" : latitude, "invitees":invitees])
     }
+    
+    static func addRole(role:String, eventID: String) {
+        eventDBRef.child(eventID).child("roles").child(getUserEmail()).setValue(role)
+    }
+    
 }
