@@ -12,6 +12,8 @@ class Config: NSObject {
 
     fileprivate static let themeKey = "theme"
     fileprivate static let dModeKey = "drunkMode"
+    fileprivate static let drinksKey = "drinks"
+
     
     class func setTheme(_ theme:String) {
         UserDefaults.standard.set(theme, forKey: themeKey)
@@ -40,4 +42,17 @@ class Config: NSObject {
             return "off"
         }
     }
+    class func setDrinks(_ drinks:[String: Any]) {
+        UserDefaults.standard.set(drinks, forKey: drinksKey)
+        UserDefaults.standard.synchronize()
+    }
+    class func getDrinks() -> [String: Any] {
+        if let d = UserDefaults.standard.object(forKey: drinksKey) as? [String: Any] {
+            return d
+        }
+        else {
+            return [String:Any]()
+        }
+    }
+    
 }
