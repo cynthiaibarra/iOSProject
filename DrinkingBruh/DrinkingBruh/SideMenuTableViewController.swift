@@ -36,4 +36,22 @@ class SideMenuTableViewController: UITableViewController {
         let controller = storyboard.instantiateViewController(withIdentifier: "settings") as UIViewController
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    @IBAction func friendLocator(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Location", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FriendLocator") as UIViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+
+    }
+    @IBAction func drinkTracker(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DrinkTracker") as UIViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+
+    }
+    @IBAction func bacCalc(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Bac") as UIViewController
+        self.navigationController?.pushViewController(controller, animated: true)
+
+    }
 }
