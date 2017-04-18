@@ -2,6 +2,28 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb435816526810203</string>
+			</array>
+		</dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>435816526810203</string>
+	<key>FacebookDisplayName</key>
+	<string>DrinkingBruh</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messanger-api</string>
+		<string>fbauth2</string>
+		<string>fbsharedextension</string>
+		<string>tel</string>
+		<string>telprompt</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>This app requires access to the camera to upload images.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
@@ -12,11 +34,6 @@
 	<string>Need location access for updating nearby friends</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs libary access for uploading images</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-        <string>tel</string>
-        <string>telprompt</string>
-    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
