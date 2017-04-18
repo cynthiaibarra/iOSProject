@@ -15,8 +15,6 @@ class LocateFriendsViewController: UIViewController {
     //MARK: Properties
     var currentEventID:String?
     var friendEmails:[String]?
-    var eventOwnerEmail:String?
-    var eventOwnerName:String?
     var eventParticipantsNames:[String]?
     var allLocations:[String:[String:Double]]?
     var locations:[MKPointAnnotation]?
@@ -38,27 +36,15 @@ class LocateFriendsViewController: UIViewController {
         eventParticipantsNames = [String]()
         locations = [MKPointAnnotation]()
         
+        currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
+        
         if(currentEventID != nil) {
             
             //get the friends attending - variable
-            DBHandler.getFriendsAttending(eventID: currentEventID!) { (friendsAttending) -> () in
+            DBHandler.getFriendsInvited(eventID: currentEventID!) { (invitees) -> () in
                 
-                if(friendsAttending.count != 0) {
-                    self.friendEmails = friendsAttending
-                }
-            }
-            
-            //get email of event owner from event info
-            //get full name of the event owner
-            DBHandler.getEventInfo(eventID: currentEventID!) { (event) -> () in
-                
-                if(event.count != 0) {
-                    self.eventOwnerEmail = event["eventOwner"] as! String?
-                    
-                    DBHandler.getUserInfo(userEmail: self.eventOwnerEmail!) { (user) -> () in
-                        let fullName:String = user["fullName"] as! String
-                        self.eventOwnerEmail = fullName
-                    }
+                for invitee in invitees {
+                      self.friendEmails.append(invitee.key)
                 }
             }
             
@@ -97,23 +83,6 @@ class LocateFriendsViewController: UIViewController {
                 }
             }
             
-            //if this user is not the owner add to the participant names list and locations array
-            if(eventOwnerEmail != nil && eventOwnerName != nil) {
-                if(userEmail! != eventOwnerEmail!) {
-                    eventParticipantsNames?.append(eventOwnerName!)
-
-                    let lat:Double = (self.allLocations?[eventOwnerEmail!]?["latitude"])!
-                    let long:Double = (self.allLocations?[eventOwnerEmail!]?["longitude"])!
-                    
-                    let annotation = MKPointAnnotation()
-                    annotation.coordinate.latitude = lat
-                    annotation.coordinate.longitude = long
-                    annotation.title = eventOwnerName!
-                    
-                    self.locations?.append(annotation)
-
-                }
-            }
         }
         
         //show this user on map if location services are enabled
