@@ -32,7 +32,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Reset"/>
                                 <connections>
-                                    <action selector="resetPassword:" destination="CVE-cl-Nvh" eventType="touchUpInside" id="v7b-16-yBJ"/>
+                                    <action selector="resetPassword:" destination="CVE-cl-Nvh" eventType="touchUpInside" id="p0I-al-lXO"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS1-sQ-kXT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -72,7 +72,7 @@
                         <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="LS1-sQ-kXT" id="dS6-0f-cTj"/>
+                        <outlet property="emailField" destination="LS1-sQ-kXT" id="SEr-wM-vAg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TOh-gt-lC7" userLabel="First Responder" sceneMemberID="firstResponder"/>
