@@ -97,6 +97,23 @@ class DBHandler {
     }
     
     // Parameters: [String] Event ID
+    // Returns: [String:String] Email and role of friend attending event
+    static func getInviteeRoles(eventID: String, completion: @escaping ([String:String]) -> ()) {
+        eventDBRef.child(eventID).child("roles").observe(.childAdded, with: { (snapshot) in
+            if snapshot.exists() {
+                let email:String = snapshot.key
+                let role:String = snapshot.value as! String
+                completion(["email":email, "role":role])
+                
+            }else {
+                completion([:])
+            }
+            
+        })
+        
+    }
+    
+    // Parameters: [String] Event ID
     // Returns: [String] Emails of friend's that are attending the event
     static func getFriendsAttending(eventID: String, completion: @escaping ([String]) -> ()) {
         eventDBRef.child(eventID).child(attendees).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -111,6 +128,29 @@ class DBHandler {
             completion(attendeeList)
         })
     }
+    
+    // Parameters: [String] Event ID
+    // Returns: String Email of host
+    static func getHost(eventID: String, completion: @escaping (String) -> ()) {
+        eventDBRef.child(eventID).child(invitees).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let invitees = snapshot.value as? [String:String] {
+                    for invitee in invitees {
+                        if invitee.value == "hosting" {
+                            completion(invitee.key)
+                            break
+                        }
+                    }
+                }
+            }else {
+                completion("")
+            }
+        })
+    }
+    
+    //    DBHandler.getHost(eventID: "2C659A10-E938-47E3-9A49-7A4ED253C7E3"){ (hostEmail) -> () in
+    //      print(hostEmail)
+    //    }
     
     // Parameters: [String] Current user's email
     // Returns: [String] Emails of current user's friends
@@ -335,5 +375,4 @@ class DBHandler {
     static func addRole(role:String, eventID: String) {
         eventDBRef.child(eventID).child("roles").child(getUserEmail()).setValue(role)
     }
-    
 }

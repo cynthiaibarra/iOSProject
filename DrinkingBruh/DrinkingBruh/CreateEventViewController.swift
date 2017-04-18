@@ -86,8 +86,13 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         sender.inputView = datePicker
         if eventStartTextField.editingOrSelected {
             datePicker.minimumDate = Date()
+            if !eventEndTextField.text!.isEmpty {
+                datePicker.maximumDate =  dateFormatter.date(from: eventEndTextField.text!)
+            }
         } else if !(eventStartTextField.text?.isEmpty)! {
-            datePicker.minimumDate = dateFormatter.date(from: eventStartTextField.text!)
+            if !(eventStartTextField.text?.isEmpty)! {
+                datePicker.minimumDate = dateFormatter.date(from: eventStartTextField.text!)
+            }
         }
         
     }
@@ -197,11 +202,10 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
         datePicker.addTarget(self, action: #selector(CreateEventViewController.datePickerValueChanged(sender:)), for: .valueChanged)
     }
     
-    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        self.eventImage = info[UIImagePickerControllerOriginalImage] as? UIImage //2
+        self.eventImage = info[UIImagePickerControllerOriginalImage] as? UIImage
         imageView.image = self.eventImage
-        dismiss(animated:true, completion: nil) //5
+        dismiss(animated:true, completion: nil)
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

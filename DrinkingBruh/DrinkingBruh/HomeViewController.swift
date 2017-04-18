@@ -14,11 +14,19 @@ import UserNotifications
 class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
 
     @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var quoteTextView: UITextView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"      
         // Do any additional setup after loading the view.
+        let quotes:DrinkQuotes = DrinkQuotes()
+        let quote:[String:String] = quotes.returnQuote()
+        let q:String = quote["quote"]!
+        let author:String = quote["author"]!
+        nameLabel.text = author
+        quoteTextView.text = "\"\(q)\""
         LocationTracker.getInstance().requestLocation()
     }
 
