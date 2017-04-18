@@ -9,8 +9,9 @@
 import UIKit
 
 class GuestTableViewCell: UITableViewCell {
+ 
     @IBOutlet weak var nameLabel: UILabel!
-
+    @IBOutlet weak var roleLabel: UILabel!
     @IBOutlet weak var userImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

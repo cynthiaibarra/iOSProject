@@ -111,6 +111,17 @@ class EventsTableViewController: UITableViewController {
         tableView.deleteRows(at: [indexPath], with: .fade)
         attendingEvents.append(event)
         tableView.insertRows(at: [IndexPath(row: self.attendingEvents.count - 1, section: 0)], with: .automatic)
+    
+        let alert = UIAlertController(title: "Role Selection", message: "Enter your role in the event!", preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.placeholder = "The Awesome One"
+        }
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            let role:String = (textField?.text!)!
+            DBHandler.addRole(role: role, eventID: vc.id!)
+        }))
+        self.present(alert, animated: true, completion: nil)
     }
     
     @objc private func segueToCreateEvent() {
@@ -159,42 +170,6 @@ class EventsTableViewController: UITableViewController {
         }
     }
  
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    } */
- 
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showEventInfo" {
             if let eventInfoVC = segue.destination as? EventInfoViewController {

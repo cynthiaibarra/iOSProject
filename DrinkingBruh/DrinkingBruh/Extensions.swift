@@ -44,8 +44,3 @@ public extension UIColor {
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
 }
-
-
-//DBHandler.getDrinks(eventID: eventID) { (drinkLog) -> () in
-//    print(drinkLog ?? "error")
-//}

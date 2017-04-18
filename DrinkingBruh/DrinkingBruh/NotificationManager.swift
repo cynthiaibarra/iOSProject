@@ -30,6 +30,5 @@ class NotificationManager {
             let request = UNNotificationRequest(identifier: "event", content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
-        
     }
 }

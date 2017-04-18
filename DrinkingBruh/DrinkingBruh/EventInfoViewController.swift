@@ -21,8 +21,7 @@ class EventInfoViewController: UIViewController {
     @IBOutlet weak var hostImageView: UIImageView!
     @IBOutlet weak var hostFirstNameLabel: UILabel!
     @IBOutlet weak var hostLastNameLabel: UILabel!
-
-    
+  
     var eventTitle:String?
     var imageID:String?
     var start:String?
@@ -67,6 +66,7 @@ class EventInfoViewController: UIViewController {
         if segue.identifier == "showGuestList" {
             if let guestListVC = segue.destination as? GuestsTableViewController {
                 guestListVC.invitees = self.invitees!
+                guestListVC.eventID = self.eventID!
             }
         }else if segue.identifier == "segueToEditInfo" {
             if let createEventVC = segue.destination as? CreateEventViewController {
