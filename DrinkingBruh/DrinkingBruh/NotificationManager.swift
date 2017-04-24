@@ -21,13 +21,12 @@ class NotificationManager {
         let date:Date = dateFormatter.date(from: date)!
         
         content.body = "\(eventTitle) is happening right now."
-        content.userInfo["eventID"] = eventID
         content.sound = UNNotificationSound.default()
         let timeInterval = date.timeIntervalSinceNow
         print(timeInterval)
         if timeInterval > 0.0 {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-            let request = UNNotificationRequest(identifier: "event", content: content, trigger: trigger)
+            let request = UNNotificationRequest(identifier: eventID, content: content, trigger: trigger)
             UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
         }
     }

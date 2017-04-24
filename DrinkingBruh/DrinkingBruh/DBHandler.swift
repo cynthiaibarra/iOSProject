@@ -375,4 +375,9 @@ class DBHandler {
     static func addRole(role:String, eventID: String) {
         eventDBRef.child(eventID).child("roles").child(getUserEmail()).setValue(role)
     }
+    
+    static func addEventToTimeline(eventID:String) {
+        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
+        usersDBRef.child(email!).child("timelines").child(eventID).setValue(eventID)
+    }
 }
