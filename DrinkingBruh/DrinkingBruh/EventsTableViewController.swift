@@ -122,6 +122,7 @@ class EventsTableViewController: UITableViewController {
             DBHandler.addRole(role: role, eventID: vc.id!)
         }))
         self.present(alert, animated: true, completion: nil)
+        NotificationManager.eventNotification(date: vc.startDateLabel.text!, eventTitle: vc.titleLabel.text!, eventID: vc.id!)
     }
     
     @objc private func segueToCreateEvent() {

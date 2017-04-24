@@ -17,16 +17,15 @@ class OccurringEventsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> () in
-            print(deliveredNotifications.count)
+            if deliveredNotifications.count > 0 {
+                for notification in deliveredNotifications {
+                    let eventID:String = notification.request.identifier
+                    DBHandler.addEventToTimeline(eventID: eventID)
+                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [eventID])
+                }
+                
+            }
         })
-        
-        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { deliveredNotifications -> () in
-            print(deliveredNotifications.count)
-        })
-//        DBHandler.getUserEvents() { (events) -> () in
-//            self.eventList = events
-//        }
-        
     }
 
     override func didReceiveMemoryWarning() {

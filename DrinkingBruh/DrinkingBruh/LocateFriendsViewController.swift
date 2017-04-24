@@ -14,7 +14,7 @@ class LocateFriendsViewController: UIViewController {
     
     //MARK: Properties
     var currentEventID:String?
-    var friendEmails:[String]?
+    var friendEmails:[String] = []
     var eventParticipantsNames:[String]?
     var allLocations:[String:[String:Double]]?
     var locations:[MKPointAnnotation]?
@@ -62,7 +62,7 @@ class LocateFriendsViewController: UIViewController {
                 //if this user is on the friends list - do not add to participant names, locations
                 //get locations for the friends create MKPointAnnotations and update locations array
                 //get full name of the people and add to eventParticipantNames
-                for friendEmail in friendEmails! {
+                for friendEmail in friendEmails {
                     if(userEmail! != friendEmail) {
                         
                         DBHandler.getUserInfo(userEmail: friendEmail) { (user) -> () in
