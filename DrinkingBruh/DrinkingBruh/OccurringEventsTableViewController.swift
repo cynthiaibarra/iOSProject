@@ -12,7 +12,7 @@ import UserNotifications
 class OccurringEventsTableViewController: UITableViewController {
     
     private var events:[[String:Any]] = []
-//    private var eventList:[String:String] = [:]
+    private var eventList:[String:String] = [:]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +26,17 @@ class OccurringEventsTableViewController: UITableViewController {
                 
             }
         })
+        
+        DBHandler.getTimelineEvents() { (timelineEvents) -> () in
+            self.eventList = timelineEvents
+            for event in self.eventList {
+                let eventID = event.key
+                DBHandler.getEventInfo(eventID: eventID){ (event) -> () in
+                    self.events.append(event)
+                    self.tableView.insertRows(at: [IndexPath(row: self.events.count - 1, section: 0)], with: .automatic)
+                }
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,15 +66,24 @@ class OccurringEventsTableViewController: UITableViewController {
         return 100.0
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "timelineEventCell", for: indexPath) as! OccurringEventTableViewCell
 
-        // Configure the cell...
-
+        let event = events[indexPath.row]
+        cell.titleLabel.text = event["title"] as? String
+        cell.startLabel.text = event["start"] as? String
+        cell.endLabel.text = event["end"] as? String
+        
+        let imageID:String = (event["image"] as? String)!
+        DBHandler.getImage(imageID: imageID) { (image) -> () in
+            cell.imageview.image = image
+        }
         return cell
     }
-    */
+    
+    
+    
 
     /*
     // Override to support conditional editing of the table view.
@@ -100,14 +120,20 @@ class OccurringEventsTableViewController: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "segueToTimeline" {
+            if let timelineVC = segue.destination as? TimelineViewController {
+                if let indexPath = self.tableView.indexPathForSelectedRow {
+                    timelineVC.eventID = (self.events[indexPath.row]["id"] as? String)!
+                    timelineVC.eventTitle = (self.events[indexPath.row]["title"] as? String)!
+                }
+            }
+        }
     }
-    */
+ 
 
 }

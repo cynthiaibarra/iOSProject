@@ -26,7 +26,7 @@
                                 <rect key="frame" x="51" y="50" width="273" height="74"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LS1-sQ-kXT" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
-                                <rect key="frame" x="175" y="174" width="25" height="39"/>
+                                <rect key="frame" x="160" y="174" width="55.5" height="39"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -306,6 +306,51 @@
             </objects>
             <point key="canvasLocation" x="1733.5999999999999" y="760.56971514242889"/>
         </scene>
+        <!--Timeline View Controller-->
+        <scene sceneID="GgT-gp-MLO">
+            <objects>
+                <viewController id="wdN-BZ-i4W" customClass="TimelineViewController" customModule="DrinkingBruh" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RaM-Xs-v2k"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ctp-a2-Rn9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JrP-yS-TIc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obg-Rt-HUi">
+                                <rect key="frame" x="16" y="617" width="106" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Friend Location"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1rT-4L-5af">
+                                <rect key="frame" x="16" y="587" width="92" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Drink Tracker"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="STh-n1-uuh">
+                                <rect key="frame" x="16" y="561" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="BAC"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ilu-1p-sPx">
+                                <rect key="frame" x="11" y="131" width="353" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="titleLabel" destination="ilu-1p-sPx" id="X8t-xA-oMa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6JJ-aP-uHL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1543.2" y="787.55622188905556"/>
+        </scene>
         <!--Occurring Events Table View Controller-->
         <scene sceneID="1BI-le-ZkW">
             <objects>
@@ -315,7 +360,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.12549019610000001" green="0.33725490200000002" blue="0.56862745100000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="sv3-fQ-5ho" customClass="OccurringEventTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="timelineEventCell" rowHeight="100" id="sv3-fQ-5ho" customClass="OccurringEventTableViewCell" customModule="DrinkingBruh" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sv3-fQ-5ho" id="EJ6-8l-6Fm">
@@ -371,6 +416,7 @@
                                     <outlet property="imageview" destination="MdL-u3-nIq" id="me2-fv-eP1"/>
                                     <outlet property="startLabel" destination="vX6-Tb-vGf" id="LSv-uA-EZl"/>
                                     <outlet property="titleLabel" destination="p6Z-oQ-fkS" id="84j-zL-mhw"/>
+                                    <segue destination="wdN-BZ-i4W" kind="show" identifier="segueToTimeline" id="0FB-qe-Snm"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

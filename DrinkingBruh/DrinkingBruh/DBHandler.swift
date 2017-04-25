@@ -377,7 +377,17 @@ class DBHandler {
     }
     
     static func addEventToTimeline(eventID:String) {
-        let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
-        usersDBRef.child(email!).child("timelines").child(eventID).setValue(eventID)
+        usersDBRef.child(getUserEmail()).child("timelines").child(eventID).setValue(eventID)
+    }
+    
+    static func getTimelineEvents(completion: @escaping ([String:String]) -> ()) {
+        usersDBRef.child(getUserEmail()).child("timelines").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                print(snapshot.value ?? "error")
+                if let userEvents = snapshot.value as? [String:String] {
+                    completion(userEvents)
+                }
+            }
+        })
     }
 }
