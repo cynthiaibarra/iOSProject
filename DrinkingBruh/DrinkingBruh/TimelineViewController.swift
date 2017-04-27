@@ -7,17 +7,49 @@
 //
 
 import UIKit
+import FirebaseStorage
+import FirebaseStorageUI
 
-class TimelineViewController: UIViewController {
+class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+
+    @IBOutlet weak var floaty: Floaty!
+    @IBOutlet weak var tableView: UITableView!
     
-    @IBOutlet weak var titleLabel: UILabel!
     var eventID:String = ""
     var eventTitle:String = ""
+    var posts:[[String:Any]] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        titleLabel.text = eventTitle
-        // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+        self.title = eventTitle
+        floaty.sticky = true
+        floaty.addItem("New Post", icon: UIImage(named: "pencil-box")!, handler: { item in
+            self.performSegue(withIdentifier: "segueToNewPost", sender: nil)
+        })
+        floaty.addItem("Friend Locations", icon: UIImage(named: "map-marker")!, handler: { item in
+
+        })
+        floaty.addItem("Drink Tracker", icon: UIImage(named: "beer")!, handler: { item in
+            
+        })
+        floaty.addItem("BAC Caculator", icon: UIImage(named: "calculator")!, handler: { item in
+            
+        })
+        floaty.addItem("Leaderboards", icon: UIImage(named: "trophy")!, handler: { item in
+            
+        })
+        
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 118
+        
+        DBHandler.getPosts(eventID: eventID) { (post) -> () in
+            self.posts.append(post)
+            self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+        }
+        
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,15 +57,60 @@ class TimelineViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    //MARK: - Tableview Delegate & Datasource
+    func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
+    {
+        return posts.count
     }
-    */
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int
+    {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! TimelineTableViewCell
+        
+        let post:[String:Any] = self.posts[indexTranslation(index: indexPath.row)]
+        let timestamp:Int = (post["timestamp"] as? Int)!
+        let seconds:Double = Double(timestamp / 1000)
+        let date:Date = Date(timeIntervalSince1970: seconds)
+        cell.timeLabel.text = "\(date)"
+        let email:String = (post["user"] as? String)!
+        let content:String = (post["content"] as? String)!
+        cell.contentLabel.text = content
+        
+        DBHandler.getUserInfo(userEmail: email) { (user) -> () in
+            let imageID:String? = user["image"] as? String
+            let name:String? = user["fullName"] as? String
+            cell.nameLabel.text = name
+            if imageID != nil {
+                
+                let reference = FIRStorage.storage().reference().child(imageID!)
+                let imageView:UIImageView = cell.userImageView
+                let placeholderImage = UIImage(named: "genericUser.png")
+                imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+            } else {
+                cell.userImageView.image = UIImage(named: "genericUser")
+            }
+        }
+        
+        return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToNewPost" {
+            if let newPostVC = segue.destination as? NewPostViewController {
+                newPostVC.eventID = self.eventID
+            }
+        }
+    }
+    
+    private func indexTranslation(index:Int) -> Int {
+        print(index)
+        return (self.posts.count - 1)
+    }
 
 }

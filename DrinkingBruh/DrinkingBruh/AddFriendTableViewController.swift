@@ -7,14 +7,13 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
+import FirebaseStorage
+import FirebaseStorageUI
 
 class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate{
     
     @IBOutlet weak var searchBar: UISearchBar!
     
-    private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
     private var currentUserFriends:[String: Any] = [:]
     private var currentUserSentRequests:[String: Any] = [:]
     private var currentUserReceivedRequests:[String:Any] = [:]
@@ -29,7 +28,7 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
         super.viewDidLoad()
         searchBar.delegate = self
         
-        let email:String = (FIRAuth.auth()?.currentUser?.email)!
+        let email:String = DBHandler.getUserEmail()
         
         DBHandler.getFriends(userEmail: email) { (user) -> () in
             self.currentUserFriends[user] = user
@@ -94,14 +93,17 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
         cell.friends = isFriend(email: emailKey)
         cell.requestSent = sentRequestAlready(email: emailKey)
         cell.requestReceived = requestReceivedAlready(email: emailKey)
-        cell.userEmail = (FIRAuth.auth()?.currentUser?.email)!
+        cell.userEmail = DBHandler.getUserEmail()
         cell.friendEmail = user["email"] as! String
         
-        let imageID = user["image"]
+        let imageID:String? = user["image"] as? String
         if imageID != nil {
-            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
-                cell.userImageView.image = image
-            }
+            let reference = FIRStorage.storage().reference().child(imageID!)
+            let imageView:UIImageView = cell.userImageView
+            let placeholderImage = UIImage(named: "genericUser")
+            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        } else {
+            cell.userImageView.image = UIImage(named: "genericUser")
         }
         
         updateButtonUI(cell: cell, friends: cell.friends, sentRequestTo: cell.requestSent, receivedRequestFrom: cell.requestReceived)

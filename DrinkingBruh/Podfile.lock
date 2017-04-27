@@ -39,6 +39,9 @@ PODS:
   - FirebaseStorage (1.1.0):
     - FirebaseAnalytics (~> 3.7)
     - GTMSessionFetcher/Core (~> 1.1)
+  - FirebaseUI/Storage (3.1.1):
+    - Firebase/Storage
+    - SDWebImage (~> 4.0)
   - GoogleMaps (2.2.0):
     - GoogleMaps/Maps (= 2.2.0)
   - GoogleMaps/Base (2.2.0)
@@ -60,6 +63,9 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.9)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SideMenu (2.3.0)
   - SkyFloatingLabelTextField (2.0.1)
 
@@ -71,6 +77,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Firebase/Storage
+  - FirebaseUI/Storage
   - GoogleMaps
   - GooglePlacePicker
   - GooglePlaces
@@ -89,14 +96,16 @@ SPEC CHECKSUMS:
   FirebaseDatabase: 05c96d7b43a7368dc91c07791adb49683e1738d1
   FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
   FirebaseStorage: a5c55b23741a49a72af8f30f95b3bb5ddbeda12d
+  FirebaseUI: 6e99ff95e369f5858232e4f65bff215458fe8469
   GoogleMaps: 104c418d61ab8a05dff06ed0784c25ea9d37da45
   GooglePlacePicker: 345b1aabd42c9d6d9bf2369c1bae1234d903e764
   GooglePlaces: bca867d5e9da15384c794b945e4226848bc6e9d9
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SideMenu: 43d092cf615cf472f105c5b9867a21beff9fc269
   SkyFloatingLabelTextField: 070e749632ffd608d6fd9db3fa488a822524997c
 
-PODFILE CHECKSUM: 441269545b3c060b6959b365d60426f5d9cc0ae3
+PODFILE CHECKSUM: d8936bab5d11bcbf72ee40e44b10dbc095680af6
 
 COCOAPODS: 1.2.0

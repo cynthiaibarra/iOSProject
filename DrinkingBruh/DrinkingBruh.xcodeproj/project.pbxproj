@@ -19,6 +19,12 @@
 		855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */; };
 		CD8C4B42B871C5E5E0D00B60 /* Pods_DrinkingBruhUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */; };
 		DC0142841EAED68400AFB758 /* TimelineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142831EAED68400AFB758 /* TimelineViewController.swift */; };
+		DC01429A1EB1A77C00AFB758 /* Floaty.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142941EB1A77C00AFB758 /* Floaty.swift */; };
+		DC01429B1EB1A77C00AFB758 /* FloatyDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142951EB1A77C00AFB758 /* FloatyDelegate.swift */; };
+		DC01429C1EB1A77C00AFB758 /* FloatyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142961EB1A77C00AFB758 /* FloatyItem.swift */; };
+		DC01429D1EB1A77C00AFB758 /* FloatyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142971EB1A77C00AFB758 /* FloatyManager.swift */; };
+		DC01429E1EB1A77C00AFB758 /* FloatyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142981EB1A77C00AFB758 /* FloatyViewController.swift */; };
+		DC01429F1EB1A77C00AFB758 /* FloatyWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC0142991EB1A77C00AFB758 /* FloatyWindow.swift */; };
 		DC04845B1E96C23B00EE7623 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC04845A1E96C23B00EE7623 /* Extensions.swift */; };
 		DC04845D1E96D70B00EE7623 /* InviteFriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC04845C1E96D70B00EE7623 /* InviteFriendsTableViewController.swift */; };
 		DC04845F1E96D9E800EE7623 /* DBHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC04845E1E96D9E800EE7623 /* DBHandler.swift */; };
@@ -41,6 +47,8 @@
 		DC61FF671E9C2173000E8299 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */; };
 		DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */; };
 		DC971D2D1EA55692005423DF /* OccurringEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC971D2C1EA55692005423DF /* OccurringEventTableViewCell.swift */; };
+		DC9A949E1EB1CED4008164FD /* TimelineTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A949D1EB1CED4008164FD /* TimelineTableViewCell.swift */; };
+		DC9A94A01EB1D453008164FD /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9A949F1EB1D453008164FD /* NewPostViewController.swift */; };
 		DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */; };
 		DC9B046B1E97671700DD6FFF /* EventInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */; };
 		DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */; };
@@ -91,6 +99,13 @@
 		C37EADEB42FD034DA5D47FE1 /* Pods_DrinkingBruhUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrinkingBruhTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC0142831EAED68400AFB758 /* TimelineViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineViewController.swift; sourceTree = "<group>"; };
+		DC0142931EB1A77C00AFB758 /* Floaty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Floaty.h; path = Sources/Floaty.h; sourceTree = "<group>"; };
+		DC0142941EB1A77C00AFB758 /* Floaty.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Floaty.swift; path = Sources/Floaty.swift; sourceTree = "<group>"; };
+		DC0142951EB1A77C00AFB758 /* FloatyDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyDelegate.swift; path = Sources/FloatyDelegate.swift; sourceTree = "<group>"; };
+		DC0142961EB1A77C00AFB758 /* FloatyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyItem.swift; path = Sources/FloatyItem.swift; sourceTree = "<group>"; };
+		DC0142971EB1A77C00AFB758 /* FloatyManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyManager.swift; path = Sources/FloatyManager.swift; sourceTree = "<group>"; };
+		DC0142981EB1A77C00AFB758 /* FloatyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyViewController.swift; path = Sources/FloatyViewController.swift; sourceTree = "<group>"; };
+		DC0142991EB1A77C00AFB758 /* FloatyWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FloatyWindow.swift; path = Sources/FloatyWindow.swift; sourceTree = "<group>"; };
 		DC04845A1E96C23B00EE7623 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		DC04845C1E96D70B00EE7623 /* InviteFriendsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsTableViewController.swift; sourceTree = "<group>"; };
 		DC04845E1E96D9E800EE7623 /* DBHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHandler.swift; sourceTree = "<group>"; };
@@ -119,6 +134,8 @@
 		DC61FF661E9C2173000E8299 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		DC8FB6F61E7C333E00EB3E63 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		DC971D2C1EA55692005423DF /* OccurringEventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OccurringEventTableViewCell.swift; sourceTree = "<group>"; };
+		DC9A949D1EB1CED4008164FD /* TimelineTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimelineTableViewCell.swift; sourceTree = "<group>"; };
+		DC9A949F1EB1D453008164FD /* NewPostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		DC9B04681E97470D00DD6FFF /* EventTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		DC9B046A1E97671700DD6FFF /* EventInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventInfoViewController.swift; sourceTree = "<group>"; };
 		DCA20E7E1E8DA49B00ACD277 /* EventsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsTableViewController.swift; sourceTree = "<group>"; };
@@ -215,9 +232,24 @@
 			name = Settings;
 			sourceTree = "<group>";
 		};
+		DC0142921EB1A75200AFB758 /* Floaty */ = {
+			isa = PBXGroup;
+			children = (
+				DC0142931EB1A77C00AFB758 /* Floaty.h */,
+				DC0142941EB1A77C00AFB758 /* Floaty.swift */,
+				DC0142951EB1A77C00AFB758 /* FloatyDelegate.swift */,
+				DC0142961EB1A77C00AFB758 /* FloatyItem.swift */,
+				DC0142971EB1A77C00AFB758 /* FloatyManager.swift */,
+				DC0142981EB1A77C00AFB758 /* FloatyViewController.swift */,
+				DC0142991EB1A77C00AFB758 /* FloatyWindow.swift */,
+			);
+			name = Floaty;
+			sourceTree = "<group>";
+		};
 		DC0484591E96C1F700EE7623 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				DC0142921EB1A75200AFB758 /* Floaty */,
 				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DC04845A1E96C23B00EE7623 /* Extensions.swift */,
 				DC04845E1E96D9E800EE7623 /* DBHandler.swift */,
@@ -233,6 +265,8 @@
 				DC243ABE1EA5535E000E7806 /* OccurringEventsTableViewController.swift */,
 				DC971D2C1EA55692005423DF /* OccurringEventTableViewCell.swift */,
 				DC0142831EAED68400AFB758 /* TimelineViewController.swift */,
+				DC9A949D1EB1CED4008164FD /* TimelineTableViewCell.swift */,
+				DC9A949F1EB1D453008164FD /* NewPostViewController.swift */,
 			);
 			name = OccurringEvents;
 			sourceTree = "<group>";
@@ -623,12 +657,14 @@
 				DC0484631E96FA0000EE7623 /* InviteFriendsTableViewCell.swift in Sources */,
 				DC04845D1E96D70B00EE7623 /* InviteFriendsTableViewController.swift in Sources */,
 				DC243ABD1EA52DAB000E7806 /* DrinkQuotes.swift in Sources */,
+				DC01429E1EB1A77C00AFB758 /* FloatyViewController.swift in Sources */,
 				DCA6CA411E84F6B400424D3B /* FriendRequestTableViewCell.swift in Sources */,
 				DC0142841EAED68400AFB758 /* TimelineViewController.swift in Sources */,
 				DC45DABD1E68E6600038F653 /* RegistrationViewController.swift in Sources */,
 				DC3609851E8460E0006ECA50 /* AddFriendTableViewCell.swift in Sources */,
 				DC45DABB1E68E5780038F653 /* SignInViewController.swift in Sources */,
 				DC971D2D1EA55692005423DF /* OccurringEventTableViewCell.swift in Sources */,
+				DC01429F1EB1A77C00AFB758 /* FloatyWindow.swift in Sources */,
 				DCC92B371EA1380D001B5DAF /* NotificationManager.swift in Sources */,
 				DCC48D4F1EA57FB30058083A /* LocationTracker.swift in Sources */,
 				DC04845F1E96D9E800EE7623 /* DBHandler.swift in Sources */,
@@ -638,11 +674,16 @@
 				DC243ABF1EA5535E000E7806 /* OccurringEventsTableViewController.swift in Sources */,
 				DC9B046B1E97671700DD6FFF /* EventInfoViewController.swift in Sources */,
 				DC3609861E8460E0006ECA50 /* AddFriendTableViewController.swift in Sources */,
+				DC01429A1EB1A77C00AFB758 /* Floaty.swift in Sources */,
 				DC5CFE311E55297B00205DF4 /* AppDelegate.swift in Sources */,
 				DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */,
+				DC01429C1EB1A77C00AFB758 /* FloatyItem.swift in Sources */,
 				DC243AB91EA4756F000E7806 /* GuestsTableViewController.swift in Sources */,
 				85551DC41EA5CC5100CA3898 /* DrinkLoggerViewController.swift in Sources */,
+				DC01429D1EB1A77C00AFB758 /* FloatyManager.swift in Sources */,
 				DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */,
+				DC9A949E1EB1CED4008164FD /* TimelineTableViewCell.swift in Sources */,
+				DC9A94A01EB1D453008164FD /* NewPostViewController.swift in Sources */,
 				855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */,
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
 				85551DC31EA5CC5100CA3898 /* BacViewController.swift in Sources */,
@@ -650,6 +691,7 @@
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC61FF651E9C15EE000E8299 /* GetHomeViewController.swift in Sources */,
 				DC8FB6F71E7C333E00EB3E63 /* HomeViewController.swift in Sources */,
+				DC01429B1EB1A77C00AFB758 /* FloatyDelegate.swift in Sources */,
 				DC04845B1E96C23B00EE7623 /* Extensions.swift in Sources */,
 				DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */,
 				855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */,

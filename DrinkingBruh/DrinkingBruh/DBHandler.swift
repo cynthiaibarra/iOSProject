@@ -390,4 +390,22 @@ class DBHandler {
             }
         })
     }
+    
+    static func newPost(eventID:String, content:String, completion: @escaping (String) -> ()) {
+        eventDBRef.child(eventID).child("posts").childByAutoId().setValue(["timestamp":FIRServerValue.timestamp(), "user":getUserEmail(), "content":content]) { (error, ref) -> () in
+            if error != nil {
+                completion((error?.localizedDescription)!)
+            } else {
+                completion("success")
+            }
+        }
+    }
+    
+    static func getPosts(eventID:String, completion: @escaping ([String:Any]) -> ()) {
+        eventDBRef.child(eventID).child("posts").queryOrdered(byChild: "timestamp").observe(.childAdded, with: { (snapshot) -> () in
+            if snapshot.value != nil {
+                completion(snapshot.value as! [String:Any])
+            }
+        })
+    }
 }

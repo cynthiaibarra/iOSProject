@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DrinkingBruh/AddFriendTableViewController.swift"
-            timestampString = "513279044.970873"
+            timestampString = "514967893.31348"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DrinkingBruh/FriendsTableViewController.swift"
-            timestampString = "513229346.257113"
+            timestampString = "514966217.506007"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
             <Locations>
@@ -135,11 +135,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DrinkingBruh/FriendRequestsTableViewController.swift"
-            timestampString = "513281322.378769"
+            timestampString = "514967893.31348"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -206,38 +206,6 @@
                   offsetFromSymbolStart = "19">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DrinkingBruh/DBHandler.swift"
-            timestampString = "514175771.114643"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "321"
-            endingLineNumber = "321"
-            landmarkName = "sendFriendRequest(userEmail:friendEmail:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DrinkingBruh/DBHandler.swift"
-            timestampString = "514175771.114643"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "addDrink(eventID:drinks:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -454,22 +422,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DrinkingBruh/DBHandler.swift"
-            timestampString = "514175771.114643"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "284"
-            endingLineNumber = "284"
-            landmarkName = "getUserEvents(completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DrinkingBruh/RegistrationViewController.swift"
             timestampString = "514161005.315198"
             startingColumnNumber = "9223372036854775807"
@@ -519,7 +471,7 @@
                   moduleName = "DrinkingBruh"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cynthia/Documents/Spring%202017/CS378-iOS/Project/iOSProject/DrinkingBruh/DrinkingBruh/RegistrationViewController.swift"
-                  timestampString = "514780255.685497"
+                  timestampString = "514978808.38735"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -534,7 +486,7 @@
                   moduleName = "DrinkingBruh"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cynthia/Documents/Spring%202017/CS378-iOS/Project/iOSProject/DrinkingBruh/DrinkingBruh/RegistrationViewController.swift"
-                  timestampString = "514780255.687645"
+                  timestampString = "514978808.388943"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "86"
@@ -582,22 +534,6 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "DrinkingBruh/LocationTracker.swift"
-            timestampString = "514771376.572349"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "37"
-            endingLineNumber = "37"
-            landmarkName = "locationManager(_:didUpdateLocations:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "DrinkingBruh/OccurringEventsTableViewController.swift"
             timestampString = "514780147.578182"
             startingColumnNumber = "9223372036854775807"
@@ -615,12 +551,12 @@
                   moduleName = "DrinkingBruh"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cynthia/Documents/Spring%202017/CS378-iOS/Project/iOSProject/DrinkingBruh/DrinkingBruh/OccurringEventsTableViewController.swift"
-                  timestampString = "514780255.699839"
+                  timestampString = "514978808.400123"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
                   endingLineNumber = "132"
-                  offsetFromSymbolStart = "1401">
+                  offsetFromSymbolStart = "1397">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -630,14 +566,158 @@
                   moduleName = "DrinkingBruh"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/cynthia/Documents/Spring%202017/CS378-iOS/Project/iOSProject/DrinkingBruh/DrinkingBruh/OccurringEventsTableViewController.swift"
-                  timestampString = "514780255.701795"
+                  timestampString = "514978808.401789"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "132"
                   endingLineNumber = "132"
-                  offsetFromSymbolStart = "2247">
+                  offsetFromSymbolStart = "1947">
                </Location>
             </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/NewPostViewController.swift"
+            timestampString = "514973286.966087"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "postButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/TimelineViewController.swift"
+            timestampString = "514979583.010343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkingBruh.TimelineViewController.viewDidLoad () -&gt; ()"
+                  moduleName = "DrinkingBruh"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cynthia/Documents/Spring%202017/CS378-iOS/Project/iOSProject/DrinkingBruh/DrinkingBruh/TimelineViewController.swift"
+                  timestampString = "514978808.405584"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "3032">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "DrinkingBruh.TimelineViewController.(viewDidLoad () -&gt; ()).(closure #6)"
+                  moduleName = "DrinkingBruh"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cynthia/Documents/Spring%202017/CS378-iOS/Project/iOSProject/DrinkingBruh/DrinkingBruh/TimelineViewController.swift"
+                  timestampString = "514978808.407171"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "19">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/DBHandler.swift"
+            timestampString = "514977061.891092"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "406"
+            endingLineNumber = "406"
+            landmarkName = "getPosts(eventID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/DBHandler.swift"
+            timestampString = "514977327.631745"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "407"
+            endingLineNumber = "407"
+            landmarkName = "getPosts(eventID:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/TimelineViewController.swift"
+            timestampString = "514979583.010343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/TimelineViewController.swift"
+            timestampString = "514979583.010343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DrinkingBruh/TimelineViewController.swift"
+            timestampString = "514979583.010343"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
