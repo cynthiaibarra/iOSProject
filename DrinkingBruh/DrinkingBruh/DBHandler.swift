@@ -97,6 +97,22 @@ class DBHandler {
     }
     
     // Parameters: [String] Event ID
+    // Returns: [String:String] Email and status of friends invited to the event
+    static func friendsInvited(eventID: String, completion: @escaping ([String:String]) -> ()) {
+        eventDBRef.child(eventID).child(invitees).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let invited = snapshot.value as? [String: String] {
+                    completion(invited)
+                } else {
+                    completion([:])
+                }
+                
+            }
+        })
+        
+    }
+
+    // Parameters: [String] Event ID
     // Returns: [String:String] Email and role of friend attending event
     static func getInviteeRoles(eventID: String, completion: @escaping ([String:String]) -> ()) {
         eventDBRef.child(eventID).child("roles").observe(.childAdded, with: { (snapshot) in

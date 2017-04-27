@@ -45,7 +45,8 @@ class DrinkLoggerViewController: UIViewController {
         self.title = "Drink Logger"
         // Do any additional setup after loading the view.
         
-        currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
+        //currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
+        //print(currentEventID ?? "")
         
         if (currentEventID != nil) {
             
@@ -56,9 +57,10 @@ class DrinkLoggerViewController: UIViewController {
                 else {
                     self.drinksDict = ["beer": 0, "vodka": 0, "gin": 0, "whiskey": 0, "tequila": 0, "wine": 0, "elapsedTime": 0.0]
                 }
+                
+                self.initialize()
             }
             
-            initialize()
         }
     }
 
@@ -70,10 +72,18 @@ class DrinkLoggerViewController: UIViewController {
     //MARK: Actions
     @IBAction func saveButton(_ sender: UIButton) {
         
-        //Save Data to database and userDefaults
+        drinksDict?["beer"] = beerCount
+        drinksDict?["vodka"] = vodkaCount
+        drinksDict?["gin"] = ginCount
+        drinksDict?["whiskey"] = whiskeyCount
+        drinksDict?["tequila"] = tequilaCount
+        drinksDict?["wine"] = wineCount
+        drinksDict?["elapsedTime"] = elapsedTime
+        
+        //Save Data to database
         if (currentEventID != nil) {
+            //print(drinksDict ?? " ")
             DBHandler.addDrink(eventID: currentEventID!, drinks: drinksDict!)
-            Config.setDrinks(drinksDict!)
         }
         
         drinkTotal = beerCount + vodkaCount + ginCount + whiskeyCount + tequilaCount + wineCount

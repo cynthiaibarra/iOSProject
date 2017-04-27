@@ -25,7 +25,32 @@ class TimelineViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //MARK: Actions
+    
+    @IBAction func BACbutton(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "Bac") as! BacViewController
+        controller.currentEventID = eventID
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
+    @IBAction func drinkLogger(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DrinkTracker") as! DrinkLoggerViewController
+        controller.currentEventID = eventID
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
+    
 
+    @IBAction func friendLocation(_ sender: UIButton) {
+        let storyboard = UIStoryboard(name: "Location", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "FriendLocator") as! LocateFriendsViewController
+        controller.currentEventID = eventID
+        self.navigationController?.pushViewController(controller, animated: true)
+        
+    }
     /*
     // MARK: - Navigation
 
