@@ -14,8 +14,7 @@ class LocateFriendsViewController: UIViewController {
     
     //MARK: Properties
     var currentEventID:String?
-    var friendEmails:[String] = []
-    var eventParticipantsNames:[String]?
+    var friendEmails:[String]?
     var allLocations:[String:[String:Double]]?
     var locations:[MKPointAnnotation]?
     var options:[String]?
@@ -33,54 +32,38 @@ class LocateFriendsViewController: UIViewController {
         self.title = "Friend Locator"
         // Do any additional setup after loading the view.
         
-        eventParticipantsNames = [String]()
         locations = [MKPointAnnotation]()
+        friendEmails = [String]()
         
-        currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
+        //currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
         
         if(currentEventID != nil) {
             
             //get the friends attending - variable
-            DBHandler.getFriendsInvited(eventID: currentEventID!) { (invitees) -> () in
-                
+            DBHandler.friendsInvited(eventID: currentEventID!) { (invitees) -> () in
+                //print(invitees)
                 for invitee in invitees {
-                      self.friendEmails.append(invitee.key)
-                }
-            }
-            
-            //get locations of all users
-            DBHandler.getAllUsersLocations() { (allUsersLocation) -> () in
-                
-                if(allUsersLocation != nil) {
-                    self.allLocations = allUsersLocation
-                }
-                
-            }
-            
-            if (friendEmails != nil) {
-
-                //if this user is on the friends list - do not add to participant names, locations
-                //get locations for the friends create MKPointAnnotations and update locations array
-                //get full name of the people and add to eventParticipantNames
-                for friendEmail in friendEmails {
-                    if(userEmail! != friendEmail) {
-                        
-                        DBHandler.getUserInfo(userEmail: friendEmail) { (user) -> () in
-                            let fullName:String = user["fullName"] as! String
-                            self.eventParticipantsNames?.append(fullName)
-                            
-                            let lat:Double = (self.allLocations?[friendEmail]?["latitude"])!
-                            let long:Double = (self.allLocations?[friendEmail]?["longitude"])!
-                            
-                            let annotation = MKPointAnnotation()
-                            annotation.coordinate.latitude = lat
-                            annotation.coordinate.longitude = long
-                            annotation.title = fullName
-                            
-                            self.locations?.append(annotation)
-                        }
+                    if(invitee.value == "attending" || invitee.value == "hosting") {
+                        self.friendEmails?.append(invitee.key)
                     }
                 }
+                
+                //get locations of all users
+                DBHandler.getAllUsersLocations() { (allUsersLocation) -> () in
+                    
+                    if(allUsersLocation != nil) {
+                        self.allLocations = allUsersLocation
+                        //print(self.allLocations ?? " ")
+                        
+                        self.options = [String]()
+                        self.options?.append("Show Everyone")
+                        
+                        self.setNamesAndLocations()
+
+                    }
+                    
+                }
+                
             }
             
         }
@@ -88,29 +71,60 @@ class LocateFriendsViewController: UIViewController {
         //show this user on map if location services are enabled
         if (CLLocationManager.authorizationStatus() == .authorizedAlways || CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
             
-            mapView.showsUserLocation = true
+            self.mapView.showsUserLocation = true
         }
         
-        options = [String]()
-        options?.append("Show Everyone")
+        mapView.showsCompass = true;
+        mapView.showsTraffic = true;
         
-        for name in eventParticipantsNames! {
-            options?.append(name)
-        }
-        
-        createPicker()
-        createToolbar()
+        self.createPicker()
+        self.createToolbar()
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         //may need this to fetch new data here when the user navigates to this screen again
         //things that could change - everything except event ownership
+        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func setNamesAndLocations() {
+        
+        if (self.friendEmails != nil) {
+            
+            //if this user is on the friends list - do not add to participant names, locations
+            //get locations for the friends create MKPointAnnotations and update locations array
+            //get full name of the people and add to eventParticipantNames
+            for friendEmail in self.friendEmails! {
+                if(self.userEmail! != friendEmail) {
+                    
+                    DBHandler.getUserInfo(userEmail: friendEmail) { (user) -> () in
+                        let fullName:String = user["fullName"] as! String
+                        self.options?.append(fullName)
+                        
+                        let lat:Double = (self.allLocations?[friendEmail]?["latitude"])!
+                        let long:Double = (self.allLocations?[friendEmail]?["longitude"])!
+                        
+                        let annotation = MKPointAnnotation()
+                        annotation.coordinate.latitude = lat
+                        annotation.coordinate.longitude = long
+                        annotation.title = fullName
+                        
+                        self.locations?.append(annotation)
+                        //print(self.friendEmails ?? " ")
+                        //print(self.eventParticipantsNames ?? " ")
+                        
+                    }
+                }
+                
+            }
+        }
+        
     }
     
     func createPicker() {
@@ -144,10 +158,10 @@ class LocateFriendsViewController: UIViewController {
         else {
             mapView.removeAnnotations(locations!)
             let annotation = locations![selectedRow - 1]
-            mapView.addAnnotation(annotation)
-            let region = MKCoordinateRegionMakeWithDistance(annotation.coordinate, 1000, 1000)
-            mapView.setRegion(region, animated: true)
-            mapView.selectAnnotation(locations![selectedRow - 1], animated: true)
+            var one = [MKPointAnnotation]()
+            one.append(annotation)
+            mapView.showAnnotations(one, animated: true)
+            mapView.selectAnnotation(one.first!, animated: true)
         }
     }
     
