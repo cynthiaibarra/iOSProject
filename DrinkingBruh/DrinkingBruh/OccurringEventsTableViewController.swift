@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import FirebaseStorageUI
 
 class OccurringEventsTableViewController: UITableViewController {
     
@@ -74,10 +75,15 @@ class OccurringEventsTableViewController: UITableViewController {
         cell.titleLabel.text = event["title"] as? String
         cell.startLabel.text = event["start"] as? String
         cell.endLabel.text = event["end"] as? String
-        
-        let imageID:String = (event["image"] as? String)!
-        DBHandler.getImage(imageID: imageID) { (image) -> () in
-            cell.imageview.image = image
+
+        let imageID:String? = event["image"] as? String
+        if imageID != nil {
+            let reference = FIRStorage.storage().reference().child(imageID!)
+            let imageView:UIImageView = cell.imageview
+            let placeholderImage = UIImage(named: "austin-blur")
+            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        } else {
+            cell.imageview.image = UIImage(named: "austin-blur")
         }
         return cell
     }

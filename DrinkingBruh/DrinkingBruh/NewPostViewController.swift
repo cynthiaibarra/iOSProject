@@ -16,6 +16,7 @@ class NewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //postTextEditor.delegate = self
         postTextEditor.becomeFirstResponder()
         // Do any additional setup after loading the view.
     }
@@ -32,7 +33,15 @@ class NewPostViewController: UIViewController {
             }
         }
     }
-
+    
+//    func textViewDidChange(_ textView: UITextView) {
+//        placeholdeerLabel.isHidden = !textView.text.isEmpty
+//    }
+//    
+//    override func viewDidLayoutSubviews() {
+//        super.viewDidLayoutSubviews()
+//        postTextEditor.setContentOffset(CGPoint.zero, animated: false)
+ //   }
     /*
     // MARK: - Navigation
 

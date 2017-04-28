@@ -408,4 +408,20 @@ class DBHandler {
             }
         })
     }
+    
+    static func getDrinkOfTheDay(completion: @escaping ([String:Any]) -> ()) {
+        FIRDatabase.database().reference().child("drinkOfTheDay").observeSingleEvent(of: .value, with: { (snapshot) -> () in
+            if snapshot.exists() {
+                print(snapshot.value ?? "error")
+                completion(snapshot.value as! [String:Any])
+            }
+        })
+    }
+    
+    static func updateProfile(firstName:String, lastName:String, weight:Int, sex:String) {
+        usersDBRef.child(getUserEmail()).child("firstName").setValue(firstName)
+        usersDBRef.child(getUserEmail()).child("lastName").setValue(lastName)
+        usersDBRef.child(getUserEmail()).child("weight").setValue(weight)
+        usersDBRef.child(getUserEmail()).child("sex").setValue(sex)
+    }
 }
