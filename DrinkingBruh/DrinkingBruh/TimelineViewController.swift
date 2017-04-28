@@ -31,19 +31,19 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         floaty.addItem("Friend Locations", icon: UIImage(named: "map-marker")!, handler: { item in
           let storyboard = UIStoryboard(name: "Location", bundle: nil)
           let controller = storyboard.instantiateViewController(withIdentifier: "FriendLocator") as! LocateFriendsViewController
-          controller.currentEventID = eventID
+          controller.currentEventID = self.eventID
           self.navigationController?.pushViewController(controller, animated: true)
         })
         floaty.addItem("Drink Tracker", icon: UIImage(named: "beer")!, handler: { item in
             let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "DrinkTracker") as! DrinkLoggerViewController
-            controller.currentEventID = eventID
+            controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })
         floaty.addItem("BAC Caculator", icon: UIImage(named: "calculator")!, handler: { item in
             let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
             let controller = storyboard.instantiateViewController(withIdentifier: "Bac") as! BacViewController
-            controller.currentEventID = eventID
+            controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })
         floaty.addItem("Leaderboards", icon: UIImage(named: "trophy")!, handler: { item in
@@ -107,17 +107,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         return cell
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToNewPost" {
-            if let newPostVC = segue.destination as? NewPostViewController {
-                newPostVC.eventID = self.eventID
-            }
-        }
     }
     
     private func indexTranslation(index:Int) -> Int {
