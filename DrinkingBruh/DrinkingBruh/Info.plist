@@ -15,6 +15,11 @@
 	<string>435816526810203</string>
 	<key>FacebookDisplayName</key>
 	<string>DrinkingBruh</string>
+    <key>NSAppTransportSecurity</key>
+    <dict>
+        <key>NSAllowsArbitraryLoads</key>
+        <true/>
+    </dict>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>

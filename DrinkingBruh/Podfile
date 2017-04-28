@@ -9,6 +9,7 @@ target 'DrinkingBruh' do
   pod 'Firebase/Core'  
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'FirebaseUI/Storage'
   pod 'Firebase/Storage'
   pod 'FBSDKCoreKit'
   pod 'FBSDKShareKit'

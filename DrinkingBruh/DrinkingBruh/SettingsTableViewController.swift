@@ -60,9 +60,6 @@ class SettingsTableViewController: UITableViewController {
     
     //MARK: Actions
     
-    @IBAction func editProfileButton(_ sender: Any) {
-    }
-    
     @IBAction func drunkModeAction(_ sender: Any) {
         
         if let dMode = sender as? UISwitch {
@@ -94,7 +91,6 @@ class SettingsTableViewController: UITableViewController {
         drunkModeLabel.textColor = themeDict?["textColor"]
         themeLabel.textColor = themeDict?["textColor"]
         self.view.backgroundColor = themeDict?["viewColor"]
-
     }
     
 }

@@ -7,7 +7,8 @@
 //
 
 import UIKit
-import FirebaseAuth
+import FirebaseStorage
+import FirebaseStorageUI
 
 class FriendsTableViewController: UITableViewController {
     
@@ -15,7 +16,8 @@ class FriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let userEmail:String = (FIRAuth.auth()?.currentUser?.email!)!
+        tableView.tableFooterView = nil
+        let userEmail:String = DBHandler.getUserEmail()
         DBHandler.getFriends(userEmail: userEmail) { (friend) -> () in
             DBHandler.getUserInfo(userEmail: friend) { (friendInfo) -> () in
                 self.friends.append(friendInfo)
@@ -46,11 +48,15 @@ class FriendsTableViewController: UITableViewController {
         //Get user data
         let friend:[String:Any] = friends[indexPath.row]
         cell.nameLabel.text = friend["fullName"] as? String
-        let imageID = friend["image"]
+        
+        let imageID:String? = friend["image"] as? String
         if imageID != nil {
-            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
-                cell.userImageView.image = image
-            }
+            let reference = FIRStorage.storage().reference().child(imageID!)
+            let imageView:UIImageView = cell.userImageView
+            let placeholderImage = UIImage(named: "genericUser.png")
+            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        } else {
+            cell.userImageView.image = UIImage(named: "genericUser")
         }
         
         return cell

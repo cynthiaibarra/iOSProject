@@ -7,17 +7,16 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
+import FirebaseStorage
+import FirebaseStorageUI
 
 class FriendRequestsTableViewController: UITableViewController {
-    
-    private let databaseRef:FIRDatabaseReference! = FIRDatabase.database().reference().child("users")
-    private var friendRequests:[[String:Any]] = []
-    private var userEmail:String = (FIRAuth.auth()?.currentUser?.email)!
 
+    private var friendRequests:[[String:Any]] = []
+    private var userEmail:String = DBHandler.getUserEmail()
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.tableFooterView = UIView(frame: .zero)
         DBHandler.getFriendRequests(userEmail: userEmail) { (requestEmail) -> () in
             DBHandler.getUserInfo(userEmail: requestEmail) { (user) -> () in
                 self.friendRequests.append(user)
@@ -51,11 +50,14 @@ class FriendRequestsTableViewController: UITableViewController {
         cell.userEmail = self.userEmail
         cell.friendEmail = friendRequest["email"] as? String
         
-        let imageID = friendRequest["image"]
+        let imageID:String? = friendRequest["image"] as? String
         if imageID != nil {
-            DBHandler.getImage(imageID: imageID as! String) { (image) -> () in
-                cell.userImageView.image = image
-            }
+            let reference = FIRStorage.storage().reference().child(imageID!)
+            let imageView:UIImageView = cell.userImageView
+            let placeholderImage = UIImage(named: "genericUser.png")
+            imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
+        } else {
+            cell.userImageView.image = UIImage(named: "genericUser")
         }
         
         return cell

@@ -49,16 +49,17 @@ class SignInViewController: UIViewController, UITextFieldDelegate, FBSDKLoginBut
             if(err != nil) {
                 return
             }
-            let accessToken = FBSDKAccessToken.current()
-            let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accessToken?.tokenString)!)
             
-            FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
-                if(err != nil){
-                    
-                }
-                print("Logged in")
-            })
-            
+            if let accessToken = FBSDKAccessToken.current() {
+                let credentials = FIRFacebookAuthProvider.credential(withAccessToken: (accessToken.tokenString)!)
+                
+                FIRAuth.auth()?.signIn(with: credentials, completion: { (user, error) in
+                    if(err != nil){
+                        
+                    }
+                    print("Logged in")
+                })
+            }
         }
     }
     

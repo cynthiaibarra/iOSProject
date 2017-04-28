@@ -45,3 +45,15 @@ public extension UIColor {
         self.init(red:(hex >> 16) & 0xff, green:(hex >> 8) & 0xff, blue:hex & 0xff)
     }
 }
+
+public extension String
+{
+    func replaceFirstOccurrenceOfString(
+        targetString: String, withString replaceString: String) -> String
+    {
+        if let range = self.range(of: targetString) {
+            return self.replacingCharacters(in: range, with: replaceString)
+        }
+        return self
+    }
+}
