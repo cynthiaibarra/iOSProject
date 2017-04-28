@@ -21,6 +21,8 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     @IBOutlet weak var instructionsLabel: UILabel!
     @IBOutlet weak var quoteLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    private var themeDict:[String:UIColor] = Theme.getTheme()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,27 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         setupQuote()
         setupDrinkOfTheDay()
         LocationTracker.getInstance().requestLocation()
+        
+        //Set Navigation Bar Font and Style
+        let navBarTitleFont = UIFont(name: "Avenir", size: 20)!
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navBarTitleFont]
+        
+        let theme:String = Config.theme()
+        
+        if theme == "light" {
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.default
+            self.navigationController?.navigationBar.tintColor = UIColor.black
+            
+        }
+        else {
+            self.navigationController?.navigationBar.barStyle = UIBarStyle.blackTranslucent
+            self.navigationController?.navigationBar.tintColor = UIColor.white
+            
+        }
+        
+        //Set Background Color
+        self.view.backgroundColor = themeDict["viewColor"]
+
     }
 
     override func didReceiveMemoryWarning() {

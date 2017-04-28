@@ -18,12 +18,12 @@ class Theme {
         let theme:String = Config.theme()
         
         if theme == "light" {
-            dict["viewColor"] = UIColor.white
+            dict["viewColor"] = UIColor(hex:0x62B1F6)
             dict["textColor"] = UIColor.black
         }
         else {
-            dict["viewColor"] = UIColor.darkGray
-            dict["textColor"] = UIColor.brown
+            dict["viewColor"] = UIColor(hex: 0x205691)
+            dict["textColor"] = UIColor.white
         }
         
         return dict
