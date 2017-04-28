@@ -21,6 +21,7 @@ class BacViewController: UIViewController {
     @IBOutlet weak var wineCountLabel: UILabel!
     @IBOutlet weak var drinkTotalLabel: UILabel!
     
+    var currentEventID:String?
     var drinksDict:[String:Any]?
     var userWeight:Int = 0
     var userGender:String = "M"
@@ -39,93 +40,75 @@ class BacViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "BAC Calculator"
+        
+        //currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
+        
+        DBHandler.getDrinks(eventID: currentEventID!) { (drinkLog) -> () in
+            if(drinkLog != nil) {
+                self.drinksDict = drinkLog
+            }
+            else {
+                self.drinksDict = ["beer": 0, "vodka": 0, "gin": 0, "whiskey": 0, "tequila": 0, "wine": 0, "elapsedTime": 0.0]
+            }
+            
+            self.initializeAndComputeBAC()
+        }
+
         // Do any additional setup after loading the view.
         
-        if (Config.getDrinks().count != 0) {
-            drinksDict = Config.getDrinks()
-        }
-        else {
-            drinksDict = ["beer": 0, "vodka": 0, "gin": 0, "whiskey": 0, "tequila": 0, "wine": 0, "elapsedTime": 0.0]
-        }
-        
-        DBHandler.getUserInfo(userEmail: self.userEmail!) { (user) -> () in
-            self.userWeight = user["weight"] as! Int
-            self.userGender = user["sex"] as! String
-        }
-        
-        beer = drinksDict?["beer"] as! Int
-        vodka = drinksDict?["vodka"] as! Int
-        gin = drinksDict?["gin"] as! Int
-        whiskey = drinksDict?["whiskey"] as! Int
-        tequila = drinksDict?["tequila"] as! Int
-        wine = drinksDict?["wine"] as! Int
-        elapsedTime = drinksDict?["elapsedTime"] as! Double
-        
-        drinkTotal = beer + vodka + gin + whiskey + tequila + wine
-        
-        beerCountLabel.text = String(beer)
-        vodkaCountLabel.text = String(vodka)
-        ginCountLabel.text = String(gin)
-        whiskeyCountLabel.text = String(whiskey)
-        tequilaCountLabel.text = String(tequila)
-        wineCountLabel.text = String(wine)
-        drinkTotalLabel.text = String(drinkTotal)
-        
-        //compute BAC
-        var bac:Double = 0.0
-        var bacRaw:Double = 0.0
-        
-        let gramsOfAlcohol:Int = drinkTotal * 14
-        let bodyWeightInGrams:Int = userWeight * 454
-        
-        if(userGender == "M") {
-            bacRaw = Double(gramsOfAlcohol)/(Double(bodyWeightInGrams) * 0.68)
-        }
-        else {
-            bacRaw = Double(gramsOfAlcohol)/(Double(bodyWeightInGrams) * 0.55)
-        }
-        
-        bac = (bacRaw * 100.0) - (elapsedTime * 0.015)
-        
-        BACLabel.text = String(bac)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    //MARK: Actions
-    @IBAction func clearButton(_ sender: UIButton) {
         
-        beer = 0
-        vodka = 0
-        gin = 0
-        whiskey = 0
-        tequila = 0
-        wine = 0
-        drinkTotal = 0
+    func initializeAndComputeBAC() {
         
-        drinksDict?["beer"] = beer
-        drinksDict?["vodka"] = vodka
-        drinksDict?["gin"] = gin
-        drinksDict?["whiskey"] = whiskey
-        drinksDict?["tequila"] = tequila
-        drinksDict?["wine"] = wine
-        drinksDict?["elapsedTime"] = 0.0
+        DBHandler.getUserInfo(userEmail: self.userEmail!) { (user) -> () in
+            self.userWeight = user["weight"] as! Int
+            self.userGender = user["sex"] as! String
+            //print(self.userWeight)
+            
+            self.beer = self.drinksDict?["beer"] as! Int
+            self.vodka = self.drinksDict?["vodka"] as! Int
+            self.gin = self.drinksDict?["gin"] as! Int
+            self.whiskey = self.drinksDict?["whiskey"] as! Int
+            self.tequila = self.drinksDict?["tequila"] as! Int
+            self.wine = self.drinksDict?["wine"] as! Int
+            self.elapsedTime = self.drinksDict?["elapsedTime"] as! Double
+            
+            self.drinkTotal = self.beer + self.vodka + self.gin + self.whiskey + self.tequila + self.wine
+            
+            self.beerCountLabel.text = String(self.beer)
+            self.vodkaCountLabel.text = String(self.vodka)
+            self.ginCountLabel.text = String(self.gin)
+            self.whiskeyCountLabel.text = String(self.whiskey)
+            self.tequilaCountLabel.text = String(self.tequila)
+            self.wineCountLabel.text = String(self.wine)
+            self.drinkTotalLabel.text = String(self.drinkTotal)
+            
+            //compute BAC
+            var bac:Double = 0.0
+            var bacRaw:Double = 0.0
+            
+            let gramsOfAlcohol:Int = self.drinkTotal * 14
+            let bodyWeightInGrams:Int = self.userWeight * 454
+            //print(bodyWeightInGrams)
+            
+            if(self.userGender == "M") {
+                bacRaw = Double(gramsOfAlcohol)/(Double(bodyWeightInGrams) * 0.68)
+            }
+            else {
+                bacRaw = Double(gramsOfAlcohol)/(Double(bodyWeightInGrams) * 0.55)
+            }
+            
+            bac = (bacRaw * 100.0) - (self.elapsedTime * 0.015)
+            
+            self.BACLabel.text = String(format: "%.3f", bac)
+            
+        }
         
-        beerCountLabel.text = String(beer)
-        vodkaCountLabel.text = String(vodka)
-        ginCountLabel.text = String(gin)
-        whiskeyCountLabel.text = String(whiskey)
-        tequilaCountLabel.text = String(tequila)
-        wineCountLabel.text = String(wine)
-        drinkTotalLabel.text = String(drinkTotal)
-        BACLabel.text = "0"
-        
-        //update UserDefaults
-        Config.setDrinks(drinksDict!)
-
     }
     /*
     // MARK: - Navigation

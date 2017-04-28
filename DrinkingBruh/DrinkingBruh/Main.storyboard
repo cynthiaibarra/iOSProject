@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aVE-Bt-uTY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aVE-Bt-uTY">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -811,48 +811,6 @@
                                             <constraints>
                                                 <constraint firstItem="a4Q-Lu-REP" firstAttribute="top" secondItem="yr0-rB-dcg" secondAttribute="top" constant="6" id="LoF-of-keD"/>
                                                 <constraint firstItem="a4Q-Lu-REP" firstAttribute="leading" secondItem="yr0-rB-dcg" secondAttribute="leading" constant="15" id="o1O-PD-p9c"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendLocator" id="c3I-hp-snD">
-                                        <rect key="frame" x="0.0" y="308" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c3I-hp-snD" id="7o1-GZ-40z">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LrT-vN-hqe">
-                                                    <rect key="frame" x="15" y="6" width="100" height="30"/>
-                                                    <state key="normal" title="Friend Locator"/>
-                                                    <connections>
-                                                        <action selector="friendLocator:" destination="PnO-bB-mBy" eventType="touchUpInside" id="2A5-iB-yF2"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="LrT-vN-hqe" firstAttribute="leading" secondItem="7o1-GZ-40z" secondAttribute="leading" constant="15" id="hhr-Tp-Ftk"/>
-                                                <constraint firstItem="LrT-vN-hqe" firstAttribute="top" secondItem="7o1-GZ-40z" secondAttribute="top" constant="6" id="wEi-fZ-b9S"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BacCalculator" id="4tr-OF-Ybb">
-                                        <rect key="frame" x="0.0" y="352" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4tr-OF-Ybb" id="B14-AZ-FiJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ih6-Uc-VeD">
-                                                    <rect key="frame" x="15" y="6" width="104" height="30"/>
-                                                    <state key="normal" title="BAC Calculator"/>
-                                                    <connections>
-                                                        <action selector="bacCalc:" destination="PnO-bB-mBy" eventType="touchUpInside" id="ijk-qb-iUi"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="Ih6-Uc-VeD" firstAttribute="top" secondItem="B14-AZ-FiJ" secondAttribute="top" constant="6" id="G9P-51-SXz"/>
-                                                <constraint firstItem="Ih6-Uc-VeD" firstAttribute="leading" secondItem="B14-AZ-FiJ" secondAttribute="leading" constant="15" id="McO-uc-JFH"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -2201,5 +2159,7 @@
         <segue reference="qZ6-eE-xlc"/>
         <segue reference="0FB-qe-Snm"/>
         <segue reference="LXb-Nj-lK9"/>
+        <segue reference="4OG-U0-ybO"/>
+        <segue reference="toF-d5-4zs"/>
     </inferredMetricsTieBreakers>
 </document>
