@@ -105,6 +105,10 @@ class BacViewController: UIViewController {
             
             bac = (bacRaw * 100.0) - (self.elapsedTime * 0.015)
             
+            if(bac < 0) {
+                bac = 0
+            }
+            
             self.BACLabel.text = String(format: "%.3f", bac)
             
         }

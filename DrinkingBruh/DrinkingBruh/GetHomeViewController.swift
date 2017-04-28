@@ -18,6 +18,8 @@ class GetHomeViewController: UIViewController {
     @IBOutlet weak var routeButton1: UIButton!
     @IBOutlet weak var routeButton2: UIButton!
     @IBOutlet weak var routeButton3: UIButton!
+    private var themeDict:[String:UIColor] = Theme.getTheme()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +32,27 @@ class GetHomeViewController: UIViewController {
         routeButton2.addTarget(self, action: #selector(GetHomeViewController.openURL(sender:)), for: .touchUpInside)
         routeButton3.addTarget(self, action: #selector(GetHomeViewController.openURL(sender:)), for: .touchUpInside)
         // Do any additional setup after loading the view.
+        
+        self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Set theme and appropriate phoneButton colors
+        let theme:String = Config.theme()
+        
+        if(theme == "light") {
+            phoneButton1.setTitleColor(UIColor.red, for: UIControlState.normal)
+            phoneButton2.setTitleColor(UIColor.red, for: UIControlState.normal)
+            phoneButton3.setTitleColor(UIColor.red, for: UIControlState.normal)
+            phoneButton4.setTitleColor(UIColor.red, for: UIControlState.normal)
+            phoneButton5.setTitleColor(UIColor.red, for: UIControlState.normal)
+        }
+        else {
+            phoneButton1.setTitleColor(UIColor.green, for: UIControlState.normal)
+            phoneButton2.setTitleColor(UIColor.green, for: UIControlState.normal)
+            phoneButton3.setTitleColor(UIColor.green, for: UIControlState.normal)
+            phoneButton4.setTitleColor(UIColor.green, for: UIControlState.normal)
+            phoneButton5.setTitleColor(UIColor.green, for: UIControlState.normal)
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

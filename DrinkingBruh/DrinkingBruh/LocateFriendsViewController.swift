@@ -19,6 +19,8 @@ class LocateFriendsViewController: UIViewController {
     var locations:[MKPointAnnotation]?
     var options:[String]?
     var selectedRow:Int = 0
+    //private var themeDict:[String:UIColor] = Theme.getTheme()
+
     
     //get this user's email
     let userEmail = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
@@ -31,6 +33,9 @@ class LocateFriendsViewController: UIViewController {
         
         self.title = "Friend Locator"
         // Do any additional setup after loading the view.
+        
+        //Set Theme -- doesn't work - mapView covers background
+        //self.view.backgroundColor = themeDict["viewColor"]
         
         locations = [MKPointAnnotation]()
         friendEmails = [String]()

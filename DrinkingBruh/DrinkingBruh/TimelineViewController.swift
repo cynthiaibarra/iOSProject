@@ -108,4 +108,5 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
+
 }

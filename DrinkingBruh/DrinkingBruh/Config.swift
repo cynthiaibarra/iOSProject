@@ -29,8 +29,8 @@ class Config: NSObject {
             return s
         }
         else {
-            self.setTheme("light")
-            return "light"
+            self.setTheme("dark")
+            return "dark"
         }
     }
     class func drunkMode() -> String {
