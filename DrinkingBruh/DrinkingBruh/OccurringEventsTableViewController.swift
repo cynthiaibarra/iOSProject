@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import UserNotifications
 import FirebaseStorageUI
 
 class OccurringEventsTableViewController: UITableViewController {
@@ -17,16 +16,6 @@ class OccurringEventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> () in
-            if deliveredNotifications.count > 0 {
-                for notification in deliveredNotifications {
-                    let eventID:String = notification.request.identifier
-                    DBHandler.addEventToTimeline(eventID: eventID)
-                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [eventID])
-                }
-                
-            }
-        })
         
         DBHandler.getTimelineEvents() { (timelineEvents) -> () in
             self.eventList = timelineEvents
