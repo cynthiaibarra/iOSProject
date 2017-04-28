@@ -54,7 +54,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.estimatedRowHeight = 118
         
         DBHandler.getPosts(eventID: eventID) { (post) -> () in
-            self.posts.append(post)
+            self.posts.insert(post, at: 0)
             self.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
         }
         
@@ -82,7 +82,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! TimelineTableViewCell
         
-        let post:[String:Any] = self.posts[indexTranslation(index: indexPath.row)]
+        let post:[String:Any] = self.posts[indexPath.row]
         let timestamp:Int = (post["timestamp"] as? Int)!
         let seconds:Double = Double(timestamp / 1000)
         let date:Date = Date(timeIntervalSince1970: seconds)
@@ -107,23 +107,6 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         }
         
         return cell
-    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToNewPost" {
-            if let newPostVC = segue.destination as? NewPostViewController {
-                newPostVC.eventID = self.eventID
-            }
-        }
-    }
-    
-    */
-    private func indexTranslation(index:Int) -> Int {
-        print(index)
-        return (self.posts.count - 1)
     }
 
 }

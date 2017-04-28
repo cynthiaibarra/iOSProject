@@ -31,7 +31,7 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         setupQuote()
         setupDrinkOfTheDay()
         LocationTracker.getInstance().requestLocation()
-        
+
         //Set Navigation Bar Font and Style
         let navBarTitleFont = UIFont(name: "Avenir", size: 20)!
         self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: navBarTitleFont]
@@ -52,21 +52,26 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         //Set Background Color
         self.view.backgroundColor = themeDict["viewColor"]
 
+        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { (deliveredNotifications) -> () in
+            print(deliveredNotifications.count)
+        })
+        
+        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> () in
+            if deliveredNotifications.count > 0 {
+                for notification in deliveredNotifications {
+                    let eventID:String = notification.request.identifier
+                    DBHandler.addEventToTimeline(eventID: eventID)
+                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [eventID])
+                }
+                
+            }
+        })
+
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
-
-    @IBAction func signOutButton(_ sender: Any) {
-        let firebaseAuth = FIRAuth.auth()
-        do {
-            try firebaseAuth?.signOut()
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-        self.performSegue(withIdentifier: "segueToSignIn", sender: nil)
     }
     
     private func setupQuote() {
