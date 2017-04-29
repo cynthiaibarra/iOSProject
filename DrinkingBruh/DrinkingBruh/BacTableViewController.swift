@@ -1,15 +1,15 @@
 //
-//  BacViewController.swift
+//  BacTableViewController.swift
 //  DrinkingBruh
 //
-//  Created by Vineeth on 4/16/17.
+//  Created by Vineeth on 4/28/17.
 //  Copyright © 2017 Cynthia  Ibarra. All rights reserved.
 //
 
 import UIKit
 import FirebaseAuth
 
-class BacViewController: UIViewController {
+class BacTableViewController: UITableViewController {
     
     //MARK: Properties
     @IBOutlet weak var BACLabel: UILabel!
@@ -33,16 +33,24 @@ class BacViewController: UIViewController {
     var tequila:Int = 0
     var wine:Int = 0
     var elapsedTime:Double = 0.0
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     //get this user's email
     let userEmail = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "BAC Calculator"
         
         //currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
         
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Disable tableView Cell Selection
+        self.tableView.allowsSelection = false
+                
         DBHandler.getDrinks(eventID: currentEventID!) { (drinkLog) -> () in
             if(drinkLog != nil) {
                 self.drinksDict = drinkLog
@@ -53,7 +61,7 @@ class BacViewController: UIViewController {
             
             self.initializeAndComputeBAC()
         }
-
+        
         // Do any additional setup after loading the view.
         
     }
@@ -62,7 +70,7 @@ class BacViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-        
+    
     func initializeAndComputeBAC() {
         
         DBHandler.getUserInfo(userEmail: self.userEmail!) { (user) -> () in
@@ -114,14 +122,20 @@ class BacViewController: UIViewController {
         }
         
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = themeDict["viewColor"]?.cgColor
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = themeDict["textColor"]
+        let font = UIFont(name: "Avenir", size: 18.0)
+        headerView.textLabel?.font = font!
+        
+        
+    }
+    
 }

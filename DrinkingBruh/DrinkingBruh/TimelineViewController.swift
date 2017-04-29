@@ -36,13 +36,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         })
         floaty.addItem("Drink Tracker", icon: UIImage(named: "beer")!, handler: { item in
             let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "DrinkTracker") as! DrinkLoggerViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "drinkLog") as! DrinkLoggerTableViewController
             controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })
         floaty.addItem("BAC Caculator", icon: UIImage(named: "calculator")!, handler: { item in
             let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "Bac") as! BacViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "bacCalc") as! BacTableViewController
             controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })

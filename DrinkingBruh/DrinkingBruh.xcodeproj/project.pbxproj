@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		27D30AA9CD52C80F1C65B44C /* Pods_DrinkingBruh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BED49157291196A0FD3B2116 /* Pods_DrinkingBruh.framework */; };
 		451CB1C1E59052720E5A3C3A /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */; };
-		85551DC31EA5CC5100CA3898 /* BacViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85551DC01EA5CC5100CA3898 /* BacViewController.swift */; };
-		85551DC41EA5CC5100CA3898 /* DrinkLoggerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85551DC11EA5CC5100CA3898 /* DrinkLoggerViewController.swift */; };
+		8527749B1EB3CF320050567B /* DrinkLoggerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527749A1EB3CF320050567B /* DrinkLoggerTableViewController.swift */; };
+		8527749D1EB3CF5A0050567B /* BacTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527749C1EB3CF5A0050567B /* BacTableViewController.swift */; };
 		85551DC51EA5CC5100CA3898 /* DrinkTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85551DC21EA5CC5100CA3898 /* DrinkTracker.storyboard */; };
 		855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E881E8600FD00E1B83D /* Config.swift */; };
 		855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B5E891E8600FD00E1B83D /* Settings.storyboard */; };
@@ -85,8 +85,8 @@
 		2F8B250EC5EA89D84F188A92 /* Pods-DrinkingBruh.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruh.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruh/Pods-DrinkingBruh.release.xcconfig"; sourceTree = "<group>"; };
 		33D0049DC12BF93CCEABFE31 /* Pods-DrinkingBruhTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.release.xcconfig"; sourceTree = "<group>"; };
 		380EB5435B58586BD3D29EB3 /* Pods-DrinkingBruhTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.debug.xcconfig"; sourceTree = "<group>"; };
-		85551DC01EA5CC5100CA3898 /* BacViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacViewController.swift; sourceTree = "<group>"; };
-		85551DC11EA5CC5100CA3898 /* DrinkLoggerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkLoggerViewController.swift; sourceTree = "<group>"; };
+		8527749A1EB3CF320050567B /* DrinkLoggerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkLoggerTableViewController.swift; sourceTree = "<group>"; };
+		8527749C1EB3CF5A0050567B /* BacTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacTableViewController.swift; sourceTree = "<group>"; };
 		85551DC21EA5CC5100CA3898 /* DrinkTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DrinkTracker.storyboard; sourceTree = "<group>"; };
 		855B5E881E8600FD00E1B83D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		855B5E891E8600FD00E1B83D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -206,9 +206,9 @@
 		85551DBF1EA5C99500CA3898 /* DrinkTracker */ = {
 			isa = PBXGroup;
 			children = (
-				85551DC01EA5CC5100CA3898 /* BacViewController.swift */,
-				85551DC11EA5CC5100CA3898 /* DrinkLoggerViewController.swift */,
 				85551DC21EA5CC5100CA3898 /* DrinkTracker.storyboard */,
+				8527749A1EB3CF320050567B /* DrinkLoggerTableViewController.swift */,
+				8527749C1EB3CF5A0050567B /* BacTableViewController.swift */,
 			);
 			name = DrinkTracker;
 			sourceTree = "<group>";
@@ -678,7 +678,6 @@
 				DCA20E7F1E8DA49B00ACD277 /* EventsTableViewController.swift in Sources */,
 				DC01429C1EB1A77C00AFB758 /* FloatyItem.swift in Sources */,
 				DC243AB91EA4756F000E7806 /* GuestsTableViewController.swift in Sources */,
-				85551DC41EA5CC5100CA3898 /* DrinkLoggerViewController.swift in Sources */,
 				DC01429D1EB1A77C00AFB758 /* FloatyManager.swift in Sources */,
 				DCA6CA3F1E84EE5E00424D3B /* FriendRequestsTableViewController.swift in Sources */,
 				DC9A949E1EB1CED4008164FD /* TimelineTableViewCell.swift in Sources */,
@@ -686,7 +685,6 @@
 				DC9A94A01EB1D453008164FD /* NewPostViewController.swift in Sources */,
 				855B5E8E1E8600FD00E1B83D /* SettingsTableViewController.swift in Sources */,
 				DCAEF45A1E85A15C000C8298 /* FriendTableViewCell.swift in Sources */,
-				85551DC31EA5CC5100CA3898 /* BacViewController.swift in Sources */,
 				DC243ABB1EA4A54E000E7806 /* GuestTableViewCell.swift in Sources */,
 				DC36098C1E8461FE006ECA50 /* FriendsTableViewController.swift in Sources */,
 				DC61FF651E9C15EE000E8299 /* GetHomeViewController.swift in Sources */,
@@ -695,7 +693,9 @@
 				DC04845B1E96C23B00EE7623 /* Extensions.swift in Sources */,
 				DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */,
 				855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */,
+				8527749B1EB3CF320050567B /* DrinkLoggerTableViewController.swift in Sources */,
 				DCC48D571EA5CD780058083A /* PasswordResetViewController.swift in Sources */,
+				8527749D1EB3CF5A0050567B /* BacTableViewController.swift in Sources */,
 				DCA20E811E8DB91400ACD277 /* CreateEventViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
