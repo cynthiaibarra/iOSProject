@@ -15,9 +15,13 @@ class GuestsTableViewController: UITableViewController {
     var invited:[[String:Any]] = []
     var roles:[String:String] = [:]
     var eventID:String?
-      
+    private var themeDict:[String:UIColor] = Theme.getTheme()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
         
         DBHandler.getInviteeRoles(eventID: eventID!){ (guestRole) -> () in
             self.roles[guestRole["email"]!] = guestRole["role"]

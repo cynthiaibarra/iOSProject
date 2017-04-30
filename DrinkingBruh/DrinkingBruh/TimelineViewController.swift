@@ -18,9 +18,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     var eventID:String = ""
     var eventTitle:String = ""
     var posts:[[String:Any]] = []
+    private var themeDict:[String:UIColor] = Theme.getTheme()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.tableView.backgroundColor = themeDict["viewColor"]
+
         tableView.dataSource = self
         tableView.delegate = self
         self.title = eventTitle
@@ -108,5 +113,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //May need to remove colors applied in Storyboard
+        //cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 8.0
+        cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+        cell.layer.cornerRadius = 15
+        
+    }
+    
 }

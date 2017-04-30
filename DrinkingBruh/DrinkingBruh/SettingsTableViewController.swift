@@ -101,7 +101,10 @@ class SettingsTableViewController: UITableViewController {
         //themeLabel.textColor = themeDict?["textColor"]
         self.view.backgroundColor = themeDict?["viewColor"]
         self.tableView.reloadData()
-
+        
+        //change the background of Home screen
+        self.navigationController?.previousViewController()?.view.backgroundColor = themeDict?["viewColor"]
+        
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
@@ -117,6 +120,20 @@ class SettingsTableViewController: UITableViewController {
         headerView.textLabel?.font = font!
         
         
+    }
+    
+}
+
+extension UINavigationController {
+    
+    //Get previous view controller of the navigation stack
+    func previousViewController() -> UIViewController?{
+        
+        let length = self.viewControllers.count
+        
+        let previousViewController: UIViewController? = length >= 2 ? self.viewControllers[length-2] : nil
+        
+        return previousViewController
     }
     
 }
