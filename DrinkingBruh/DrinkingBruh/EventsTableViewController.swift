@@ -17,7 +17,11 @@ class EventsTableViewController: UITableViewController {
     private var invitedEvents:[[String:Any]] = []
     private var attendingEvents:[[String:Any]] = []
     private var themeDict:[String:UIColor] = Theme.getTheme()
-
+    var roles:[String] = ["Designated Driver", "Birthday Boy/Girl", "Rando", "Casual Member", "Free Agent"]
+    let picker = UIPickerView()
+    var selectedRow:Int = 0
+    var alert = UIAlertController()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -117,9 +121,11 @@ class EventsTableViewController: UITableViewController {
         attendingEvents.append(event)
         tableView.insertRows(at: [IndexPath(row: self.attendingEvents.count - 1, section: 0)], with: .automatic)
     
-        let alert = UIAlertController(title: "Role Selection", message: "Enter your role in the event!", preferredStyle: .alert)
+        alert = UIAlertController(title: "Role Selection", message: "Choose your role in the event!", preferredStyle: .alert)
         alert.addTextField { (textField) in
             textField.placeholder = "The Awesome One"
+            textField.inputView = self.picker
+            textField.text = self.roles[self.selectedRow]
         }
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
             let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
@@ -205,3 +211,27 @@ class EventsTableViewController: UITableViewController {
         }
     }
 }
+
+extension EventsTableViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return roles.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return roles[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        
+        selectedRow = row
+        let textField = alert.textFields![0]
+        textField.text = self.roles[self.selectedRow]
+        
+    }
+}
+
