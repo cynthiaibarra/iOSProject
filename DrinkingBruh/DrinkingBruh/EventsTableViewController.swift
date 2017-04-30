@@ -16,9 +16,14 @@ class EventsTableViewController: UITableViewController {
     private var myEvents:[[String:Any]] = []
     private var invitedEvents:[[String:Any]] = []
     private var attendingEvents:[[String:Any]] = []
+    private var themeDict:[String:UIColor] = Theme.getTheme()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
         let addEventButton:UIButton = UIButton.init(type: UIButtonType.custom)
         addEventButton.setImage(UIImage(named: "plus.png"), for: .normal)
         addEventButton.addTarget(self, action: #selector(self.segueToCreateEvent), for: .touchUpInside)

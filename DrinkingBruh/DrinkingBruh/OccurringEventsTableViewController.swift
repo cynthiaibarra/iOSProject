@@ -94,9 +94,9 @@ class OccurringEventsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        cell.backgroundColor = UIColor.clear
-        //cell.layer.borderWidth = 2.0
-        //cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+        //cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 11.0
+        cell.layer.borderColor = themeDict["viewColor"]?.cgColor
     }
     
 }
