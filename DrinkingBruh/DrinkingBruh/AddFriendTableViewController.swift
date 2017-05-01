@@ -18,7 +18,7 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     private var currentUserSentRequests:[String: Any] = [:]
     private var currentUserReceivedRequests:[String:Any] = [:]
     private var users:[[String:Any]] = []
-    
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     // Search functionality
     private var searching:Bool = false
@@ -26,6 +26,13 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Disable tableView Cell Selection
+        self.tableView.allowsSelection = false
+        
         searchBar.delegate = self
         tableView.separatorStyle = .none;
         
@@ -89,6 +96,9 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
             user = users[indexPath.row]
         }
         let emailKey:String = (user["email"] as! String).replacingOccurrences(of: ".", with: "\\_")
+        
+        //Set theme for Label
+        cell.nameLabel.textColor = themeDict["textColor"]
 
         cell.nameLabel.text = user["fullName"] as? String
         cell.friends = isFriend(email: emailKey)
@@ -199,4 +209,11 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
             return fieldToSearch!.lowercased().range(of: searchText.lowercased()) != nil
         })
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+        //cell.layer.borderWidth = 2.0
+        //cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+    }
+
 }

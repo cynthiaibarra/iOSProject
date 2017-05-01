@@ -15,9 +15,14 @@ class InviteFriendsTableViewController: UITableViewController {
     var eventID:String!
     var invitees:[String:String]?
     var edit:Bool = false
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
         self.navigationItem.setHidesBackButton(true, animated: true)
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: UIBarButtonItemStyle.plain, target: self, action: #selector(InviteFriendsTableViewController.performSegueToEvents))
         let userEmail:String = (FIRAuth.auth()?.currentUser?.email)!

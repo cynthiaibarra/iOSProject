@@ -1,14 +1,14 @@
 //
-//  DrinkLoggerViewController.swift
+//  DrinkLoggerTableViewController.swift
 //  DrinkingBruh
 //
-//  Created by Vineeth on 4/16/17.
+//  Created by Vineeth on 4/28/17.
 //  Copyright © 2017 Cynthia  Ibarra. All rights reserved.
 //
 
 import UIKit
 
-class DrinkLoggerViewController: UIViewController {
+class DrinkLoggerTableViewController: UITableViewController {
     
     //MARK: Properties
     var currentEventID:String?
@@ -39,15 +39,22 @@ class DrinkLoggerViewController: UIViewController {
     var wineCount:Int = 0
     var elapsedTime:Double = 0.0
     var drinkTotal:Int = 0
-
+    private var themeDict:[String:UIColor] = Theme.getTheme()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Drink Logger"
+        self.title = "Drink Tracker"
         // Do any additional setup after loading the view.
         
         //currentEventID = "869E96C8-BFE9-48EA-A54D-11E7C314696A"
         //print(currentEventID ?? "")
         
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Disable tableView Cell Selection
+        self.tableView.allowsSelection = false
+                
         if (currentEventID != nil) {
             
             DBHandler.getDrinks(eventID: currentEventID!) { (drinkLog) -> () in
@@ -92,46 +99,46 @@ class DrinkLoggerViewController: UIViewController {
     }
     
     @IBAction func beerStepper(_ sender: UIStepper) {
-
+        
         beerCount = Int(sender.value)
         beerCountLabel.text = String(beerCount)
-
+        
     }
     
     @IBAction func vodkaStepper(_ sender: UIStepper) {
         vodkaCount = Int(sender.value)
         vodkaCountLabel.text = String(vodkaCount)
-
+        
     }
     
     @IBAction func ginStepper(_ sender: UIStepper) {
         ginCount = Int(sender.value)
         ginCountLabel.text = String(ginCount)
-
+        
     }
     
     @IBAction func whiskeyStepper(_ sender: UIStepper) {
         whiskeyCount = Int(sender.value)
         whiskeyCountLabel.text = String(whiskeyCount)
-
+        
     }
     
     @IBAction func tequilaStepper(_ sender: UIStepper) {
         tequilaCount = Int(sender.value)
         tequilaCountLabel.text = String(tequilaCount)
-
+        
     }
     
     @IBAction func wineStepper(_ sender: UIStepper) {
         wineCount = Int(sender.value)
         wineCountLabel.text = String(wineCount)
-
+        
     }
     
     @IBAction func elapsedTimeStepper(_ sender: UIStepper) {
         elapsedTime = sender.value
         elapsedTimeLabel.text = String(elapsedTime)
-
+        
     }
     
     
@@ -162,16 +169,22 @@ class DrinkLoggerViewController: UIViewController {
         tequilaStep.value = Double(tequilaCount)
         wineStep.value = Double(wineCount)
         elapsedTimeStep.value = elapsedTime
-
+        
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 2.0
+        cell.layer.borderColor = themeDict["viewColor"]?.cgColor
     }
-    */
-
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let headerView = view as! UITableViewHeaderFooterView
+        headerView.textLabel?.textColor = themeDict["textColor"]
+        let font = UIFont(name: "Avenir", size: 18.0)
+        headerView.textLabel?.font = font!
+        
+        
+    }
+    
 }

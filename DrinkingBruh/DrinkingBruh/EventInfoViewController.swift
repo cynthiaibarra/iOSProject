@@ -32,9 +32,14 @@ class EventInfoViewController: UIViewController {
     var coordinates:CLLocationCoordinate2D?
     var invitees:[String:String]?
     var eventID:String?
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
         setUpHostInfo()
         DBHandler.getImage(imageID: imageID!) { (image) -> () in
             self.eventImageView.image = image

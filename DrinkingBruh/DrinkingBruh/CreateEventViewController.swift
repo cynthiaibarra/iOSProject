@@ -29,6 +29,7 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     private let imagePicker:UIImagePickerController = UIImagePickerController()
     private var eventImage:UIImage?
     private var placesClient:GMSPlacesClient = GMSPlacesClient.shared()
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     var eventID:String = ""
     var longitude:CLLocationDegrees = 0.0
@@ -45,6 +46,10 @@ class CreateEventViewController: UIViewController, UITextFieldDelegate, UIImageP
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
         locationTextField.isEnabled = false
         initDelegates()
         initViews()

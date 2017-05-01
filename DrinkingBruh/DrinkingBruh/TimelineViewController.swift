@@ -19,9 +19,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     var eventID:String = ""
     var eventTitle:String = ""
     var posts:[[String:Any]] = []
+    private var themeDict:[String:UIColor] = Theme.getTheme()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.tableView.backgroundColor = themeDict["viewColor"]
+
         tableView.dataSource = self
         tableView.delegate = self
         self.title = eventTitle
@@ -37,13 +42,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         })
         floaty.addItem("Drink Tracker", icon: UIImage(named: "beer")!, handler: { item in
             let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "DrinkTracker") as! DrinkLoggerViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "drinkLog") as! DrinkLoggerTableViewController
             controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })
         floaty.addItem("BAC Caculator", icon: UIImage(named: "calculator")!, handler: { item in
             let storyboard = UIStoryboard(name: "DrinkTracker", bundle: nil)
-            let controller = storyboard.instantiateViewController(withIdentifier: "Bac") as! BacViewController
+            let controller = storyboard.instantiateViewController(withIdentifier: "bacCalc") as! BacTableViewController
             controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })
@@ -127,11 +132,20 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         return cell
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToNewPost" {
             if let newPostVC = segue.destination as? NewPostViewController {
                 newPostVC.eventID = self.eventID
             }
         }
+    }
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //May need to remove colors applied in Storyboard
+        //cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 8.0
+        cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+        cell.layer.cornerRadius = 15
+        
     }
 }

@@ -14,8 +14,17 @@ class FriendRequestsTableViewController: UITableViewController {
 
     private var friendRequests:[[String:Any]] = []
     private var userEmail:String = DBHandler.getUserEmail()
+    private var themeDict:[String:UIColor] = Theme.getTheme()
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Disable tableView Cell Selection
+        self.tableView.allowsSelection = false
+        
         tableView.tableFooterView = UIView(frame: .zero)
         DBHandler.getFriendRequests(userEmail: userEmail) { (requestEmail) -> () in
             DBHandler.getUserInfo(userEmail: requestEmail) { (user) -> () in
@@ -45,6 +54,9 @@ class FriendRequestsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendRequestCell", for: indexPath) as! FriendRequestTableViewCell
+        
+        //Set theme for Label
+        cell.nameLabel.textColor = themeDict["textColor"]
         
         //Get user data
         let friendRequest:[String:Any] = friendRequests[indexPath.row]
@@ -98,5 +110,11 @@ class FriendRequestsTableViewController: UITableViewController {
             
         }
     }
-
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+        //cell.layer.borderWidth = 2.0
+        //cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+    }
+    
 }

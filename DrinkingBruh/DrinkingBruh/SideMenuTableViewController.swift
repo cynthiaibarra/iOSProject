@@ -13,6 +13,10 @@ class SideMenuTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Disable tableView cell selection
+        self.tableView.allowsSelection = false
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,6 +32,10 @@ class SideMenuTableViewController: UITableViewController {
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
         }
+        
+        //Change to Dark Theme on Sign Out
+        Config.setTheme("dark")
+        
         self.performSegue(withIdentifier: "segueToSignIn", sender: nil)
     }
 

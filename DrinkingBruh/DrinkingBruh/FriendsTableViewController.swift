@@ -13,10 +13,17 @@ import FirebaseStorageUI
 class FriendsTableViewController: UITableViewController {
     
     private var friends:[[String:Any]] = []
+    private var themeDict:[String:UIColor] = Theme.getTheme()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.separatorStyle = .none;
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Disable tableView Cell Selection
+        self.tableView.allowsSelection = false
         tableView.tableFooterView = nil
         let userEmail:String = DBHandler.getUserEmail()
         DBHandler.getFriends(userEmail: userEmail) { (friend) -> () in
@@ -49,6 +56,9 @@ class FriendsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendCell", for: indexPath) as! FriendTableViewCell
         
+        //Set theme for Label
+        cell.nameLabel.textColor = themeDict["textColor"]
+
         //Get user data
         let friend:[String:Any] = friends[indexPath.row]
         cell.nameLabel.text = friend["fullName"] as? String
@@ -70,4 +80,11 @@ class FriendsTableViewController: UITableViewController {
     {
         return 70;
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        cell.backgroundColor = UIColor.clear
+        //cell.layer.borderWidth = 2.0
+        //cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+    }
+
 }

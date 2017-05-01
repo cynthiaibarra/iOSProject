@@ -13,10 +13,14 @@ class OccurringEventsTableViewController: UITableViewController {
     
     private var events:[[String:Any]] = []
     private var eventList:[String:String] = [:]
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Timelines"
+        self.title = "Timelines"      
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+
         DBHandler.getTimelineEvents() { (timelineEvents) -> () in
             self.eventList = timelineEvents
             for event in self.eventList {
@@ -91,6 +95,11 @@ class OccurringEventsTableViewController: UITableViewController {
             }
         }
     }
- 
-
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        //cell.backgroundColor = UIColor.clear
+        cell.layer.borderWidth = 11.0
+        cell.layer.borderColor = themeDict["viewColor"]?.cgColor
+    }
+    
 }
