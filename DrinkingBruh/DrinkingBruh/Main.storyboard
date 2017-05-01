@@ -774,17 +774,21 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgC-Yf-NP8">
                                                     <rect key="frame" x="15" y="6" width="41" height="30"/>
-                                                    <state key="normal" title="Home"/>
+                                                    <state key="normal" title="Home">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="x0t-vb-IZC" kind="show" id="qAN-ff-JJq"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="sgC-Yf-NP8" firstAttribute="leading" secondItem="Xvt-HZ-Z5U" secondAttribute="leading" constant="15" id="8zE-LO-ElL"/>
                                                 <constraint firstItem="sgC-Yf-NP8" firstAttribute="top" secondItem="Xvt-HZ-Z5U" secondAttribute="top" constant="6" id="bed-d5-fzZ"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="vKp-Tz-eqz" customClass="UITableViewVibrantCell" customModule="SideMenu">
                                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -795,7 +799,9 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JJ2-je-hq7">
                                                     <rect key="frame" x="15" y="6" width="51" height="30"/>
-                                                    <state key="normal" title="Friends"/>
+                                                    <state key="normal" title="Friends">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="zGo-qH-VKC" kind="show" id="Aek-Sq-i86"/>
                                                     </connections>
@@ -806,6 +812,7 @@
                                                 <constraint firstItem="JJ2-je-hq7" firstAttribute="top" secondItem="I7d-za-Ghx" secondAttribute="top" constant="6" id="g5N-QM-yyj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="7UJ-Ob-hZb">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
@@ -816,17 +823,22 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kxw-HE-FSI">
                                                     <rect key="frame" x="15" y="6" width="46" height="30"/>
-                                                    <state key="normal" title="Events"/>
+                                                    <state key="normal" title="Events">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="qUh-D5-agk" kind="show" id="H8B-bM-N1G"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="Kxw-HE-FSI" firstAttribute="leading" secondItem="wyY-bz-ewr" secondAttribute="leading" constant="15" id="OzN-px-o19"/>
                                                 <constraint firstItem="Kxw-HE-FSI" firstAttribute="top" secondItem="wyY-bz-ewr" secondAttribute="top" constant="6" id="YvO-q3-iKj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="G22-Rh-rJi">
                                         <rect key="frame" x="0.0" y="132" width="375" height="44"/>
@@ -837,7 +849,9 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3gs-dk-sKy">
                                                     <rect key="frame" x="15" y="6" width="66" height="30"/>
-                                                    <state key="normal" title="Timelines"/>
+                                                    <state key="normal" title="Timelines">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="hPk-Y7-1hP" kind="show" id="shy-bm-tU9"/>
                                                     </connections>
@@ -848,6 +862,7 @@
                                                 <constraint firstItem="3gs-dk-sKy" firstAttribute="leading" secondItem="NPu-PG-YQL" secondAttribute="leading" constant="15" id="rLT-gx-qyf"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="zWW-UA-MhY">
                                         <rect key="frame" x="0.0" y="176" width="375" height="44"/>
@@ -858,7 +873,9 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vh2-hu-wbd">
                                                     <rect key="frame" x="15" y="6" width="70" height="30"/>
-                                                    <state key="normal" title="Get Home"/>
+                                                    <state key="normal" title="Get Home">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <segue destination="uHz-yn-rkx" kind="show" id="mpm-bA-Agf"/>
                                                     </connections>
@@ -869,6 +886,7 @@
                                                 <constraint firstItem="Vh2-hu-wbd" firstAttribute="top" secondItem="cpy-Zt-5dv" secondAttribute="top" constant="6" id="Iw3-hn-xdR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="UTz-5x-h7H" customClass="UITableViewVibrantCell" customModule="SideMenu">
                                         <rect key="frame" x="0.0" y="220" width="375" height="44"/>
@@ -879,7 +897,9 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="68J-h0-Zae">
                                                     <rect key="frame" x="15" y="6" width="57" height="30"/>
-                                                    <state key="normal" title="Settings"/>
+                                                    <state key="normal" title="Settings">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="settingsButton:" destination="PnO-bB-mBy" eventType="touchUpInside" id="Kz4-wr-WiP"/>
                                                     </connections>
@@ -890,6 +910,7 @@
                                                 <constraint firstItem="68J-h0-Zae" firstAttribute="top" secondItem="Tuj-FQ-Jug" secondAttribute="top" constant="6" id="xlp-CT-o8D"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="AO1-js-AHH">
                                         <rect key="frame" x="0.0" y="264" width="375" height="44"/>
@@ -900,7 +921,9 @@
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a4Q-Lu-REP">
                                                     <rect key="frame" x="15" y="6" width="60" height="30"/>
-                                                    <state key="normal" title="Sign Out"/>
+                                                    <state key="normal" title="Sign Out">
+                                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="signOutButton:" destination="PnO-bB-mBy" eventType="touchUpInside" id="Ejv-Oq-rwC"/>
                                                     </connections>
@@ -911,6 +934,7 @@
                                                 <constraint firstItem="a4Q-Lu-REP" firstAttribute="leading" secondItem="yr0-rB-dcg" secondAttribute="leading" constant="15" id="o1O-PD-p9c"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -1611,7 +1635,7 @@
         <scene sceneID="C6N-ft-tww">
             <objects>
                 <navigationController id="Um6-rk-SB9" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f13-Q0-oI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f13-Q0-oI0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1844,7 +1868,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IhS-TQ-QbY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EpW-6e-Ips">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EpW-6e-Ips">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

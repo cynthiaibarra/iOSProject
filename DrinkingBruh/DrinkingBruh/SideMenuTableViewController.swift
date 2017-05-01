@@ -11,9 +11,11 @@ import FirebaseAuth
 
 class SideMenuTableViewController: UITableViewController {
 
+    private var themeDict:[String:UIColor] = Theme.getTheme()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.backgroundColor = themeDict["viewColor"]
         //Disable tableView cell selection
         self.tableView.allowsSelection = false
 
