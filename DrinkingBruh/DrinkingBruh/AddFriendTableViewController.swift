@@ -27,6 +27,7 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        tableView.separatorStyle = .none;
         
         let email:String = DBHandler.getUserEmail()
         

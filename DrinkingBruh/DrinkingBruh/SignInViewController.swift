@@ -57,7 +57,7 @@ class SignInViewController: UIViewController, UITextFieldDelegate, FBSDKLoginBut
                     if(err != nil){
                         
                     }
-                    print("Logged in")
+                    self.performSegue(withIdentifier: "segueToRegistration", sender: nil)
                 })
             }
         }
@@ -115,6 +115,14 @@ class SignInViewController: UIViewController, UITextFieldDelegate, FBSDKLoginBut
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.view.endEditing(true)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToRegistration" {
+            if let regVC = segue.destination as? RegistrationViewController {
+                regVC.facebook = true
+            }
+        }
     }
     
 }

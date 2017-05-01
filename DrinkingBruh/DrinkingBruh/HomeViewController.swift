@@ -26,23 +26,20 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         super.viewDidLoad()
         self.title = "Home"      
         // Do any additional setup after loading the view.
-        setupQuote()
-        setupDrinkOfTheDay()
-        LocationTracker.getInstance().requestLocation()
-        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { (deliveredNotifications) -> () in
-            print(deliveredNotifications.count)
-        })
-        
         UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> () in
             if deliveredNotifications.count > 0 {
                 for notification in deliveredNotifications {
                     let eventID:String = notification.request.identifier
                     DBHandler.addEventToTimeline(eventID: eventID)
                     UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [eventID])
+                    DBHandler.deleteEvent(eventID: eventID)
                 }
                 
             }
         })
+        setupQuote()
+        setupDrinkOfTheDay()
+        LocationTracker.getInstance().requestLocation()
     }
 
     override func didReceiveMemoryWarning() {
