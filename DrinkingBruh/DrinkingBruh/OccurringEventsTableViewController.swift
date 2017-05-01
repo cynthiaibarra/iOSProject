@@ -17,10 +17,10 @@ class OccurringEventsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.title = "Timelines"      
         //Set Theme
         self.view.backgroundColor = themeDict["viewColor"]
-        
+
         DBHandler.getTimelineEvents() { (timelineEvents) -> () in
             self.eventList = timelineEvents
             for event in self.eventList {
@@ -47,6 +47,9 @@ class OccurringEventsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+        if events.count == 0 {
+            TableViewHelper.emptyMessage(message: "No timelines... yet!\nAttend an event to display an event timeline.", viewController: self, tableView: self.tableView)
+        }
         return events.count
     }
     

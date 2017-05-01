@@ -19,6 +19,8 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     private let imagePicker:UIImagePickerController = UIImagePickerController()
     private var userImage:UIImage?
     private let storageRef = FIRStorage.storage().reference()
+    private var didSet:Bool = false
+    var facebook = false
     
     @IBOutlet weak var firstNameTextField: SkyFloatingLabelTextField!
     @IBOutlet weak var lastNameTextField: SkyFloatingLabelTextField!
@@ -42,6 +44,10 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
         imagePicker.sourceType = .photoLibrary
         imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
         setUpTextFields()
+        if facebook {
+            let user = FIRAuth.auth()?.currentUser
+            emailTextField.text = user?.email
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -77,15 +83,22 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
             messageLabel.text = "Must use a valid email."
         } else {
             // If created user successfully, save registration data in database. Otherwise show error to user.
-            let imageID = UUID().uuidString
-            let eventImageRef = storageRef.child(imageID)
-            let data = UIImageJPEGRepresentation(userImageView.image!, 0.3)
-
-            let uploadTask = eventImageRef.put(data!, metadata: nil) { (metadata, error) in
-                if error != nil{
-                    print(error?.localizedDescription ?? "error")
+            
+            var imageID:String = ""
+            if !didSet {
+                imageID = "96D1D05E-3769-4B53-9310-6484FED8F3B2"
+            } else {
+                imageID = UUID().uuidString
+                let eventImageRef = storageRef.child(imageID)
+                let data = UIImageJPEGRepresentation(userImageView.image!, 0.3)
+                
+                _ = eventImageRef.put(data!, metadata: nil) { (metadata, error) in
+                    if error != nil{
+                        print(error?.localizedDescription ?? "error")
+                    }
                 }
             }
+            
 
             FIRAuth.auth()?.createUser(withEmail: email, password: password) { (user, error) in
                 if let error = error {
@@ -105,6 +118,7 @@ class RegistrationViewController: UIViewController, UITextFieldDelegate, UIImage
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         self.userImage = info[UIImagePickerControllerOriginalImage] as? UIImage //2
         self.userImageView.image = self.userImage
+        didSet = true
         dismiss(animated:true, completion: nil) //5
     }
     

@@ -27,7 +27,6 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Home"      
-        // Do any additional setup after loading the view.
         setupQuote()
         setupDrinkOfTheDay()
         LocationTracker.getInstance().requestLocation()
@@ -51,10 +50,6 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         
         //Set Background Color
         self.view.backgroundColor = themeDict["viewColor"]
-
-        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { (deliveredNotifications) -> () in
-            print(deliveredNotifications.count)
-        })
         
         UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> () in
             if deliveredNotifications.count > 0 {
@@ -62,11 +57,11 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
                     let eventID:String = notification.request.identifier
                     DBHandler.addEventToTimeline(eventID: eventID)
                     UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [eventID])
+                    DBHandler.deleteEvent(eventID: eventID)
                 }
                 
             }
         })
-
     }
 
     override func didReceiveMemoryWarning() {

@@ -7,8 +7,9 @@
 //
 
 import UIKit
-import FirebaseStorage
 import FirebaseStorageUI
+import FirebaseStorage
+
 
 class TimelineViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
@@ -74,6 +75,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     //MARK: - Tableview Delegate & Datasource
     func tableView(_ tableView:UITableView, numberOfRowsInSection section:Int) -> Int
     {
+        if posts.count == 0 {
+            TableViewHelper.emptyMessage(message: "No posts yet. Be the first to post!", viewController: self, tableView: self.tableView)
+        }
         return posts.count
     }
     
@@ -84,17 +88,30 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! TimelineTableViewCell
-        
         let post:[String:Any] = self.posts[indexPath.row]
         let timestamp:Int = (post["timestamp"] as? Int)!
         let seconds:Double = Double(timestamp / 1000)
-        let date:Date = Date(timeIntervalSince1970: seconds)
-        cell.timeLabel.text = "\(date)"
+        let d:Date = Date(timeIntervalSince1970: seconds)
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "EEE, MMM d, yyyy h:mm a"
+        dateFormatter.timeZone = TimeZone(abbreviation: "CST")
+        let date = dateFormatter.string(from: d)
+        
+
         let email:String = (post["user"] as? String)!
         let content:String = (post["content"] as? String)!
+        let postImageID:String? = post["image"] as? String
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! TimelineTableViewCell
+        
+        cell.timeLabel.text = "\(date)"
         cell.contentLabel.text = content
+        
+        if postImageID != nil && postImageID != "nil" {
+            let reference = FIRStorage.storage().reference().child(postImageID!)
+            cell.postImageView.sd_setImage(with: reference)
+
+        }
         
         DBHandler.getUserInfo(userEmail: email) { (user) -> () in
             let imageID:String? = user["image"] as? String
@@ -108,12 +125,21 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
                 imageView.sd_setImage(with: reference, placeholderImage: placeholderImage)
             } else {
                 cell.userImageView.image = UIImage(named: "genericUser")
+            
             }
         }
         
         return cell
     }
     
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToNewPost" {
+            if let newPostVC = segue.destination as? NewPostViewController {
+                newPostVC.eventID = self.eventID
+            }
+        }
+    }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         //May need to remove colors applied in Storyboard
         //cell.backgroundColor = UIColor.clear
@@ -122,5 +148,4 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         cell.layer.cornerRadius = 15
         
     }
-    
 }

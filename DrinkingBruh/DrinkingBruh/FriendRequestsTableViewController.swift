@@ -45,6 +45,9 @@ class FriendRequestsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if friendRequests.count == 0 {
+            TableViewHelper.emptyMessage(message: "You have no friend requests at the moment.", viewController: self, tableView: self.tableView)
+        }
         return friendRequests.count
     }
 

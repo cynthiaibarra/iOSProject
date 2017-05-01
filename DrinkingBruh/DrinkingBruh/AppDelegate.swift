@@ -56,7 +56,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
+        UNUserNotificationCenter.current().getDeliveredNotifications(completionHandler: { deliveredNotifications -> () in
+            if deliveredNotifications.count > 0 {
+                for notification in deliveredNotifications {
+                    let eventID:String = notification.request.identifier
+                    DBHandler.addEventToTimeline(eventID: eventID)
+                    UNUserNotificationCenter.current().removeDeliveredNotifications(withIdentifiers: [eventID])
+                    DBHandler.deleteEvent(eventID: eventID)
+                }
+                
+            }
+        })
     }
 
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -69,7 +79,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 }
 
 extension AppDelegate: UNUserNotificationCenterDelegate {
+    
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let eventID:String = notification.request.identifier
+        DBHandler.addEventToTimeline(eventID: eventID)
+        DBHandler.deleteEvent(eventID: eventID)
         completionHandler(.alert)
     }
+
 }

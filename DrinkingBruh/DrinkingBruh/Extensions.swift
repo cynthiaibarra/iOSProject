@@ -57,3 +57,30 @@ public extension String
         return self
     }
 }
+    
+public extension UIImage {
+    func resize(toWidth width: Double) -> UIImage? {
+        let scale:Double = width / Double(size.width)
+        let newHeight:Double = Double(size.height) * scale
+        UIGraphicsBeginImageContext(CGSize(width: width, height: newHeight))
+        draw(in: CGRect(x: 0.0, y: 0.0, width: width, height: newHeight))
+        defer { UIGraphicsEndImageContext() }
+        return UIGraphicsGetImageFromCurrentImageContext()
+    }
+}
+
+class TableViewHelper {
+    
+    static func emptyMessage(message:String, viewController:UIViewController, tableView:UITableView) {
+        let messageLabel = UILabel(frame: CGRect(x: 0, y: 0, width: viewController.view.frame.size.width, height: viewController.view.frame.size.height))
+        messageLabel.text = message
+        messageLabel.textColor = UIColor.white
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont.systemFont(ofSize: 20.0)
+        messageLabel.sizeToFit()
+        
+        tableView.backgroundView = messageLabel;
+        tableView.separatorStyle = .none;
+    }
+}

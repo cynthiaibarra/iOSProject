@@ -8,17 +8,24 @@
 
 import UIKit
 
-class NewPostViewController: UIViewController {
+class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var postTextEditor: UITextView!
+    @IBOutlet weak var postImageView: UIImageView!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     var eventID:String = ""
+    private let imagePicker:UIImagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         //postTextEditor.delegate = self
         postTextEditor.becomeFirstResponder()
-        // Do any additional setup after loading the view.
+        indicatorView.hidesWhenStopped = true
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.mediaTypes = UIImagePickerController.availableMediaTypes(for: .photoLibrary)!
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,29 +34,31 @@ class NewPostViewController: UIViewController {
     }
     
     @IBAction func postButton(_ sender: UIButton) {
-        DBHandler.newPost(eventID: eventID, content: postTextEditor.text) { (status) -> () in
+        indicatorView.startAnimating()
+        var image:UIImage? = nil
+        if postImageView.image != nil {
+            image = postImageView.image!.resize(toWidth: 400.0)
+        }
+        
+        DBHandler.newPost(eventID: eventID, image: image , content: postTextEditor.text) { (status) -> () in
             if status == "success" {
                 _  = self.navigationController?.popViewController(animated: true)
             }
         }
     }
-    
-//    func textViewDidChange(_ textView: UITextView) {
-//        placeholdeerLabel.isHidden = !textView.text.isEmpty
-//    }
-//    
-//    override func viewDidLayoutSubviews() {
-//        super.viewDidLayoutSubviews()
-//        postTextEditor.setContentOffset(CGPoint.zero, animated: false)
- //   }
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+  
+    @IBAction func uploadPhotoButton(_ sender: UIButton) {
+        present(imagePicker, animated: true, completion: nil)
     }
-    */
-
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        self.postImageView.image = info[UIImagePickerControllerOriginalImage] as? UIImage //2
+        dismiss(animated:true, completion: nil) //5
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
 }

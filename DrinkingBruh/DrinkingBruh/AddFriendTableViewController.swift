@@ -34,6 +34,7 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
         self.tableView.allowsSelection = false
         
         searchBar.delegate = self
+        tableView.separatorStyle = .none;
         
         let email:String = DBHandler.getUserEmail()
         

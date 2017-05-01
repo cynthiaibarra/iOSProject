@@ -407,12 +407,32 @@ class DBHandler {
         })
     }
     
-    static func newPost(eventID:String, content:String, completion: @escaping (String) -> ()) {
-        eventDBRef.child(eventID).child("posts").childByAutoId().setValue(["timestamp":FIRServerValue.timestamp(), "user":getUserEmail(), "content":content]) { (error, ref) -> () in
-            if error != nil {
-                completion((error?.localizedDescription)!)
-            } else {
-                completion("success")
+    static func newPost(eventID:String, image: UIImage?, content:String, completion: @escaping (String) -> ()) {
+        if image != nil {
+            let imageID = UUID().uuidString
+            let eventImageRef = FIRStorage.storage().reference().child(imageID)
+            let data = UIImageJPEGRepresentation(image!, 0.3)
+            let uploadTask = eventImageRef.put(data!, metadata: nil) { (metadata, error) in
+                if error != nil{
+                    print(error?.localizedDescription ?? "error")
+                    
+                } else {
+                    eventDBRef.child(eventID).child("posts").childByAutoId().setValue(["timestamp":FIRServerValue.timestamp(), "user":getUserEmail(), "content":content, "image": imageID]) { (error, ref) -> () in
+                        if error != nil {
+                            completion((error?.localizedDescription)!)
+                        } else {
+                            completion("success")
+                        }
+                    }
+                }
+            }
+        } else {
+            eventDBRef.child(eventID).child("posts").childByAutoId().setValue(["timestamp":FIRServerValue.timestamp(), "user":getUserEmail(), "content":content, "image": "nil"]) { (error, ref) -> () in
+                if error != nil {
+                    completion((error?.localizedDescription)!)
+                } else {
+                    completion("success")
+                }
             }
         }
     }
@@ -439,5 +459,23 @@ class DBHandler {
         usersDBRef.child(getUserEmail()).child("lastName").setValue(lastName)
         usersDBRef.child(getUserEmail()).child("weight").setValue(weight)
         usersDBRef.child(getUserEmail()).child("sex").setValue(sex)
+    }
+    
+//    static func uploadImage(image: UIImage) -> (String) {
+//        let imageID = UUID().uuidString
+//        let eventImageRef = FIRStorage.storage().reference().child(imageID)
+//        let data = UIImageJPEGRepresentation(image, 0.3)
+//        let uploadTask = eventImageRef.put(data!, metadata: nil) { (metadata, error) in
+//            if error != nil{
+//                print(error?.localizedDescription ?? "error")
+//            
+//            }
+//        }
+//        return imageID
+//    }
+    
+    static func deleteEvent(eventID: String){
+        let email = getUserEmail()
+        usersDBRef.child(email).child("events").child(eventID).removeValue()
     }
 }

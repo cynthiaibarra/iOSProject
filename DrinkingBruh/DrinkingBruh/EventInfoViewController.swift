@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import FirebaseStorage
 
 class EventInfoViewController: UIViewController {
     
@@ -104,8 +105,10 @@ class EventInfoViewController: UIViewController {
         for invitee in invitees! {
             if invitee.value == "hosting" {
                 DBHandler.getUserInfo(userEmail: invitee.key){ (hostInfo) -> () in
-                    DBHandler.getImage(imageID: hostInfo["image"] as! String) { (image) -> () in
-                        self.hostImageView.image = image
+                    let imageID:String? = hostInfo["image"] as? String
+                    if imageID != nil {
+                        let reference = FIRStorage.storage().reference().child(imageID!)
+                        self.hostImageView.sd_setImage(with: reference)
                     }
                     self.hostFirstNameLabel.text = hostInfo["firstName"] as? String
                     self.hostLastNameLabel.text = hostInfo["lastName"] as? String
