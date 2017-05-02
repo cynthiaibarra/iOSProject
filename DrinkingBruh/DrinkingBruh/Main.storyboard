@@ -390,7 +390,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSF-dO-9mW">
-                                <rect key="frame" x="172" y="228" width="31" height="30"/>
+                                <rect key="frame" x="172" y="236" width="31" height="22"/>
                                 <state key="normal" title="Post">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -427,17 +427,19 @@
                                 </connections>
                             </button>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Ym-yv-ebN">
-                                <rect key="frame" x="177" y="233" width="20" height="20"/>
+                                <rect key="frame" x="177" y="237" width="20" height="20"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="76c-Sc-kkJ" firstAttribute="leading" secondItem="K0Z-e7-Toi" secondAttribute="leadingMargin" id="8vG-OA-sXv"/>
+                            <constraint firstItem="WSF-dO-9mW" firstAttribute="top" secondItem="c6m-qe-dAs" secondAttribute="bottom" constant="16" id="E3n-eB-Upo"/>
                             <constraint firstItem="76c-Sc-kkJ" firstAttribute="top" secondItem="c6m-qe-dAs" secondAttribute="bottom" constant="8" id="Fri-TJ-c6m"/>
                             <constraint firstItem="WSF-dO-9mW" firstAttribute="centerX" secondItem="c6m-qe-dAs" secondAttribute="centerX" id="HHS-p9-uR1"/>
                             <constraint firstItem="kkF-d0-GPg" firstAttribute="leading" secondItem="K0Z-e7-Toi" secondAttribute="leadingMargin" id="Hbe-3y-NZc"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="trailing" secondItem="K0Z-e7-Toi" secondAttribute="trailingMargin" id="QG6-bm-aO9"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="top" secondItem="VDw-ca-9XO" secondAttribute="bottom" id="URO-XQ-qAJ"/>
+                            <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerX" secondItem="c6m-qe-dAs" secondAttribute="centerX" id="dCR-gB-VCJ"/>
                             <constraint firstItem="VFN-n1-hiT" firstAttribute="top" secondItem="WSF-dO-9mW" secondAttribute="bottom" constant="409" id="iOd-RD-uQD"/>
                             <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerY" secondItem="WSF-dO-9mW" secondAttribute="centerY" id="jlJ-2M-tYd"/>
                             <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerX" secondItem="WSF-dO-9mW" secondAttribute="centerX" id="nL1-Ix-DrP"/>

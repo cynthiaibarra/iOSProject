@@ -35,6 +35,7 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBAction func postButton(_ sender: UIButton) {
         indicatorView.startAnimating()
+        sender.isHidden = true
         var image:UIImage? = nil
         if postImageView.image != nil {
             image = postImageView.image!.resize(toWidth: 400.0)
