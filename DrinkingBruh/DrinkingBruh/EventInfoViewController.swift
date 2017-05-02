@@ -33,13 +33,14 @@ class EventInfoViewController: UIViewController {
     var invitees:[String:String]?
     var eventID:String?
     private var themeDict:[String:UIColor] = Theme.getTheme()
+    var eventHappening = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Set Theme
         self.view.backgroundColor = themeDict["viewColor"]
-        
+        self.title = eventTitle
         setUpHostInfo()
         DBHandler.getImage(imageID: imageID!) { (image) -> () in
             self.eventImageView.image = image
@@ -73,6 +74,7 @@ class EventInfoViewController: UIViewController {
             if let guestListVC = segue.destination as? GuestsTableViewController {
                 guestListVC.invitees = self.invitees!
                 guestListVC.eventID = self.eventID!
+                guestListVC.eventHappening = self.eventHappening
             }
         }else if segue.identifier == "segueToEditInfo" {
             if let createEventVC = segue.destination as? CreateEventViewController {

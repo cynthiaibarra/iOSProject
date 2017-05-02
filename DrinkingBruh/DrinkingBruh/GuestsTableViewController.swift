@@ -15,6 +15,7 @@ class GuestsTableViewController: UITableViewController {
     var invited:[[String:Any]] = []
     var roles:[String:String] = [:]
     var eventID:String?
+    var eventHappening = false
     private var themeDict:[String:UIColor] = Theme.getTheme()
     
     override func viewDidLoad() {
@@ -54,23 +55,26 @@ class GuestsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        if !eventHappening {
+            return 2
+        } else {
+            return 1
+        }
+   
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0 {
-            return attending.count
-        } else {
+        if !eventHappening && section == 1{
             return invited.count
         }
+        return attending.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if section == 0 {
-            return "Attending"
-        } else {
+        if !eventHappening && section == 1{
             return "Invited"
         }
+        return "Attending"
     }
     
     func tableView (tableView:UITableView , heightForHeaderInSection section:Int)->Float {

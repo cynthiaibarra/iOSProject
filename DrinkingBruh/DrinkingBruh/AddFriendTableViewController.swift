@@ -32,9 +32,9 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
         
         //Disable tableView Cell Selection
         self.tableView.allowsSelection = false
-        
+        tableView.tableFooterView = UIView(frame: .zero)
         searchBar.delegate = self
-        tableView.separatorStyle = .none;
+     
         
         let email:String = DBHandler.getUserEmail()
         
@@ -77,7 +77,7 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
         // #warning Incomplete implementation, return the number of rows
         if searching {
             return friendSearchResults.count
-        }
+        } 
         return users.count
         
     }

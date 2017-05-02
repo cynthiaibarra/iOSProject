@@ -49,6 +49,8 @@ class OccurringEventsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if events.count == 0 {
             TableViewHelper.emptyMessage(message: "No timelines... yet!\nAttend an event to display an event timeline.", viewController: self, tableView: self.tableView)
+        } else {
+            TableViewHelper.clearMessage(tableView: tableView)
         }
         return events.count
     }
@@ -91,6 +93,7 @@ class OccurringEventsTableViewController: UITableViewController {
                 if let indexPath = self.tableView.indexPathForSelectedRow {
                     timelineVC.eventID = (self.events[indexPath.row]["id"] as? String)!
                     timelineVC.eventTitle = (self.events[indexPath.row]["title"] as? String)!
+                    timelineVC.event = self.events[indexPath.row]
                 }
             }
         }

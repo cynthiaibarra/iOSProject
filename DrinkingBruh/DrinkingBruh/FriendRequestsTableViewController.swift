@@ -25,6 +25,7 @@ class FriendRequestsTableViewController: UITableViewController {
         //Disable tableView Cell Selection
         self.tableView.allowsSelection = false
         
+        
         tableView.tableFooterView = UIView(frame: .zero)
         DBHandler.getFriendRequests(userEmail: userEmail) { (requestEmail) -> () in
             DBHandler.getUserInfo(userEmail: requestEmail) { (user) -> () in
@@ -47,6 +48,8 @@ class FriendRequestsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if friendRequests.count == 0 {
             TableViewHelper.emptyMessage(message: "You have no friend requests at the moment.", viewController: self, tableView: self.tableView)
+        } else {
+            TableViewHelper.clearMessage(tableView: tableView)
         }
         return friendRequests.count
     }

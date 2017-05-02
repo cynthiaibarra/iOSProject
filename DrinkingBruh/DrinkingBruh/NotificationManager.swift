@@ -15,14 +15,15 @@ class NotificationManager {
     
     static func eventNotification (date:String, eventTitle:String, eventID:String) {
         
-        let content = UNMutableNotificationContent()
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "EEEE, MMM d yyyy, hh:mm a"
         let date:Date = dateFormatter.date(from: date)!
+        let timeInterval = date.timeIntervalSinceNow
         
+        let content = UNMutableNotificationContent()
         content.body = "\(eventTitle) is happening right now."
         content.sound = UNNotificationSound.default()
-        let timeInterval = date.timeIntervalSinceNow
+        
         print(timeInterval)
         if timeInterval > 0.0 {
             let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)

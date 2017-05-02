@@ -45,8 +45,18 @@ class EventsTableViewController: UITableViewController {
                     self.myEvents.append(event)
                     self.tableView.insertRows(at: [IndexPath(row: self.myEvents.count - 1, section: 2)], with: .automatic)
                 } else if eventID["status"] == "pending" {
-                    self.invitedEvents.append(event)
-                    self.tableView.insertRows(at: [IndexPath(row: self.invitedEvents.count - 1, section: 1)], with: .automatic)
+                    let d:String = (event["start"] as? String)!
+                    let dateFormatter = DateFormatter()
+                    dateFormatter.dateFormat = "EEEE, MMM d yyyy, hh:mm a"
+                    let date:Date = dateFormatter.date(from: d)!
+                    let timeInterval = date.timeIntervalSinceNow
+                    if timeInterval < 0 {
+                        DBHandler.deleteEvent(eventID: eventID["id"]!)
+                    } else {
+                        self.invitedEvents.append(event)
+                        self.tableView.insertRows(at: [IndexPath(row: self.invitedEvents.count - 1, section: 1)], with: .automatic)
+                    }
+                    
                 } else if eventID["status"] == "attending" {
                     self.attendingEvents.append(event)
                     self.tableView.insertRows(at: [IndexPath(row: self.attendingEvents.count - 1, section: 0)], with: .automatic)
@@ -84,8 +94,9 @@ class EventsTableViewController: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
         var event:[String:Any] = [:]
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as! EventTableViewCell
         
         if indexPath.section == 0 {
             event = attendingEvents[indexPath.row]

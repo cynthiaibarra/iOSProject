@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MapKit
 import FirebaseStorageUI
 import FirebaseStorage
 
@@ -19,11 +20,14 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     var eventID:String = ""
     var eventTitle:String = ""
     var posts:[[String:Any]] = []
+    var event:[String:Any] = [:]
+    var roles:[String:String] = [:]
+    
     private var themeDict:[String:UIColor] = Theme.getTheme()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        roles = event["roles"] as! [String:String]
         //Set Theme
         self.tableView.backgroundColor = themeDict["viewColor"]
 
@@ -33,6 +37,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         floaty.sticky = true
         floaty.addItem("New Post", icon: UIImage(named: "pencil-box")!, handler: { item in
             self.performSegue(withIdentifier: "segueToNewPost", sender: nil)
+        })
+        floaty.addItem("Event Info", icon: UIImage(named: "pencil-box")!, handler: { item in
+            self.performSegue(withIdentifier: "segueToEventInfo", sender: nil)
         })
         floaty.addItem("Friend Locations", icon: UIImage(named: "map-marker")!, handler: { item in
           let storyboard = UIStoryboard(name: "Location", bundle: nil)
@@ -77,6 +84,8 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     {
         if posts.count == 0 {
             TableViewHelper.emptyMessage(message: "No posts yet. Be the first to post!", viewController: self, tableView: self.tableView)
+        } else {
+            TableViewHelper.clearMessage(tableView: tableView)
         }
         return posts.count
     }
@@ -116,7 +125,9 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         DBHandler.getUserInfo(userEmail: email) { (user) -> () in
             let imageID:String? = user["image"] as? String
             let name:String? = user["fullName"] as? String
+            let email:String = user["email"] as! String
             cell.nameLabel.text = name
+            cell.roleLabel.text = self.roles[email.firebaseSanitize()]
             if imageID != nil {
                 
                 let reference = FIRStorage.storage().reference().child(imageID!)
@@ -137,6 +148,21 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         if segue.identifier == "segueToNewPost" {
             if let newPostVC = segue.destination as? NewPostViewController {
                 newPostVC.eventID = self.eventID
+            }
+        } else if segue.identifier == "segueToEventInfo" {
+            if let eventInfoVC = segue.destination as? EventInfoViewController {
+                eventInfoVC.eventTitle = (event["title"] as? String)!
+                eventInfoVC.location = event["location"] as? String
+                eventInfoVC.address = event["address"] as? String
+                eventInfoVC.start = event["start"] as? String
+                eventInfoVC.end = event["end"] as? String
+                let lat:CLLocationDegrees = (event["latitude"] as? CLLocationDegrees)!
+                let long:CLLocationDegrees = (event["longitude"] as? CLLocationDegrees)!
+                eventInfoVC.coordinates = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                eventInfoVC.imageID = event["image"] as? String
+                eventInfoVC.invitees = event["invitees"] as? [String:String]
+                eventInfoVC.eventID = event["id"] as? String
+                eventInfoVC.eventHappening = true
             }
         }
     }

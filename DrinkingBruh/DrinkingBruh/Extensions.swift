@@ -79,8 +79,11 @@ class TableViewHelper {
         messageLabel.textAlignment = .center
         messageLabel.font = UIFont.systemFont(ofSize: 20.0)
         messageLabel.sizeToFit()
-        
         tableView.backgroundView = messageLabel;
-        tableView.separatorStyle = .none;
+ 
+    }
+    
+    static func clearMessage(tableView:UITableView) {
+        tableView.backgroundView = nil
     }
 }

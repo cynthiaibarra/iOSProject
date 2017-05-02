@@ -17,14 +17,13 @@ class FriendsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.separatorStyle = .none;
         
         //Set Theme
         self.view.backgroundColor = themeDict["viewColor"]
         
         //Disable tableView Cell Selection
         self.tableView.allowsSelection = false
-        tableView.tableFooterView = nil
+        tableView.tableFooterView = UIView(frame: .zero)
         let userEmail:String = DBHandler.getUserEmail()
         DBHandler.getFriends(userEmail: userEmail) { (friend) -> () in
             DBHandler.getUserInfo(userEmail: friend) { (friendInfo) -> () in
@@ -49,6 +48,8 @@ class FriendsTableViewController: UITableViewController {
         // #warning Incomplete implementation, return the number of rows
         if friends.count == 0 {
             TableViewHelper.emptyMessage(message: "You have no friends. :( \nTry adding some! :)", viewController: self, tableView: self.tableView)
+        } else {
+            TableViewHelper.clearMessage(tableView: self.tableView)
         }
         return friends.count
     }
