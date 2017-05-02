@@ -38,7 +38,7 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
         floaty.addItem("New Post", icon: UIImage(named: "pencil-box")!, handler: { item in
             self.performSegue(withIdentifier: "segueToNewPost", sender: nil)
         })
-        floaty.addItem("Event Info", icon: UIImage(named: "pencil-box")!, handler: { item in
+        floaty.addItem("Event Info", icon: UIImage(named: "info")!, handler: { item in
             self.performSegue(withIdentifier: "segueToEventInfo", sender: nil)
         })
         floaty.addItem("Friend Locations", icon: UIImage(named: "map-marker")!, handler: { item in
