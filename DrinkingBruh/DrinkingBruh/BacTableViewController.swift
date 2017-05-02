@@ -34,6 +34,7 @@ class BacTableViewController: UITableViewController {
     var wine:Int = 0
     var elapsedTime:Double = 0.0
     private var themeDict:[String:UIColor] = Theme.getTheme()
+    var userRole:String = " "
     
     //get this user's email
     let userEmail = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
@@ -50,7 +51,7 @@ class BacTableViewController: UITableViewController {
         
         //Disable tableView Cell Selection
         self.tableView.allowsSelection = false
-                
+        
         DBHandler.getDrinks(eventID: currentEventID!) { (drinkLog) -> () in
             if(drinkLog != nil) {
                 self.drinksDict = drinkLog
@@ -59,13 +60,20 @@ class BacTableViewController: UITableViewController {
                 self.drinksDict = ["beer": 0, "vodka": 0, "gin": 0, "whiskey": 0, "tequila": 0, "wine": 0, "elapsedTime": 0.0]
             }
             
-            self.initializeAndComputeBAC()
+            //get this user's role
+            DBHandler.getRole(eventID: self.currentEventID!) { (role) -> () in
+                if (role != nil) {
+                    self.userRole = role!
+                    //print(self.userRole)
+                }
+                self.initializeAndComputeBAC()
+            }
         }
         
         // Do any additional setup after loading the view.
         
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -117,8 +125,13 @@ class BacTableViewController: UITableViewController {
                 bac = 0
             }
             
-            self.BACLabel.text = String(format: "%.3f", bac)
+            let formattedBac = String(format: "%.3f", bac)
+            self.BACLabel.text = formattedBac
             
+            //store BAC in database
+            if (self.userRole != "Designated Driver") {
+                DBHandler.addBAC(bac: Double(formattedBac)!, eventID: self.currentEventID!)
+            }
         }
         
     }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class DrinkLoggerTableViewController: UITableViewController {
     
@@ -40,6 +41,10 @@ class DrinkLoggerTableViewController: UITableViewController {
     var elapsedTime:Double = 0.0
     var drinkTotal:Int = 0
     private var themeDict:[String:UIColor] = Theme.getTheme()
+    var userRole:String = " "
+    
+    //get this user's email
+    let userEmail = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,7 +59,7 @@ class DrinkLoggerTableViewController: UITableViewController {
         
         //Disable tableView Cell Selection
         self.tableView.allowsSelection = false
-                
+        
         if (currentEventID != nil) {
             
             DBHandler.getDrinks(eventID: currentEventID!) { (drinkLog) -> () in
@@ -65,12 +70,19 @@ class DrinkLoggerTableViewController: UITableViewController {
                     self.drinksDict = ["beer": 0, "vodka": 0, "gin": 0, "whiskey": 0, "tequila": 0, "wine": 0, "elapsedTime": 0.0]
                 }
                 
-                self.initialize()
+                //get this user's role
+                DBHandler.getRole(eventID: self.currentEventID!) { (role) -> () in
+                    if (role != nil) {
+                        self.userRole = role!
+                        //print(self.userRole)
+                    }
+                    self.initialize()
+                }
             }
             
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -88,7 +100,7 @@ class DrinkLoggerTableViewController: UITableViewController {
         drinksDict?["elapsedTime"] = elapsedTime
         
         //Save Data to database
-        if (currentEventID != nil) {
+        if (currentEventID != nil && self.userRole != "Designated Driver") {
             //print(drinksDict ?? " ")
             DBHandler.addDrink(eventID: currentEventID!, drinks: drinksDict!)
         }
@@ -169,6 +181,16 @@ class DrinkLoggerTableViewController: UITableViewController {
         tequilaStep.value = Double(tequilaCount)
         wineStep.value = Double(wineCount)
         elapsedTimeStep.value = elapsedTime
+        
+        if(self.userRole == "Designated Driver") {
+            beerStep.isEnabled = false
+            vodkaStep.isEnabled = false
+            ginStep.isEnabled = false
+            whiskeyStep.isEnabled = false
+            tequilaStep.isEnabled = false
+            wineStep.isEnabled = false
+            elapsedTimeStep.isEnabled = false
+        }
         
     }
     

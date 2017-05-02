@@ -22,6 +22,7 @@ class DBHandler {
     private static let invites:String = "invites"
     private static let eventsAttending:String = "eventsAttending"
     private static let events:String = "events"
+    private static let roles:String = "roles"
     
     // Parameters: [String] The current user's email
     // Returns: [String] Values that contain the user's friend's emails
@@ -478,4 +479,50 @@ class DBHandler {
         let email = getUserEmail()
         usersDBRef.child(email).child("events").child(eventID).removeValue()
     }
+    
+    // Parameters: String Event ID
+    // Returns: String?
+    static func getRole(eventID: String, completion: @escaping (String?) -> ()) {
+        eventDBRef.child(eventID).child(roles).child(getUserEmail()).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                let role:String = snapshot.value as! String
+                completion(role)
+            }else {
+                completion(nil)
+            }
+            
+        })
+        
+    }
+    
+    // Parameters: [String] Event ID
+    // Returns: [String:String] Email and user role
+    static func getRoles(eventID: String, completion: @escaping ([String:String]) -> ()) {
+        eventDBRef.child(eventID).child(roles).observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let roles = snapshot.value as? [String: String] {
+                    completion(roles)
+                } else {
+                    completion([:])
+                }
+                
+            }
+        })
+        
+    }
+    
+    static func addBAC(bac:Double, eventID: String) {
+        eventDBRef.child(eventID).child("BACs").child(getUserEmail()).setValue(["BAC":bac])
+    }
+    
+    static func getBACs(eventID: String, completion: @escaping ([String:Any]) -> ()) {
+        eventDBRef.child(eventID).child("BACs").queryOrdered(byChild: "BAC").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists() {
+                if let bacDict = snapshot.value as? [String:Any] {
+                    completion(bacDict)
+                }
+            }
+        })
+    }
+    
 }
