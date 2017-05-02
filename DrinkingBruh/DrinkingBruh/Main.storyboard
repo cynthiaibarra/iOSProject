@@ -494,7 +494,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX minutes ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7kK-FU-Uyc">
-                                                            <rect key="frame" x="78" y="55" width="273" height="14.5"/>
+                                                            <rect key="frame" x="78" y="50" width="273" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -509,7 +509,7 @@
                                                             <rect key="frame" x="8" y="105" width="343" height="227"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Role" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u2f-RL-AjL">
-                                                            <rect key="frame" x="78" y="30" width="273" height="18"/>
+                                                            <rect key="frame" x="78" y="28" width="273" height="18"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                             <nil key="highlightedColor"/>
@@ -531,8 +531,8 @@
                                                         <constraint firstItem="If0-sP-uWl" firstAttribute="top" secondItem="79Z-DT-eIA" secondAttribute="bottom" constant="7.7999999999999998" id="hb3-x4-8Dg"/>
                                                         <constraint firstItem="al1-W7-4py" firstAttribute="top" secondItem="2Q6-N8-SCR" secondAttribute="top" constant="8" id="mY8-xt-d4f"/>
                                                         <constraint firstItem="u2f-RL-AjL" firstAttribute="leading" secondItem="vDs-ac-aGI" secondAttribute="trailing" constant="8" id="nas-D1-AB9"/>
-                                                        <constraint firstItem="7kK-FU-Uyc" firstAttribute="top" secondItem="al1-W7-4py" secondAttribute="bottom" constant="29" id="nwT-fv-VRr"/>
-                                                        <constraint firstItem="u2f-RL-AjL" firstAttribute="top" secondItem="al1-W7-4py" secondAttribute="bottom" constant="4" id="oOx-lF-LYt"/>
+                                                        <constraint firstItem="7kK-FU-Uyc" firstAttribute="top" secondItem="al1-W7-4py" secondAttribute="bottom" constant="24" id="nwT-fv-VRr"/>
+                                                        <constraint firstItem="u2f-RL-AjL" firstAttribute="top" secondItem="al1-W7-4py" secondAttribute="bottom" constant="2" id="oOx-lF-LYt"/>
                                                         <constraint firstAttribute="bottom" secondItem="If0-sP-uWl" secondAttribute="bottom" constant="8" id="ufA-fw-fsl"/>
                                                         <constraint firstAttribute="trailing" secondItem="If0-sP-uWl" secondAttribute="trailing" constant="8" id="vae-XK-qOZ"/>
                                                         <constraint firstAttribute="trailing" secondItem="u2f-RL-AjL" secondAttribute="trailing" constant="8" id="yXL-tm-fUt"/>
