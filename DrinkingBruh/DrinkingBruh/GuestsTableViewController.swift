@@ -36,7 +36,7 @@ class GuestsTableViewController: UITableViewController {
                         print(user)
                         self.attending.append(user)
                         self.tableView.insertRows(at: [IndexPath(row: self.attending.count - 1, section: 0)], with: .automatic)
-                    } else if invitee.value == "pending" {
+                    } else if invitee.value == "pending" && !self.eventHappening {
                         self.invited.append(users[invitee.key] as! [String:Any])
                         self.tableView.insertRows(at: [IndexPath(row: self.invited.count - 1, section: 1)], with: .automatic)
                     }
