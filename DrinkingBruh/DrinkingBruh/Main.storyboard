@@ -391,7 +391,9 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSF-dO-9mW">
                                 <rect key="frame" x="172" y="228" width="31" height="30"/>
-                                <state key="normal" title="Post"/>
+                                <state key="normal" title="Post">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="postButton:" destination="rL0-ue-7LM" eventType="touchUpInside" id="8Yl-eP-psd"/>
                                 </connections>
@@ -424,9 +426,8 @@
                                     <action selector="uploadPhotoButton:" destination="rL0-ue-7LM" eventType="touchUpInside" id="0J5-gC-Rup"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Ym-yv-ebN">
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Ym-yv-ebN">
                                 <rect key="frame" x="177" y="233" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -438,6 +439,8 @@
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="trailing" secondItem="K0Z-e7-Toi" secondAttribute="trailingMargin" id="QG6-bm-aO9"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="top" secondItem="VDw-ca-9XO" secondAttribute="bottom" id="URO-XQ-qAJ"/>
                             <constraint firstItem="VFN-n1-hiT" firstAttribute="top" secondItem="WSF-dO-9mW" secondAttribute="bottom" constant="409" id="iOd-RD-uQD"/>
+                            <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerY" secondItem="WSF-dO-9mW" secondAttribute="centerY" id="jlJ-2M-tYd"/>
+                            <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerX" secondItem="WSF-dO-9mW" secondAttribute="centerX" id="nL1-Ix-DrP"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="leading" secondItem="K0Z-e7-Toi" secondAttribute="leadingMargin" id="tz5-5Z-inW"/>
                             <constraint firstItem="kkF-d0-GPg" firstAttribute="top" secondItem="c6m-qe-dAs" secondAttribute="bottom" constant="8" id="xaB-C7-Mqc"/>
                         </constraints>
@@ -1610,7 +1613,7 @@
         <scene sceneID="C6N-ft-tww">
             <objects>
                 <navigationController id="Um6-rk-SB9" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f13-Q0-oI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f13-Q0-oI0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1843,7 +1846,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IhS-TQ-QbY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EpW-6e-Ips">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EpW-6e-Ips">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2252,11 +2255,11 @@
         <image name="uploadImage" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="qAN-ff-JJq"/>
         <segue reference="Z01-Dd-AYk"/>
+        <segue reference="qAN-ff-JJq"/>
         <segue reference="H8B-bM-N1G"/>
-        <segue reference="8zf-ny-xxp"/>
         <segue reference="qZ6-eE-xlc"/>
-        <segue reference="0FB-qe-Snm"/>
+        <segue reference="8zf-ny-xxp"/>
+        <segue reference="pWE-fo-CYd"/>
     </inferredMetricsTieBreakers>
 </document>
