@@ -8,9 +8,14 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
+import FirebaseStorageUI
 
 class SideMenuTableViewController: UITableViewController {
 
+    @IBOutlet weak var userImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    
     private var themeDict:[String:UIColor] = Theme.getTheme()
     
     override func viewDidLoad() {
@@ -18,7 +23,16 @@ class SideMenuTableViewController: UITableViewController {
         self.tableView.backgroundColor = themeDict["viewColor"]
         //Disable tableView cell selection
         self.tableView.allowsSelection = false
-
+        let radius = userImageView.frame.width / 2
+        userImageView.layer.cornerRadius = radius
+        userImageView.layer.masksToBounds = true
+        DBHandler.getUserInfo(userEmail: DBHandler.getUserEmail()) { (user) -> () in
+            self.nameLabel.text = user["fullName"] as? String
+            let imageID:String = user["image"] as! String
+            let reference = FIRStorage.storage().reference().child(imageID)
+            self.userImageView.sd_setImage(with: reference, placeholderImage: UIImage(named: "genericUser"))
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

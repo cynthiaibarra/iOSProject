@@ -251,9 +251,9 @@
 			isa = PBXGroup;
 			children = (
 				DC0142921EB1A75200AFB758 /* Floaty */,
-				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DC04845A1E96C23B00EE7623 /* Extensions.swift */,
 				DC04845E1E96D9E800EE7623 /* DBHandler.swift */,
+				855B5E931E86200100E1B83D /* SideMenuTableViewController.swift */,
 				DCC92B361EA1380D001B5DAF /* NotificationManager.swift */,
 				DC243ABC1EA52DAB000E7806 /* DrinkQuotes.swift */,
 			);
