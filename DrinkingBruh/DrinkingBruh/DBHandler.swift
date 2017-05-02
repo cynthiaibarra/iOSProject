@@ -16,7 +16,7 @@ class DBHandler {
     
     private static let eventDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("events")
     private static let usersDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("users")
-    private static let locationDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("locations")
+    //private static let locationDBRef:FIRDatabaseReference = FIRDatabase.database().reference().child("locations")
     private static let invitees:String = "invitees"
     private static let attendees:String = "attendees"
     private static let invites:String = "invites"
@@ -355,13 +355,14 @@ class DBHandler {
         })
     }
     
-    static func addLocation(latitude: Double, longitude: Double) {
+    static func addLocation(latitude: Double, longitude: Double, eventID:String) {
         let email = FIRAuth.auth()?.currentUser?.email?.firebaseSanitize()
-        locationDBRef.child(email!).setValue(["latitude":latitude, "longitude":longitude])
+        //locationDBRef.child(email!).setValue(["latitude":latitude, "longitude":longitude])
+        eventDBRef.child(eventID).child("locations").child(email!).setValue(["latitude":latitude, "longitude":longitude])
     }
     
-    static func getAllUsersLocations(completion: @escaping ([String:[String:Double]]?) -> ()) {
-        locationDBRef.observeSingleEvent(of: .value,  with: { (snapshot) in
+    static func getEventUsersLocations(eventID:String, completion: @escaping ([String:[String:Double]]?) -> ()) {
+        eventDBRef.child(eventID).child("locations").observeSingleEvent(of: .value,  with: { (snapshot) in
             if snapshot.exists() {
                 completion(snapshot.value as? [String:[String:Double]])
             } else {
@@ -515,12 +516,16 @@ class DBHandler {
         eventDBRef.child(eventID).child("BACs").child(getUserEmail()).setValue(["BAC":bac])
     }
     
-    static func getBACs(eventID: String, completion: @escaping ([String:Any]) -> ()) {
+    static func getBACs(eventID: String, completion: @escaping ([String:Any]?) -> ()) {
         eventDBRef.child(eventID).child("BACs").queryOrdered(byChild: "BAC").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists() {
                 if let bacDict = snapshot.value as? [String:Any] {
                     completion(bacDict)
                 }
+                else{
+                    completion(nil)
+                }
+
             }
         })
     }

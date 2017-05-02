@@ -29,7 +29,6 @@ class HomeViewController: UIViewController, UNUserNotificationCenterDelegate {
         self.title = "Home"      
         setupQuote()
         setupDrinkOfTheDay()
-        LocationTracker.getInstance().requestLocation()
 
         //Set Navigation Bar Font and Style
         let navBarTitleFont = UIFont(name: "Avenir", size: 20)!

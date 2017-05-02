@@ -54,7 +54,7 @@ class LocateFriendsViewController: UIViewController {
                 }
                 
                 //get locations of all users
-                DBHandler.getAllUsersLocations() { (allUsersLocation) -> () in
+                DBHandler.getEventUsersLocations(eventID: self.currentEventID!) { (allUsersLocation) -> () in
                     
                     if(allUsersLocation != nil) {
                         self.allLocations = allUsersLocation
@@ -64,7 +64,7 @@ class LocateFriendsViewController: UIViewController {
                         self.options?.append("Show Everyone")
                         
                         self.setNamesAndLocations()
-
+                        
                     }
                     
                 }
@@ -110,20 +110,24 @@ class LocateFriendsViewController: UIViewController {
                     
                     DBHandler.getUserInfo(userEmail: friendEmail) { (user) -> () in
                         let fullName:String = user["fullName"] as! String
-                        self.options?.append(fullName)
                         
-                        let lat:Double = (self.allLocations?[friendEmail]?["latitude"])!
-                        let long:Double = (self.allLocations?[friendEmail]?["longitude"])!
-                        
-                        let annotation = MKPointAnnotation()
-                        annotation.coordinate.latitude = lat
-                        annotation.coordinate.longitude = long
-                        annotation.title = fullName
-                        
-                        self.locations?.append(annotation)
-                        //print(self.friendEmails ?? " ")
-                        //print(self.eventParticipantsNames ?? " ")
-                        
+                        if ((self.allLocations?[friendEmail]) != nil) {
+                            
+                            self.options?.append(fullName)
+                            
+                            let lat:Double = (self.allLocations?[friendEmail]?["latitude"])!
+                            let long:Double = (self.allLocations?[friendEmail]?["longitude"])!
+                            
+                            let annotation = MKPointAnnotation()
+                            annotation.coordinate.latitude = lat
+                            annotation.coordinate.longitude = long
+                            annotation.title = fullName
+                            
+                            self.locations?.append(annotation)
+                            //print(self.friendEmails ?? " ")
+                            //print(self.eventParticipantsNames ?? " ")
+                            
+                        }
                     }
                 }
                 

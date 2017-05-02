@@ -28,9 +28,13 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         roles = event["roles"] as! [String:String]
+        
         //Set Theme
         self.tableView.backgroundColor = themeDict["viewColor"]
-
+        
+        //Start Tracking Location
+        LocationTracker.getInstance().requestLocation(eventID: eventID)
+        
         tableView.dataSource = self
         tableView.delegate = self
         self.title = eventTitle

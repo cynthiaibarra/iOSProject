@@ -13,7 +13,8 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
     
     private static let locManager:CLLocationManager = CLLocationManager()
     private static let instance:LocationTracker = LocationTracker()
-    
+    private var currentEventID:String = ""
+
     override private init() {
         super.init()
         LocationTracker.locManager.delegate = self
@@ -34,7 +35,7 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
         let latitude:Double = location.latitude
         let longitude:Double = location.longitude
                 
-        DBHandler.addLocation(latitude: latitude, longitude: longitude)
+        DBHandler.addLocation(latitude: latitude, longitude: longitude, eventID: currentEventID)
         
     }
     
@@ -42,7 +43,10 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
         print("Unable to get Location: Location Tracker")
     }
     
-    func requestLocation() {
+    func requestLocation(eventID:String) {
+        
+        currentEventID = eventID
+
         if CLLocationManager.locationServicesEnabled() {
             
             if CLLocationManager.authorizationStatus() == .notDetermined {
