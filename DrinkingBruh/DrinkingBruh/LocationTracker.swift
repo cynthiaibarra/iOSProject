@@ -73,4 +73,8 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
         }
     }
     
+    func stopTracking() {
+        LocationTracker.locManager.stopUpdatingLocation()
+    }
+    
 }
