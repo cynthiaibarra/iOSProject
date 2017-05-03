@@ -11,6 +11,8 @@
 		451CB1C1E59052720E5A3C3A /* Pods_DrinkingBruhTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFDFF2A6E69D0596FF203E98 /* Pods_DrinkingBruhTests.framework */; };
 		8527749B1EB3CF320050567B /* DrinkLoggerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527749A1EB3CF320050567B /* DrinkLoggerTableViewController.swift */; };
 		8527749D1EB3CF5A0050567B /* BacTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8527749C1EB3CF5A0050567B /* BacTableViewController.swift */; };
+		852774A51EB96C200050567B /* Leaderboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 852774A31EB96C1F0050567B /* Leaderboard.storyboard */; };
+		852774A61EB96C200050567B /* LeaderBoardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 852774A41EB96C1F0050567B /* LeaderBoardTableViewController.swift */; };
 		85551DC51EA5CC5100CA3898 /* DrinkTracker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85551DC21EA5CC5100CA3898 /* DrinkTracker.storyboard */; };
 		855B5E8C1E8600FD00E1B83D /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 855B5E881E8600FD00E1B83D /* Config.swift */; };
 		855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 855B5E891E8600FD00E1B83D /* Settings.storyboard */; };
@@ -87,6 +89,8 @@
 		380EB5435B58586BD3D29EB3 /* Pods-DrinkingBruhTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrinkingBruhTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrinkingBruhTests/Pods-DrinkingBruhTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8527749A1EB3CF320050567B /* DrinkLoggerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinkLoggerTableViewController.swift; sourceTree = "<group>"; };
 		8527749C1EB3CF5A0050567B /* BacTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BacTableViewController.swift; sourceTree = "<group>"; };
+		852774A31EB96C1F0050567B /* Leaderboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Leaderboard.storyboard; sourceTree = "<group>"; };
+		852774A41EB96C1F0050567B /* LeaderBoardTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeaderBoardTableViewController.swift; sourceTree = "<group>"; };
 		85551DC21EA5CC5100CA3898 /* DrinkTracker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DrinkTracker.storyboard; sourceTree = "<group>"; };
 		855B5E881E8600FD00E1B83D /* Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		855B5E891E8600FD00E1B83D /* Settings.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -203,6 +207,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		852774A21EB96B440050567B /* Leaderboard */ = {
+			isa = PBXGroup;
+			children = (
+				852774A31EB96C1F0050567B /* Leaderboard.storyboard */,
+				852774A41EB96C1F0050567B /* LeaderBoardTableViewController.swift */,
+			);
+			name = Leaderboard;
+			sourceTree = "<group>";
+		};
 		85551DBF1EA5C99500CA3898 /* DrinkTracker */ = {
 			isa = PBXGroup;
 			children = (
@@ -312,6 +325,7 @@
 			children = (
 				85551DBF1EA5C99500CA3898 /* DrinkTracker */,
 				DCC48D561EA5CD780058083A /* PasswordResetViewController.swift */,
+				852774A21EB96B440050567B /* Leaderboard */,
 				DC243AC01EA55368000E7806 /* OccurringEvents */,
 				DC0484591E96C1F700EE7623 /* Support */,
 				DCA20E7D1E8DA47D00ACD277 /* Events */,
@@ -487,6 +501,7 @@
 			files = (
 				85551DC51EA5CC5100CA3898 /* DrinkTracker.storyboard in Resources */,
 				DCC48D4E1EA57FB30058083A /* Location.storyboard in Resources */,
+				852774A51EB96C200050567B /* Leaderboard.storyboard in Resources */,
 				DC5CFE381E55297B00205DF4 /* Assets.xcassets in Resources */,
 				DC61FF671E9C2173000E8299 /* GoogleService-Info.plist in Resources */,
 				855B5E8D1E8600FD00E1B83D /* Settings.storyboard in Resources */,
@@ -692,6 +707,7 @@
 				DC01429B1EB1A77C00AFB758 /* FloatyDelegate.swift in Sources */,
 				DC04845B1E96C23B00EE7623 /* Extensions.swift in Sources */,
 				DC9B04691E97470D00DD6FFF /* EventTableViewCell.swift in Sources */,
+				852774A61EB96C200050567B /* LeaderBoardTableViewController.swift in Sources */,
 				855B5E941E86200100E1B83D /* SideMenuTableViewController.swift in Sources */,
 				8527749B1EB3CF320050567B /* DrinkLoggerTableViewController.swift in Sources */,
 				DCC48D571EA5CD780058083A /* PasswordResetViewController.swift in Sources */,
