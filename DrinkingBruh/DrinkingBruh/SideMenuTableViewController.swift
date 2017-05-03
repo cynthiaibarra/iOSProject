@@ -53,7 +53,10 @@ class SideMenuTableViewController: UITableViewController {
         Config.setTheme("dark")
         
         //Stop Updating Location on Sign Out to prevent crash
-        LocationTracker.getInstance().stopTracking()
+        if(LocationTracker.getInstance().isTracking()) {
+            //print("Stop Location Tracker")
+            LocationTracker.getInstance().stopTracking()
+        }
         
         self.performSegue(withIdentifier: "segueToSignIn", sender: nil)
     }

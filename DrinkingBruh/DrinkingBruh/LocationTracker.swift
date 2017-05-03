@@ -13,8 +13,9 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
     
     private static let locManager:CLLocationManager = CLLocationManager()
     private static let instance:LocationTracker = LocationTracker()
-    private var currentEventID:String = ""
-
+    private var currentEventID:String = " "
+    private static var tracking:Bool = false;
+    
     override private init() {
         super.init()
         LocationTracker.locManager.delegate = self
@@ -34,8 +35,10 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
         
         let latitude:Double = location.latitude
         let longitude:Double = location.longitude
-                
-        DBHandler.addLocation(latitude: latitude, longitude: longitude, eventID: currentEventID)
+        
+        if(currentEventID != " ") {
+            DBHandler.addLocation(latitude: latitude, longitude: longitude, eventID: currentEventID)
+        }
         
     }
     
@@ -46,11 +49,18 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
     func requestLocation(eventID:String) {
         
         currentEventID = eventID
-
+        //print(currentEventID)
+        
         if CLLocationManager.locationServicesEnabled() {
             
-            if CLLocationManager.authorizationStatus() == .notDetermined {
+            let status = CLLocationManager.authorizationStatus()
+            
+            if status == .notDetermined {
                 LocationTracker.locManager.requestAlwaysAuthorization()
+            }
+            else if (status == .authorizedAlways || status == .authorizedWhenInUse) {
+                LocationTracker.locManager.startUpdatingLocation()
+                LocationTracker.tracking = true
             }
         }
         else {
@@ -61,20 +71,29 @@ class LocationTracker: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager,
                          didChangeAuthorization status: CLAuthorizationStatus) {
         
-        if status == .authorizedAlways || status == .authorizedWhenInUse {
+        if (status == .authorizedAlways || status == .authorizedWhenInUse) && currentEventID != " " {
             if status == .authorizedAlways {
                 print("Authorized for Always: Location Tracker")
             } else {
                 print("Authorized for When In use: Location Tracker")
             }
             manager.startUpdatingLocation()
+            LocationTracker.tracking = true
         } else {
             print("Not Authorized: Location Tracker")
         }
     }
     
     func stopTracking() {
+        LocationTracker.tracking = false
+        currentEventID = " "
+        print("Stopping Location Tracking")
         LocationTracker.locManager.stopUpdatingLocation()
+    }
+    
+    func isTracking() -> Bool {
+        
+        return LocationTracker.tracking
     }
     
 }
