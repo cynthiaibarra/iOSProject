@@ -144,9 +144,18 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
     }
     
     private func updateButtonUI(cell: AddFriendTableViewCell, friends: Bool, sentRequestTo: Bool, receivedRequestFrom: Bool) {
+        let theme = Config.theme()
         if friends {
             cell.button.setTitle("Friends", for: .normal)
             cell.button.isEnabled = false
+            
+            if(theme == "dark") {
+                cell.button.backgroundColor = UIColor(hex:0x62B1F6)
+            }
+            else {
+                cell.button.backgroundColor = UIColor(hex:0x205691)
+            }
+
         } else if sentRequestTo {
             cell.button.setTitle("Request Sent", for: .normal)
             cell.button.backgroundColor = UIColor.lightGray
@@ -154,6 +163,15 @@ class AddFriendTableViewController: UITableViewController, UISearchBarDelegate, 
         } else if receivedRequestFrom {
             cell.button.backgroundColor = UIColor(hex: 0x4ACE36)
             cell.button.setTitle("Accept Request", for: .normal)
+        }
+        else {
+            
+            if(theme == "dark") {
+                cell.button.backgroundColor = UIColor(hex:0x62B1F6)
+            }
+            else {
+                cell.button.backgroundColor = UIColor(hex:0x205691)
+            }
         }
         
     }

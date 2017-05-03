@@ -23,6 +23,9 @@ class GetHomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Get Home"
+        
         phoneButton1.addTarget(self, action: #selector(GetHomeViewController.callPhoneNumber(sender:)), for: .touchUpInside)
         phoneButton2.addTarget(self, action: #selector(GetHomeViewController.callPhoneNumber(sender:)), for: .touchUpInside)
         phoneButton3.addTarget(self, action: #selector(GetHomeViewController.callPhoneNumber(sender:)), for: .touchUpInside)

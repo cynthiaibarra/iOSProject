@@ -18,6 +18,8 @@ class LeaderBoardTableViewController: UITableViewController {
     var sortedBACs:[String]?
     var emailsForBAC:[String]?
     var namesForBAC:[String]?
+    var sortedAcendingBACs:[Double]?
+    var sortedDescendingBACs:[Double]?
     
     let gold = UIColor(hex: 0xFFD700)
     let silver = UIColor(hex: 0xC0C0C0)
@@ -62,6 +64,8 @@ class LeaderBoardTableViewController: UITableViewController {
         sortedBACs = [String]()
         emailsForBAC = [String]()
         namesForBAC = [String]()
+        sortedAcendingBACs = [Double]()
+        sortedDescendingBACs = [Double]()
         
         //set labels to blank
         initializeLabels()
@@ -73,8 +77,14 @@ class LeaderBoardTableViewController: UITableViewController {
                         let temp = bac.value as! [String : Any]
                         for item in temp {
                             self.emailsForBAC?.append(bac.key)
-                            self.sortedBACs?.append(String(item.value as! Double))
+                            //self.sortedBACs?.append(String(item.value as! Double))
+                            self.sortedAcendingBACs?.append(item.value as! Double)
                         }
+                    }
+                    
+                    self.sortedDescendingBACs = self.sortedAcendingBACs?.sorted(by: >)
+                    for item in self.sortedDescendingBACs! {
+                        self.sortedBACs?.append(String(item))
                     }
                     
                     //print(self.emailsForBAC ?? "emails")

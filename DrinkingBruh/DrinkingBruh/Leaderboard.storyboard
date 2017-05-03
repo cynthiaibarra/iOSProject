@@ -344,6 +344,41 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection id="odd-NK-BVi">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="201" id="OGa-GO-bKi">
+                                        <rect key="frame" x="0.0" y="455.5" width="375" height="201"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OGa-GO-bKi" id="wdK-38-Baa">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e3c-gm-bqg">
+                                                    <rect key="frame" x="8" y="8" width="359" height="185"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="359" id="ajG-tP-o3x"/>
+                                                        <constraint firstAttribute="height" constant="185" id="udn-71-avJ"/>
+                                                    </constraints>
+                                                    <string key="text">Government warning: (1) According to the Surgeon General, women should not drink alcoholic beverages during pregnancy because of the risk of birth defects. 
+
+(2) Consumption of alcoholic beverages impairs your ability to drive a car or operate machinery, and may cause health problems. Drink responsibly.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstItem="e3c-gm-bqg" firstAttribute="leading" secondItem="wdK-38-Baa" secondAttribute="leading" constant="8" id="6UB-ey-4YH"/>
+                                                <constraint firstAttribute="bottom" secondItem="e3c-gm-bqg" secondAttribute="bottom" constant="7.5" id="8Qb-ob-ZM8"/>
+                                                <constraint firstAttribute="trailing" secondItem="e3c-gm-bqg" secondAttribute="trailing" constant="8" id="NVD-vz-TEo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                         </sections>
                         <connections>
                             <outlet property="dataSource" destination="gqL-Qw-AdG" id="E47-PR-oin"/>

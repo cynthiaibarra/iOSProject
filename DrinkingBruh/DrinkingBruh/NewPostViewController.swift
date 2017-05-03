@@ -16,9 +16,27 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     var eventID:String = ""
     private let imagePicker:UIImagePickerController = UIImagePickerController()
+    private var themeDict:[String:UIColor] = Theme.getTheme()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "New Post"
+        
+        //Set Theme
+        self.view.backgroundColor = themeDict["viewColor"]
+        let theme = Config.theme()
+        
+        if(theme == "dark") {
+            self.postTextEditor.backgroundColor = UIColor(hex:0x62B1F6)
+        }
+        else {
+            self.postTextEditor.backgroundColor = UIColor(hex:0x205691)
+        }
+        
+        //Make textview corners round
+            self.postTextEditor.layer.cornerRadius = 15
+        
         //postTextEditor.delegate = self
         postTextEditor.becomeFirstResponder()
         indicatorView.hidesWhenStopped = true
