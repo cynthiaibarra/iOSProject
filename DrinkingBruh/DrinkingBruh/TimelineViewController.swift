@@ -63,8 +63,11 @@ class TimelineViewController: UIViewController, UITableViewDelegate, UITableView
             controller.currentEventID = self.eventID
             self.navigationController?.pushViewController(controller, animated: true)
         })
-        floaty.addItem("Leaderboards", icon: UIImage(named: "trophy")!, handler: { item in
-            
+        floaty.addItem("Leaderboard", icon: UIImage(named: "trophy")!, handler: { item in
+            let storyboard = UIStoryboard(name: "Leaderboard", bundle: nil)
+            let controller = storyboard.instantiateViewController(withIdentifier: "leaderBoard") as! LeaderBoardTableViewController
+            controller.currentEventID = self.eventID
+            self.navigationController?.pushViewController(controller, animated: true)
         })
         
         tableView.rowHeight = UITableViewAutomaticDimension
