@@ -47,7 +47,6 @@ class NewPostViewController: UIViewController, UIImagePickerControllerDelegate, 
             }
         }
     }
-
   
     @IBAction func uploadPhotoButton(_ sender: UIButton) {
         present(imagePicker, animated: true, completion: nil)

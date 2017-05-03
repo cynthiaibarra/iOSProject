@@ -389,15 +389,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSF-dO-9mW">
-                                <rect key="frame" x="172" y="236" width="31" height="22"/>
-                                <state key="normal" title="Post">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButton:" destination="rL0-ue-7LM" eventType="touchUpInside" id="8Yl-eP-psd"/>
-                                </connections>
-                            </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c6m-qe-dAs">
                                 <rect key="frame" x="16" y="20" width="343" height="200"/>
                                 <color key="backgroundColor" red="0.096250933942430686" green="0.26061211229268527" blue="0.44473746827411165" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -426,29 +417,34 @@
                                     <action selector="uploadPhotoButton:" destination="rL0-ue-7LM" eventType="touchUpInside" id="0J5-gC-Rup"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="6Ym-yv-ebN">
-                                <rect key="frame" x="177" y="237" width="20" height="20"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="X5C-0Y-bxN">
+                                <rect key="frame" x="177" y="235" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hxU-hM-3Jf">
+                                <rect key="frame" x="172" y="230" width="31" height="30"/>
+                                <state key="normal" title="Post"/>
+                                <connections>
+                                    <action selector="postButton:" destination="rL0-ue-7LM" eventType="touchUpInside" id="toL-rN-RmM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.12611552719999999" green="0.3388825654" blue="0.56971651320000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="X5C-0Y-bxN" firstAttribute="centerY" secondItem="hxU-hM-3Jf" secondAttribute="centerY" id="4Hn-1O-pGq"/>
                             <constraint firstItem="76c-Sc-kkJ" firstAttribute="leading" secondItem="K0Z-e7-Toi" secondAttribute="leadingMargin" id="8vG-OA-sXv"/>
-                            <constraint firstItem="WSF-dO-9mW" firstAttribute="top" secondItem="c6m-qe-dAs" secondAttribute="bottom" constant="16" id="E3n-eB-Upo"/>
+                            <constraint firstItem="hxU-hM-3Jf" firstAttribute="top" secondItem="VDw-ca-9XO" secondAttribute="bottom" constant="210" id="Dh4-7I-Vgt"/>
                             <constraint firstItem="76c-Sc-kkJ" firstAttribute="top" secondItem="c6m-qe-dAs" secondAttribute="bottom" constant="8" id="Fri-TJ-c6m"/>
-                            <constraint firstItem="WSF-dO-9mW" firstAttribute="centerX" secondItem="c6m-qe-dAs" secondAttribute="centerX" id="HHS-p9-uR1"/>
                             <constraint firstItem="kkF-d0-GPg" firstAttribute="leading" secondItem="K0Z-e7-Toi" secondAttribute="leadingMargin" id="Hbe-3y-NZc"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="trailing" secondItem="K0Z-e7-Toi" secondAttribute="trailingMargin" id="QG6-bm-aO9"/>
+                            <constraint firstItem="hxU-hM-3Jf" firstAttribute="centerX" secondItem="K0Z-e7-Toi" secondAttribute="centerX" id="SMn-Oo-zfz"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="top" secondItem="VDw-ca-9XO" secondAttribute="bottom" id="URO-XQ-qAJ"/>
-                            <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerX" secondItem="c6m-qe-dAs" secondAttribute="centerX" id="dCR-gB-VCJ"/>
-                            <constraint firstItem="VFN-n1-hiT" firstAttribute="top" secondItem="WSF-dO-9mW" secondAttribute="bottom" constant="409" id="iOd-RD-uQD"/>
-                            <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerY" secondItem="WSF-dO-9mW" secondAttribute="centerY" id="jlJ-2M-tYd"/>
-                            <constraint firstItem="6Ym-yv-ebN" firstAttribute="centerX" secondItem="WSF-dO-9mW" secondAttribute="centerX" id="nL1-Ix-DrP"/>
+                            <constraint firstItem="X5C-0Y-bxN" firstAttribute="centerX" secondItem="hxU-hM-3Jf" secondAttribute="centerX" id="t7J-GH-Imh"/>
                             <constraint firstItem="c6m-qe-dAs" firstAttribute="leading" secondItem="K0Z-e7-Toi" secondAttribute="leadingMargin" id="tz5-5Z-inW"/>
                             <constraint firstItem="kkF-d0-GPg" firstAttribute="top" secondItem="c6m-qe-dAs" secondAttribute="bottom" constant="8" id="xaB-C7-Mqc"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="indicatorView" destination="6Ym-yv-ebN" id="zS0-Ic-24Q"/>
+                        <outlet property="indicatorView" destination="X5C-0Y-bxN" id="BYd-XH-ZoQ"/>
                         <outlet property="postImageView" destination="kkF-d0-GPg" id="MLa-Sm-M10"/>
                         <outlet property="postTextEditor" destination="c6m-qe-dAs" id="Zjb-QR-oi5"/>
                         <segue destination="wdN-BZ-i4W" kind="show" identifier="segueToTimeline" id="pWE-fo-CYd"/>
@@ -1615,7 +1611,7 @@
         <scene sceneID="C6N-ft-tww">
             <objects>
                 <navigationController id="Um6-rk-SB9" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f13-Q0-oI0">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="f13-Q0-oI0">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -1656,6 +1652,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IBo-0O-dqV" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -1672,6 +1674,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2lE-bh-Paj" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -1686,6 +1694,12 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -1713,6 +1727,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qaR-dg-D1m" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -1729,6 +1749,12 @@
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GvI-cX-XoK" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
@@ -1743,6 +1769,12 @@
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
                                         <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
@@ -1848,7 +1880,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IhS-TQ-QbY" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EpW-6e-Ips">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="EpW-6e-Ips">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -2257,10 +2289,10 @@
         <image name="uploadImage" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Z01-Dd-AYk"/>
-        <segue reference="qAN-ff-JJq"/>
-        <segue reference="H8B-bM-N1G"/>
+        <segue reference="LXb-Nj-lK9"/>
         <segue reference="qZ6-eE-xlc"/>
+        <segue reference="H8B-bM-N1G"/>
+        <segue reference="qAN-ff-JJq"/>
         <segue reference="8zf-ny-xxp"/>
         <segue reference="pWE-fo-CYd"/>
     </inferredMetricsTieBreakers>
