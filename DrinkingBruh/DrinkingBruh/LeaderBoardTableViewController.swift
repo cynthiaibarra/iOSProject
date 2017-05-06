@@ -18,8 +18,6 @@ class LeaderBoardTableViewController: UITableViewController {
     var sortedBACs:[String]?
     var emailsForBAC:[String]?
     var namesForBAC:[String]?
-    var sortedAcendingBACs:[Double]?
-    var sortedDescendingBACs:[Double]?
     
     let gold = UIColor(hex: 0xFFD700)
     let silver = UIColor(hex: 0xC0C0C0)
@@ -64,8 +62,6 @@ class LeaderBoardTableViewController: UITableViewController {
         sortedBACs = [String]()
         emailsForBAC = [String]()
         namesForBAC = [String]()
-        sortedAcendingBACs = [Double]()
-        sortedDescendingBACs = [Double]()
         
         //set labels to blank
         initializeLabels()
@@ -73,18 +69,14 @@ class LeaderBoardTableViewController: UITableViewController {
         if(currentEventID != nil) {
             DBHandler.getBACs(eventID: self.currentEventID!) { (bacDict) -> () in
                 if(bacDict != nil) {
-                    for bac in bacDict! {
-                        let temp = bac.value as! [String : Any]
-                        for item in temp {
-                            self.emailsForBAC?.append(bac.key)
-                            //self.sortedBACs?.append(String(item.value as! Double))
-                            self.sortedAcendingBACs?.append(item.value as! Double)
-                        }
-                    }
+                    //print(bacDict ?? "bac")
                     
-                    self.sortedDescendingBACs = self.sortedAcendingBACs?.sorted(by: >)
-                    for item in self.sortedDescendingBACs! {
-                        self.sortedBACs?.append(String(item))
+                    let sortedDict = bacDict!.sorted(by: { $0.1 > $1.1 })
+                    //print(sortedDict)
+                    
+                    for (k,v) in sortedDict {
+                        self.emailsForBAC?.append(k)
+                        self.sortedBACs?.append(String(v))
                     }
                     
                     //print(self.emailsForBAC ?? "emails")
@@ -141,10 +133,6 @@ class LeaderBoardTableViewController: UITableViewController {
             }
         }
         
-        //Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(LeaderBoardTableViewController.setupLeaderboard), userInfo: nil, repeats: false)
-        
-        //Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(LeaderBoardTableViewController.addDesignatedDrivers), userInfo: nil, repeats: false)
-
     }
 
     override func didReceiveMemoryWarning() {

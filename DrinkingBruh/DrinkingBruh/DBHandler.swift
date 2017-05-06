@@ -513,13 +513,13 @@ class DBHandler {
     }
     
     static func addBAC(bac:Double, eventID: String) {
-        eventDBRef.child(eventID).child("BACs").child(getUserEmail()).setValue(["BAC":bac])
+        eventDBRef.child(eventID).child("BACs").child(getUserEmail()).setValue(bac)
     }
     
-    static func getBACs(eventID: String, completion: @escaping ([String:Any]?) -> ()) {
-        eventDBRef.child(eventID).child("BACs").queryOrdered(byChild: "BAC").observeSingleEvent(of: .value, with: { (snapshot) in
+    static func getBACs(eventID: String, completion: @escaping ([String:Double]?) -> ()) {
+        eventDBRef.child(eventID).child("BACs").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists() {
-                if let bacDict = snapshot.value as? [String:Any] {
+                if let bacDict = snapshot.value as? [String:Double] {
                     completion(bacDict)
                 }
                 else{

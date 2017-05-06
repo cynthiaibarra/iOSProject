@@ -17,7 +17,7 @@ class EventsTableViewController: UITableViewController {
     private var invitedEvents:[[String:Any]] = []
     private var attendingEvents:[[String:Any]] = []
     private var themeDict:[String:UIColor] = Theme.getTheme()
-    var roles:[String] = ["Designated Driver", "Birthday Boy/Girl", "Rando", "Casual Member", "Free Agent"]
+    let roles:[String] = ["Designated Driver", "Birthday Boy/Girl", "Rando", "Casual Member", "Free Agent"]
     let picker = UIPickerView()
     var selectedRow:Int = 0
     var alert = UIAlertController()
@@ -27,6 +27,9 @@ class EventsTableViewController: UITableViewController {
         
         //Set Theme
         self.view.backgroundColor = themeDict["viewColor"]
+        
+        //Setting UIPicker delegate
+        picker.delegate = self
         
         let addEventButton:UIButton = UIButton.init(type: UIButtonType.custom)
         addEventButton.setImage(UIImage(named: "plus.png"), for: .normal)
